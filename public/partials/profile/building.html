@@ -1,0 +1,69 @@
+<span class='pull-right' >
+    <a ng-if='buildingSectionIsEditing === false' ng-click='editSection("building")'   analytics-on="click" analytics-event="Edit building section" analytics-category="Actions"><i class='glyphicon glyphicon-edit'></i>&nbsp;Edit section</a>
+    <a ng-if='buildingSectionIsEditing === true' ng-click='updateSection()'>&nbsp;Save</a>
+    <a ng-if='buildingSectionIsEditing === true' ng-click="cancelEditingSection()">&nbsp;Cancel</a>
+</span>
+<br>
+<section ng-if="!buildingSectionIsEditing">
+    <div class='col-sm-4 col-md-2'>Type</div>
+    <div class='col-md-10'>{{profile.type}}</div>
+    <div class='col-md-10' ng-if="!profile.type"><i class="text-muted">Not specified.</i></div>
+    <div class='col-sm-4 col-md-2'>Built year</div>
+    <div class='col-md-10' ng-if="!profile.builtYear"><i class="text-muted">Not specified.</i></div>
+    <div class='col-md-10' ng-if="profile.builtYear">{{profile.builtYear}}</div>
+    <div class='col-sm-4  col-md-2'>Storages</div>
+    <div class='col-md-10' ng-if="!profile.storages"><i class="text-muted">Not specified.</i></div>
+    <div class='col-md-10' ng-if="profile.storages">{{profile.storages}}</div>
+    <div class='col-sm-4 col-md-2'>Square meters</div>
+    <div class='col-md-10' ng-if="!profile.meters"><i class="text-muted">Not specified.</i></div>
+    <div class='col-md-10' ng-if="profile.meters">{{profile.meters}}</div>
+    <div class='col-sm-4 col-md-2'>Rooms</div>
+    <div class='col-md-10' ng-if="!profile.rooms"><i class="text-muted">Not specified.</i></div>
+    <div class='col-md-10' ng-if="profile.rooms">{{profile.rooms}}</div>
+    <div class='col-sm-4 col-md-2'>Facilities</div>
+    <div class='col-md-10'>
+        <div ng-if="profile.facilities.length" ng-repeat="f in profile.facilities"><span><i class="fa fa-check-square-o" aria-hidden="true"></i> {{f.label}}</span></div>
+        <i ng-if="!profile.facilities.length" class="text-muted">Not specified.</i>
+    </div>
+</section>
+<section ng-if="buildingSectionIsEditing">
+    <div class="">
+        <div class='col-sm-4 col-md-2'>Type</div>
+        <div class="col-sm-8 col-md-10">
+            <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" ng-model="mutableProfile.type" id="inlineRadio1" value="Family house"> Family house
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" ng-model="mutableProfile.type" id="inlineRadio2" value="Appartment"> Appartment
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" ng-model="mutableProfile.type" id="inlineRadio3" value="Cabin"> Cabin
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="inlineRadioOptions" ng-model="mutableProfile.type" id="inlineRadio4" value="Other"> Other
+            </label>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class='col-md-2'>Built year</div>
+        <div class="col-md-10"><input type="number" class="col-md-2 input-sm" ng-model="mutableProfile.builtYear" placeholder="Built year"></div>
+    </div>
+    <div class="clearfix">
+        <div class='col-md-2'>Storages</div>
+        <div class="col-md-10"><input type="number" class="col-md-2 input-sm" ng-model="mutableProfile.storages" placeholder="Storages"></div>
+    </div>
+    <div class="clearfix">
+        <div class='col-md-2'>Square meters</div>
+        <div class="col-md-10"><input type="number" class="col-md-2 input-sm" ng-model="mutableProfile.meters" placeholder="Square meters"></div>
+    </div>
+    <div class="clearfix">
+        <div class='col-md-2'>Rooms</div>
+        <div class="col-md-10"><input type="number" class="col-md-2 input-sm" ng-model="mutableProfile.rooms" placeholder="Rooms"></div>
+    </div>
+    <div class='col-md-2'>Facilities</div>
+    <div class='col-md-10'>
+        <label ng-if="mutableProfile.facilities.length" class="checkbox-inline" ng-repeat="f in mutableProfile.facilities"> 
+            <input type="checkbox" ng-model="f.selected" /> {{f.label}}
+        </label>
+    </div>
+</section>

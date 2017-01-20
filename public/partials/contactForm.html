@@ -1,0 +1,35 @@
+<div id="modal-feedback" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Contact Form</h4>
+            </div>
+            <div class="modal-body">
+                <form name="contactForm" ng-hide="formSent" class="form-landing" ng-submit="sentMail(email, message, 'contact-form')">
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="email" id="email" placeholder="Email" autofocus="" autocorrect="off" autocapitalize="none"/>
+                    </div>
+                    <div class="form-group clearfix">
+                        <textarea id="message" rows="5" class="col-xs-12" ng-model="message" placeholder="Your message" reqired></textarea>
+                    </div>
+
+                    <button type="submit" ng-disabled="contactForm.$invalid" class="btn btn-success btn-lg btn-block" analytics-on="click" analytics-event="Contact form send" analytics-category="Actions">Contact us!</button>
+                </form>
+
+                <div ng-show="formSent" id="confirmation-message" class="confirmation-message">
+                    <h2>
+                        Thank you! 
+                    </h2>
+                    <p class="lead">We appreciate that you’ve taken the time to write to us. Your feedback is valuable to us!
+                        <span class="pull-right">Housebook Team</span>
+                    </p>
+
+                </div>
+            </div>
+            <div  ng-show="formSent" class="modal-footer">
+                <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="houses-grid">
+            <div ng-repeat="house in houses" class="" ng-click="openProfile(house.ref._id)">
+                <div class="house-space-on-grid" >
+                    <div class="lead text-uppercase text-center">{{house.name}}
+                    </div>
+                    <img ng-if="!house.thumbnail" src="../images/house-default.jpg" alt="Default house picture" class="center-block">
+                    <img ng-show="house.thumbnail" id="userImg" ng-src="{{house.thumbnail}}" class="center-block">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="margin: 10px;"><button type="button" class="btn btn-lg btn-danger"  ng-click="goToCreateProfilePage()"><i class="glyphicon glyphicon-plus"></i> Add new house profile</button></div>
+</div>

@@ -1,0 +1,5 @@
+<p class='heading' id="inhabitants">Inhabitants <i class="glyphicon glyphicon-edit " title="Edit inhabitants"></i></p>
+<div class='col-md-12' ng-if="!profile.inhabitants.length">None listed.</div>
+<div class='col-md-12' ng-if="profile.inhabitants.length">
+    <div ng-repeat="inhabitant in profile.inhabitants">{{inhabitant}}</div>
+</div>

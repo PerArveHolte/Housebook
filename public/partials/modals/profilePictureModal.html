@@ -1,0 +1,24 @@
+<div id="basicPropertiesModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header heading">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">House profile</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form">
+                    <div class="form-group">
+                        <label  for="file">Choose house profile picture</label>
+                        <input type="file" id="file" class="form-control" ng-model="defaultHouseSpace.img" onchange="angular.element(this).scope().readURL(this)" accept="image/*">
+                    </div>
+                    <canvas id="canvas" width="200" height="200" class="center-block"></canvas>  
+                    <input type="hidden" name="userId" ng-model="user._id">
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" ng-click="savePicture()"  analytics-on="click" analytics-event="Profile picture change" analytics-category="Actions">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

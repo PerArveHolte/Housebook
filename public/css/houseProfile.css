@@ -1,0 +1,66 @@
+/* 
+    Created on : 2016-12-13, 23:19:18
+    Author     : Kamila Przychodzen <kamila.przychodzen@gmail.com>
+*/
+/* 
+    Created on : 2016-12-15, 10:34:17
+    Author     : Kamila Przychodzen <kamila.przychodzen@gmail.com>
+*/
+.house-profile h2 {
+  font: 400 3.5em/1.1em "Scada", sans-serif;
+  color: #e0474c;
+}
+.house-profile .left-side .nav {
+  background-color: white;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.house-profile .left-side .nav a {
+  color: #b11a21;
+  font: 400 1.1em/0.8em 'Open Sans', sans-serif;
+}
+.house-profile .left-side .nav .active {
+  text-decoration: none;
+  background-color: #eee;
+}
+.house-profile .house-profile-preferences p {
+  color: grey;
+}
+.house-profile .house-profile-preferences .tab-content {
+  background-color: white;
+  padding: 10px;
+}
+.house-profile .house-profile-preferences .google-maps {
+  position: relative;
+  padding-bottom: 35%;
+  height: 0;
+  overflow: hidden;
+  margin-top: 20px;
+}
+.house-profile .house-profile-preferences .google-maps iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+.house-profile .house-profile-picture {
+  /*background-color: white;*/
+  margin-bottom: 15px;
+}
+.house-profile .house-profile-picture .edit-profile-picture {
+  position: absolute;
+  top: 10;
+  right: 20;
+}
+.house-profile .house-profile-picture .edit-profile-picture a {
+  padding: 10px 10px 0 0;
+  color: #7acfd6;
+  text-decoration: none;
+}
+.house-profile .house-profile-picture #house-profile-canvas {
+  width: 100%;
+  max-height: 300px;
+  max-width: 300px;
+}
+/*# sourceMappingURL=houseProfile.css.map */

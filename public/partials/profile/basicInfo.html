@@ -1,0 +1,94 @@
+<section>
+    <span class='pull-right' >
+        <a ng-if='basicInfoIsEditing === false' ng-click='editSection("basicInfo")'   analytics-on="click" analytics-event="Edit basic info" analytics-category="Actions"><i class='glyphicon glyphicon-edit'></i>&nbsp;Edit section</a>
+        <a ng-if='basicInfoIsEditing === true' ng-click='updateSection()'>&nbsp;Save</a>
+        <a ng-if='basicInfoIsEditing === true' ng-click="cancelEditingSection()">&nbsp;Cancel</a>
+    </span><br>
+    <div class='col-md-2'>Inhabitants</div>
+    <div class='col-md-10' ng-if="!profile.inhabitants.length"> <button class='btn btn-primary btn-sm' data-target="#addInhabitantModal" data-toggle="modal">Add inhabitant</button></div><br>
+    <div class='col-md-10' ng-if="profile.inhabitants.length">
+        <div ng-repeat="inhabitant in profile.inhabitants">{{inhabitant}}</div>
+    </div>
+
+    <div ng-if="!basicInfoIsEditing">
+        <div class='col-md-2'>Ownership</div>
+        <div class='col-md-10' ng-if="!profile.ownership"><i class="text-muted">Not specified.</i></div>
+        <div class='col-md-10' ng-if="profile.ownership">{{profile.ownership}}</div><br>
+
+        <div class='col-md-2'>Moved in</div>
+        <div class='col-md-10' ng-if="!profile.movedInYear && !basicInfoIsEditing"><i class="text-muted">Not specified.</i></div>
+        <div class='col-md-10' ng-if="profile.movedInYear && !basicInfoIsEditing">{{profile.movedInYear}}</div>
+        <div class='col-md-2'>Address</div>
+        <div class='address col-md-10' >
+            <address ng-if='!basicInfoIsEditing'>
+                <strong>{{profile.address.street1}} {{profile.address.street2}}</strong>,
+                {{profile.address.postalCode}} {{profile.address.state}} {{profile.address.city}} {{profile.address.country}}<br>
+            </address>
+            <div class='clearfix google-maps col-md-6'>
+                <p class="heading">Map</p>
+                <iframe
+                    width="400"
+                    height="250"
+                    frameborder="0" style="border:0"
+                    ng-src="{{currentProjectUrl}}" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
+    <div ng-if="basicInfoIsEditing">
+        
+        <div class="">
+            <div class='col-md-2'>Ownership</div>
+            <div class="col-md-10">
+                <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" ng-model="mutableProfile.ownership" id="inlineRadio1" value="Owner"> Owner
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" ng-model="mutableProfile.ownership" id="inlineRadio2" value="Co-Owner"> Co-Owner
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" ng-model="mutableProfile.ownership" id="inlineRadio3" value="Rental"> Rental
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="inlineRadioOptions" ng-model="mutableProfile.ownership" id="inlineRadio4" value="Other"> Other
+                </label>
+            </div>
+        </div>
+        <div class="clearfix">
+            <div class='col-md-2'>Moved in year</div>
+            <div class="col-md-10"><input type="number" class="col-md-2 input-sm" ng-model="mutableProfile.movedInYear" placeholder="Moved in year"></div>
+        </div>
+        <section>
+            <label>Address</label>
+            <div class="">
+                <div class='col-md-2'>Line1</div>
+                <div class="col-md-10"><input  type="text" class="col-md-4 input-sm" ng-model="mutableProfile.address.street1"></div>
+            </div>
+            <br>
+            <div class="">
+                <div class='col-md-2'>Line2</div>
+                <div class="col-md-10"><input  type="text" class="col-md-4 input-sm" ng-model="mutableProfile.address.street2"></div>
+            </div>
+            <br>
+            <div class="">
+                <div class='col-md-2'>City</div>
+                <div class="col-md-10"><input type="text" class="col-md-4 input-sm" ng-model="mutableProfile.address.city"></div>
+            </div>
+            <br>
+            <div class="">
+                <div class='col-md-2'>Post code</div>
+                <div class="col-md-10"><input type="text" class="col-md-1 input-sm" ng-model="mutableProfile.address.postalCode"></div>
+            </div>
+            <br>
+            <div class="">
+                <div class='col-md-2'>State</div>
+                <div class="col-md-10"><input type="text" class="col-md-4 input-sm" ng-model="mutableProfile.address.state"></div>
+            </div>
+            <br>
+            <div class="">
+                <div class='col-md-2'>Country</div>
+                <div class="col-md-10"><input type="text" class="col-md-4 input-sm" ng-model="mutableProfile.address.country"></div>
+            </div>
+        </section>
+    </div>
+</section>

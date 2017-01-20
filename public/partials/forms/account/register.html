@@ -1,0 +1,41 @@
+<div class="col-xs-12">
+    <form name="createAccountForm" ng-init="user = {}" class="form-login" ng-submit="signUp(user)">
+        <h3 class="form-signin-heading text-center">Create account</h3>
+        <p class='text-danger' ng-if='validationError'>{{validationError.msg}}</p>
+        <div class="form-group">
+            <label for="username" class="sr-only">Username</label>
+            <input type="text" name="username" class="form-control" ng-model="user.username" id="username" placeholder="Username" required="" autocorrect="off" autocapitalize="none">
+            <span ng-if="createAccountForm.username.$invalid && createAccountForm.username.$touched" class="text-danger small">Username is required.</span>
+        </div>
+        <div class="form-group">
+            <label for="firstName" class="sr-only">First name</label>
+            <input type="text" class="form-control" ng-model="user.firstName" id="firstName" placeholder="First name">
+        </div>
+        <div class="form-group" >
+            <label for="lastName" class="sr-only">Last name</label>
+            <input type="text" class="form-control" ng-model="user.lastName" id="lastName" placeholder="Last name">
+        </div>
+        <div class="form-group">
+            <label for="email" class="sr-only">Email address</label>
+            <input type="email" name="email" class="form-control" id="email" ng-model="user.email" placeholder="Email">
+            <span ng-if="createAccountForm.email.$invalid && createAccountForm.email.$touched" class="text-danger small">Correct email is required.</span>
+        </div>
+        <div class="form-group">
+            <label for="loginPassword" class="sr-only">Password</label>
+            <input type="password" name="password" class="form-control" id="loginPassword" placeholder="Password" ng-model="user.password" required="">
+            <span ng-if="createAccountForm.password.$invalid && createAccountForm.password.$touched" class="text-danger small">Password is required.</span>
+        </div>
+        <div class="form-group">
+            <label for="repeatPassword" class="sr-only">Repeat password</label>
+            <input type="password" name="repeatPassword" class="form-control" id="repeatPassword" placeholder="Repeat password" ng-model="user.repeatPassword" required="">
+            <span ng-if="createAccountForm.repeatPassword.$invalid && createAccountForm.repeatPassword.$touched" class="text-danger small">Repeat password.</span>
+            <span ng-if="user.password !== user.repeatPassword && createAccountForm.repeatPassword.$touched" class="text-danger small">Password desn't match.</span>
+        </div>
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" value="terms"> Accept terms and conditions
+            </label>
+        </div>
+        <button class="btn btn-lg btn-block" ng-disabled="createAccountForm.$invalid || user.password !== user.repeatPassword" type="submit" analytics-on="click" analytics-event="Register account" analytics-category="Actions">Signup</button>
+    </form>
+</div>

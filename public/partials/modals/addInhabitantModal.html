@@ -1,0 +1,35 @@
+<div id="addInhabitantModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header heading">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Add new inhabitant</h4>
+            </div>
+            <div class="modal-body">
+                <form  ng-submit="addInhabitant(inhabitant.firstName, inhabitant.lastName, inhabitant.email, inhabitant.sentEmailInvitation)" ng-init='inhabitant = {}'>
+                    <div class='form-group'>
+                        <label for="firstName" class="sr-only">First name</label>
+                        <input type="text" id="firstName" class="form-control" placeholder="First name" ng-model="inhabitant.firstName" autofocus="true" autocorrect="off" >
+                    </div>
+                    <div class='form-group'>
+                        <label for="lastName" class="sr-only">Last name</label>
+                        <input type="text" id="lastName" class="form-control" placeholder="Last name" ng-model="inhabitant.lastName" autocorrect="off" >
+                    </div>
+                    <div class='form-group'>
+                        <label for="email" class="sr-only">First name</label>
+                        <input type="email" id="email" class="form-control" placeholder="Email" ng-model="inhabitant.email" autocapitalize='none' >
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" value="send-invitation" ng-model="inhabitant.sendEmailInvitation">Send email invitation
+                        </label>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-default" type="button" data-dismiss="modal">Cancel</button>
+                        <button class="btn btn-primary" type="submit" analytics-on="click" analytics-event="Add inhabitant" analytics-category="Actions">Create</button>
+                    </div>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>

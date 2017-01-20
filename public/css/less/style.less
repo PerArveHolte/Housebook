@@ -1,0 +1,198 @@
+@import "colors.less";
+
+body {
+    padding: 5px;
+    font: "Open Sans", sans-serif;
+    font-size: 12pt;
+    padding-bottom: 70px; 
+    background-color: @light-grey;
+    color:black;
+}
+a, .clicable{
+    cursor: pointer;
+}
+a:hover{
+    text-decoration: none;
+}
+a.red {
+    color: @deep-red;
+}
+footer{
+    background-color: @light-grey;
+    border:none;
+}
+.dropdown-menu{
+    font-size: 12pt;
+}
+nav{
+    font: 300 1.5em/1.1em "Open Sans", sans-serif;
+    text-align: center;
+
+    .navbar-brand{
+        color:@deep-red !important;
+        font-weight: bolder;
+        font-size: 28px;
+    }
+    .navbar-text{
+        color:@deep-red !important;
+    }
+    .navbar-form{
+        border:none;
+        button{
+            background-color: @lighter-red;
+        }
+    }
+}
+#logo{
+    background-image: url(../..//images/logo-1-line.png);
+    height:100px;
+    background-size: auto 90%;
+    background-position: 43% 100%;
+    background-repeat: no-repeat;
+}
+
+.form-login{
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.65);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.65);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.65);
+    padding: 10px 20px 10px 20px;
+    margin:10px 0 10px 0;
+    background-color:white;
+
+    input{
+        border-color: @brand-bg-lighter;
+    }
+    h2{
+        color: @brand-font-rgb;
+        text-transform: uppercase;
+    }
+    button{
+        background-color: @lighter-red;
+        color:white;
+    }
+}
+.main-container{
+    padding:0px;
+    background-image: url('/images/home-vector.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    background-position: 20% 50%;
+}
+
+
+.marketing{
+    text-align: center;
+
+    .heading{
+        color: @lighter-red;
+        text-shadow: 0px 1px 0px rgba(255,255,255,.5), 0px -1px 0px rgba(0,0,0,.5);
+
+    }
+
+    .marketing-tag{
+        color:@lighter-red;
+        text-shadow: 0px 1px 0px @light-grey, 0px -1px 0px @orange-dark;
+        line-height: 30px;
+
+        font-size: 26px;
+        font-weight: bolder;
+    }
+    .marketing-description{
+        padding:10px;
+        text-align: justify;
+        color:@brand-font-rgb;
+    }
+}
+
+
+.houses-grid{
+    display:block;
+
+    .house-space-on-grid{
+        width:280px;
+        height:250px;
+        -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.65);
+        -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.65);
+        box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.65);
+        background-color:white;
+        cursor:pointer;
+        display:inline-block;
+        float:left;
+        margin:10px;
+
+
+        div.lead, a{
+            padding: 10px 10px 0px 10px; 
+            color:@deep-red;
+            font-family: "Scada";
+        }
+
+
+        .pull-right>.dropdown-menu{
+            right:-180px;
+        }
+    }
+}
+
+.modal{
+    .modal-header{
+        background-color: @lighter-red;
+        color:white;
+        text-align: center;
+    }
+    .modal-footer{
+        background-color:white;
+    }
+}
+
+.btn-feedback{
+    /*background-color: @curry;*/
+    float: right;
+    margin-top: 7px;
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+#loading-bar .bar {
+    position: relative;
+    width:100%;
+}
+
+.form-panel{
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.65);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.65);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.65);
+    padding: 10px 20px 10px 20px;
+    background-color: white;
+}
+
+.bg-panel{
+    padding:15px;
+    text-align: center;
+}
+
+.img-description {
+    position: absolute;
+    top: 0;
+    left: 11;
+    bottom:290;
+    right:11;    
+    color: #fff;
+
+    text-align: center;
+    vertical-align: center;
+    visibility: hidden;
+    
+    cursor: pointer;
+
+    /*remove comment if you want a gradual transition between states
+    -webkit-transition: visibility opacity 0.2s;
+    */
+}
+
+
+.img-wrap:hover .img-description {
+    visibility: visible;
+    opacity: 1;
+}
