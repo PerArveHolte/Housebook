@@ -1,4 +1,4 @@
-housebook.factory('AuthHttpInterceptor', function ($window, $q) {
+vidom.factory('AuthHttpInterceptor', function ($window, $q) {
     return {
         request: function(config) {
             config.headers = config.headers || {};
