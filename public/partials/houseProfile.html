@@ -8,9 +8,9 @@
         </div>
         <ul class="nav nav-tabs nav-stacked">
             <li><a ng-href="#/house/{{profileId}}" ng-class="{'active':!partial}">House profile</a></li>
-            <li><a ng-href="#/house/{{profileId}}/pictures" ng-class="{'active':partial === 'pictures'}">Pictures</a></li>
 <!-- 2017-01-19: Guri commented this out for now. Will be added later.
-<li><a ng-href="#/house/{{profileId}}/documents" ng-class="{'active':partial === 'documents'}">Documents</a></li>
+            <li><a ng-href="#/house/{{profileId}}/pictures" ng-class="{'active':partial === 'pictures'}">Pictures</a></li>
+            <li><a ng-href="#/house/{{profileId}}/documents" ng-class="{'active':partial === 'documents'}">Documents</a></li>
             <li><a ng-href="#/house/{{profileId}}/lists" ng-class="{'active':partial === 'lists'}">Lists</a></li>
             <li><a ng-href="#/house/{{profileId}}/calendar" ng-class="{'active':partial === 'calendar'}">Calendar</a></li>
             <li><a ng-href="#/house/{{profileId}}/expanses" ng-class="{'active':partial === 'expanses'}">Expanses</a></li>
@@ -25,7 +25,9 @@
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a data-target="#basicInfo" aria-controls="basicInfo" role="tab" data-toggle="tab">Basic info</a></li>
                 <li role="presentation"><a data-target="#building" aria-controls="building" role="tab" data-toggle="tab">Building</a></li>
+<!--
                 <li role="presentation"><a data-target="#add" aria-controls="add" role="tab" data-toggle="tab">Add&hellip;</a></li>
+-->
             </ul>
             <div class="tab-content clearfix">
                 <div role="tabpanel" class="tab-pane active" id="basicInfo"><div ng-include="'partials/profile/basicInfo.html'"></div></div>
