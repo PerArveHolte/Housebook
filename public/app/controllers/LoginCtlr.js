@@ -1,4 +1,4 @@
-housebook.controller('LoginCtlr', function ($scope, $rootScope, $location, $window, AuthSvc, $routeParams) {
+vidom.controller('LoginCtlr', function ($scope, $rootScope, $location, $window, AuthSvc, $routeParams) {
 
     $scope.isResetPassword = $routeParams.token != undefined;
     $scope.resetPasswordTokenIsValid = true;
