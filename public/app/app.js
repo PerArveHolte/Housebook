@@ -1,6 +1,6 @@
-var housebook = angular.module('housebook', ['ngRoute', 'angular-loading-bar', 'ui.bootstrap', 'angulartics.google.analytics']);
+var vidom = angular.module('vidom', ['ngRoute', 'angular-loading-bar', 'ui.bootstrap', 'angulartics.google.analytics']);
 
-housebook.config(function ($routeProvider, $locationProvider, cfpLoadingBarProvider, $httpProvider) {
+vidom.config(function ($routeProvider, $locationProvider, cfpLoadingBarProvider, $httpProvider) {
 
     $httpProvider.interceptors.push('AuthHttpInterceptor');
 
@@ -45,7 +45,7 @@ housebook.config(function ($routeProvider, $locationProvider, cfpLoadingBarProvi
             .otherwise({redirectTo: '/welcome'});
 });
 
-housebook.run(function ($location) {
+vidom.run(function ($location) {
     checkPersistanceStorage($location);    
 });
 

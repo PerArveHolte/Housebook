@@ -1,4 +1,4 @@
-housebook.factory('AuthSvc', function ($q, $http, $location, $window) {
+vidom.factory('AuthSvc', function ($q, $http, $location, $window) {
     var obj = {};
     obj._sessionIsValid = false;
     obj.sessionIsValid = function () {

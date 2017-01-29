@@ -31,7 +31,7 @@ router.post('/', function (req, res, next) {
         if (user){
             var validation = {};
             validation.field="username";
-            validation.msg='Username already exists';
+            validation.msg='The username already exists';
             return res.status(400).send(validation);
         }
             
@@ -40,7 +40,7 @@ router.post('/', function (req, res, next) {
         if (user){
             var validation = {};
             validation.field="email";
-            validation.msg='User account with this email already exists';
+            validation.msg='A user account with this email already exists';
             return res.status(400).send(validation);
         }
     });

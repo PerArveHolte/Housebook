@@ -5,7 +5,7 @@
  */
 
 var app = require('../app');
-var debug = require('debug')('housebook:server');
+var debug = require('debug')('vidom:server');
 var http = require('http');
 
 var ampq_url = process.env.CLOUDAMQP_URL; //|| "amqp://localhost";
@@ -20,7 +20,7 @@ var queue = require('../controllers/rabbitMQ');
  */
 
 var port = normalizePort(process.env.PORT || '3000');
-console.log("Housebook port: " + port);
+console.log("Vidom port: " + port);
 app.set('port', port);
 
 /**

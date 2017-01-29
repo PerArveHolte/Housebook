@@ -1,4 +1,4 @@
-housebook.service('HouseProfileSvc', function ($q, $http) {
+vidom.service('HouseProfileSvc', function ($q, $http) {
     var obj = {};
     obj._mapLink = "https://www.google.com/maps/embed/v1/place?key=AIzaSyBK5uabiBpR15vbeg-DYFZq9GuQsQNImWY&q=";
 

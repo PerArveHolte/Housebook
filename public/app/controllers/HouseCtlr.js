@@ -1,4 +1,4 @@
-housebook.controller('HouseCtlr', function ($scope, $rootScope, $location, HouseProfileSvc) {
+vidom.controller('HouseCtlr', function ($scope, $rootScope, $location, HouseProfileSvc) {
     $scope.houses = $rootScope.user ? $rootScope.user.createdHouseProfile : [];
     angular.forEach($scope.houses, function(houseProfile){
         if (houseProfile.ref && houseProfile.ref.profilePicture){
