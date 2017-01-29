@@ -66,7 +66,7 @@ housebook.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $ro
             pic = $scope.profile.profilePicture.path;
         }
 //        img.src = $scope.profile.profilePicture ? 'https://s3.amazonaws.com/housebook-uploads-staging/' + $scope.profileId + '/400x300/' + pic : '/img/default.png';
-        img.src = $scope.profile.profilePicture ? 'https://s3.amazonaws.com/'+S3_BUCKET_NAME+'/' + $scope.profileId + '/400x300/' + pic : '/img/default.png';
+        img.src = $scope.profile.profilePicture ? 'https://s3.amazonaws.com/vidomtestbucket/' + $scope.profileId + '/400x300/' + pic : '/img/default.png';
     }
 
     //load on start
