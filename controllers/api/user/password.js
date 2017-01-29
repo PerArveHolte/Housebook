@@ -28,7 +28,7 @@ router.get('/reset/:email', function (req, res, next) {
                     return next(err);
 
                 else {
-                    var htmlContent = "Hi,<br><p>You have requested your password to be reset. Just click the link below, and you will be redirected to <strong>Housebook</strong>, and may then change your password.</p>"
+                    var htmlContent = "Hi,<br><p>You have requested your password to be reset. Just click the link below, and you will be redirected to <strong>Vidom</strong>, and may then change your password.</p>"
                             .concat("<br>Please go to <a href='//")
                             .concat(process.env.ENV_HOST)
                             .concat("/#/user/change-password/")
@@ -41,7 +41,7 @@ router.get('/reset/:email', function (req, res, next) {
                     var mailOptions = {
                         to: req.params.email,
                         from: config.mail_settings.contact_mail,
-                        subject: "Housebook - reset password",
+                        subject: "Vidom - reset password",
                         html: htmlContent,
                         replyTo: req.body.replyTo
                     };
