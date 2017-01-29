@@ -1,4 +1,4 @@
-housebook.factory('ImageFctr', function ($q) {
+vidom.factory('ImageFctr', function ($q) {
     var obj = {};
 
     obj.prepareImageDataURIFromCanvas = function (width, height, imgSrc, canvasId) {
