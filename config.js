@@ -3,8 +3,10 @@ module.exports = {
     google_api: "AIzaSyBK5uabiBpR15vbeg-DYFZq9GuQsQNImWY",
     mail_settings: {
         contact_mail: "contact@housebook.info",
-        username: "housebook.proxy",
-        password: "Wvs-WHt-D6p-DwM",//"c2W)yChH",
+//        username: "housebook.proxy",
+        username: "vidom.proxy",
+//        password: "Wvs-WHt-D6p-DwM",//"c2W)yChH",
+        password: "7P4weUNNbEB5",//"c2W)yChH",
         smpt_server: 'smtp.gmail.com',//"smtp.domeneshop.no",
         port:465//587
     }
