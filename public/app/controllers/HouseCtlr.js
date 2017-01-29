@@ -2,7 +2,8 @@ housebook.controller('HouseCtlr', function ($scope, $rootScope, $location, House
     $scope.houses = $rootScope.user ? $rootScope.user.createdHouseProfile : [];
     angular.forEach($scope.houses, function(houseProfile){
         if (houseProfile.ref && houseProfile.ref.profilePicture){
-            houseProfile.thumbnail = "https://s3.amazonaws.com/housebook-uploads-staging/"+houseProfile.ref.profilePicture.path;
+//            houseProfile.thumbnail = "https://s3.amazonaws.com/housebook-uploads-staging/"+houseProfile.ref.profilePicture.path;
+            houseProfile.thumbnail = "https://s3.amazonaws.com/"+S3_BUCKET_NAME+"/"+houseProfile.ref.profilePicture.path;
         }else {
             houseProfile.thumbnail = "/img/defaultSmall.png";
         }
