@@ -121,6 +121,32 @@ nav .navbar-form button {
 .houses-grid .house-space-on-grid .pull-right > .dropdown-menu {
   right: -180px;
 }
+
+/*2017-01-29 Guri trying to add another house image*/
+.houses-grid .house-space-on-grid2 {
+  width: 280px;
+  height: 250px;
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.65);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.65);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.65);
+  background-color: white;
+  cursor: pointer;
+  display: inline-block;
+  float: left;
+  margin: 10px;
+}
+.houses-grid .house-space-on-grid2 div.lead,
+.houses-grid .house-space-on-grid2 a {
+  padding: 10px 10px 0px 10px;
+  color: #b11a21;
+  font-family: "Scada";
+}
+.houses-grid .house-space-on-grid2 .pull-right > .dropdown-menu {
+  right: -180px;
+}
+
+
+
 .modal .modal-header {
   background-color: #e0474c;
   color: white;
