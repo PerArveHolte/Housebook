@@ -4,12 +4,13 @@
         <a ng-if='basicInfoIsEditing === true' ng-click='updateSection()'>&nbsp;Save</a>
         <a ng-if='basicInfoIsEditing === true' ng-click="cancelEditingSection()">&nbsp;Cancel</a>
     </span><br>
+<!--
     <div class='col-md-2'>Inhabitants</div>
     <div class='col-md-10' ng-if="!profile.inhabitants.length"> <button class='btn btn-primary btn-sm' data-target="#addInhabitantModal" data-toggle="modal">Add inhabitant</button></div><br>
     <div class='col-md-10' ng-if="profile.inhabitants.length">
         <div ng-repeat="inhabitant in profile.inhabitants">{{inhabitant}}</div>
     </div>
-
+-->
     <div ng-if="!basicInfoIsEditing">
         <div class='col-md-2'>Ownership</div>
         <div class='col-md-10' ng-if="!profile.ownership"><i class="text-muted">Not specified.</i></div>
