@@ -63,4 +63,27 @@
   max-height: 300px;
   max-width: 300px;
 }
+
+/* 2017-01-29 Guri trying to add another profile picture */
+.house-profile .house-profile-picture2 {
+  /*background-color: white;*/
+  margin-bottom: 15px;
+}
+.house-profile .house-profile-picture2 .edit-profile-picture {
+  position: absolute;
+  top: 10;
+  right: 20;
+}
+.house-profile .house-profile-picture2 .edit-profile-picture a {
+  padding: 10px 10px 0 0;
+  color: #7acfd6;
+  text-decoration: none;
+}
+.house-profile .house-profile-picture2 #house-profile-canvas {
+  width: 100%;
+  max-height: 300px;
+  max-width: 300px;
+}
+
+
 /*# sourceMappingURL=houseProfile.css.map */
