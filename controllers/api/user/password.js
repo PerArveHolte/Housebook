@@ -36,7 +36,7 @@ router.get('/reset/:email', function (req, res, next) {
                             .concat("'>reset password link</a>")
                             .concat("<br><br><p>If you have not requested to change your password, simply ignore this email.</p>")
                             .concat("<br>Cheers,")
-                            .concat("<h3>Housebook Team</h3>");
+                            .concat("<h3>Vidom Team</h3>");
 
                     var mailOptions = {
                         to: req.params.email,
