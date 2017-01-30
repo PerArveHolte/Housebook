@@ -3,7 +3,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
     var profilePictureCanvas = null, ctx = null, img = null;
 
 //2017-01-29 Guri trying to add another picture
-//    var profilePictureCanvas2 = null;
+    var profilePictureCanvas2 = null;
 
     $scope.partial = $routeParams.partial;
     $scope.profileId = $routeParams.id;
