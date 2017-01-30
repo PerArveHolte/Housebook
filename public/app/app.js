@@ -28,8 +28,15 @@ vidom.config(function ($routeProvider, $locationProvider, cfpLoadingBarProvider,
                     auth: function (AuthSvc, $rootScope, $location) {
                         revalidateSession(AuthSvc, $rootScope, $location, false);
                     }
-                }})
-            .when('/house/:id/:partial?', {constroller: 'HouseCtlr', templateUrl: 'partials/houseProfile.html', resolve: {
+            }})
+            
+    //2017-01-30 Guri trying to add pictures page
+            .when('/house/:id/pictures', {controller: 'HouseCtrl', templateUrl: 'partials/pictures.html', resolve: {
+                            auth: function (AuthSvc, $rootScope, $location) {
+                                revalidateSession(AuthSvc, $rootScope, $location, false);
+                            }
+            }})
+            .when('/house/:id/:partial?', {controller: 'HouseCtlr', templateUrl: 'partials/houseProfile.html', resolve: {
                     auth: function (AuthSvc, $rootScope, $location) {
                         revalidateSession(AuthSvc, $rootScope, $location, false);
                     }
