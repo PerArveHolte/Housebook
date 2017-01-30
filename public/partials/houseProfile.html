@@ -1,3 +1,5 @@
+<!-- This file and the "pictures.html" file must be merged at a later point -->
+
 <div class=" house-profile" ng-controller="HouseProfileCtlr">
     <div class="col-md-2 left-side">
         <div class="house-profile-picture"  data-target="#basicPropertiesModal" data-toggle="modal">
@@ -7,20 +9,10 @@
             </div>
         </div>
         
-<!-- 2017-01-29 Guri trying to add another image -->
-<!-- Add space for house image 
-        <div class="house-profile-picture2"  data-target="#basicPropertiesModal" data-toggle="modal">
-            <div class="img-wrap">
-                <canvas class="center-block" id="house-profile-canvas2" style=""></canvas>
-                <p class="img-description">Click to edit2</p>
-            </div>
-        </div>
--->
-        
         <ul class="nav nav-tabs nav-stacked">
             <li><a ng-href="#/house/{{profileId}}" ng-class="{'active':!partial}">House profile</a></li>
-<!-- 2017-01-19: Guri commented this out for now. Will be added later.
             <li><a ng-href="#/house/{{profileId}}/pictures" ng-class="{'active':partial === 'pictures'}">Pictures</a></li>
+<!-- 2017-01-19: Guri commented this out for now. Will be added later.
             <li><a ng-href="#/house/{{profileId}}/documents" ng-class="{'active':partial === 'documents'}">Documents</a></li>
             <li><a ng-href="#/house/{{profileId}}/lists" ng-class="{'active':partial === 'lists'}">Lists</a></li>
             <li><a ng-href="#/house/{{profileId}}/calendar" ng-class="{'active':partial === 'calendar'}">Calendar</a></li>
