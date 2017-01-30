@@ -110,7 +110,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         };
         
         //2017-01-29 Guri trying to add another picture
-        profilePictureCanvas2 = document.getElementById("house-profile-canvas2");
+        //profilePictureCanvas2 = document.getElementById("house-profile-canvas2");
         ctx = profilePictureCanvas2.getContext("2d");
         img2 = new Image();
         img2.crossOrigin = "Anonymous"; //cors support
