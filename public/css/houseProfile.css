@@ -64,9 +64,9 @@
   max-width: 300px;
 }
 
-/* 2017-01-29 Guri trying to add another profile picture */
+/* 2017-01-29 Guri trying to add another profile picture 
 .house-profile .house-profile-picture2 {
-  /*background-color: white;*/
+  //background-color: white;
   margin-bottom: 15px;
 }
 .house-profile .house-profile-picture2 .edit-profile-picture {
@@ -84,6 +84,6 @@
   max-height: 300px;
   max-width: 300px;
 }
-/* End of Guri trying to add another profile picture */
+ End of Guri trying to add another profile picture */
 
 /*# sourceMappingURL=houseProfile.css.map */
