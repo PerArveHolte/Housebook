@@ -1,7 +1,7 @@
 <!-- This file and the "houseProfile.html" file must be merged at a later point -->
 
 
-<div class=" house-profile" ng-controller="HouseProfileCtlr">
+<div class="pictures" ng-controller="HouseProfileCtlr">
     <div class="col-md-2 left-side">
         <div class="house-profile-picture"  data-target="#basicPropertiesModal" data-toggle="modal">
             <div class="img-wrap">
@@ -34,15 +34,17 @@
                 <li role="presentation"><a data-target="#add" aria-controls="add" role="tab" data-toggle="tab">Add&hellip;</a></li>
 -->
             </ul>
-            <div class="tab-content clearfix">
+<!--            <div class="tab-content clearfix">
                 <div role="tabpanel" class="tab-pane active" id="basicInfo"><div ng-include="'partials/profile/basicInfo.html'"></div></div>
                 <div role="tabpanel" class="tab-pane" id="building"><div ng-include="'partials/profile/building.html'"></div></div>
-<!--
+
                 <div role="tabpanel" class="tab-pane" id="add"><div>Comming soon..</div></div>
--->
+
             </div>
+-->
         </div>
     </div>
     <div ng-include="'partials/modals/profilePictureModal.html'"></div>
+    <div ng-include="'partials/modals/addPictureModal.html'"></div>
     <div ng-include="'partials/modals/addInhabitantModal.html'"></div>
 </div>
