@@ -2,9 +2,6 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
 
     var profilePictureCanvas = null, ctx = null, img = null;
 
-//2017-01-29 Guri trying to add another picture
-    var profilePictureCanvas2 = null;
-
     $scope.partial = $routeParams.partial;
     $scope.profileId = $routeParams.id;
 
@@ -15,7 +12,6 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         $scope.profile = response;
         $scope.currentProjectUrl = $sce.trustAsResourceUrl($scope.profile.mapq);
         loadThumbnail();
-    //    loadThumbnailPicture2();  //2017-01-30 Guri trying to add another thumbnail picture.
     }, function (err) {
         console.log(err);
     });
@@ -73,24 +69,6 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         img.src = $scope.profile.profilePicture ? 'https://vidomtestbucket.s3.amazonaws.com/' + $scope.profileId + '/400x300/' + pic : '/img/default.png';
     };
 
-/* 2017-01-30 Guri trying to add another thumbnail picture 
-    function loadThumbnailPicture2() {
-        var pic = null;
-        if (!$scope.profile.profilePicture2) {
-            img.src = '/img/default.png';
-            return;
-        }
-
-        if ($scope.profile.profilePicture2.path.indexOf("200x150")) {
-            var modify = $scope.profile.profilePicture2.path.split('/');
-            pic = modify[modify.length - 1];
-        } else {
-            pic = $scope.profile.profilePicture2.path;
-        }
-//        img.src = $scope.profile.profilePicture ? 'https://s3.amazonaws.com/housebook-uploads-staging/' + $scope.profileId + '/400x300/' + pic : '/img/default.png';
-        img.src = $scope.profile.profilePicture2 ? 'https://vidomtestbucket.s3.amazonaws.com/' + $scope.profileId + '/400x300/' + pic : '/img/default.png';
-    }
-*/
     //load on start
     $(function () {
         $("input#file").change(function () { //set up a common class
@@ -109,19 +87,6 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
             ctx.drawImage(img, 0, 0); //draw image
         };
         
-        /*2017-01-29 Guri trying to add another picture
-        profilePictureCanvas2 = document.getElementById("house-profile-canvas2");
-        ctx = profilePictureCanvas2.getContext("2d");
-        img2 = new Image();
-        img2.crossOrigin = "Anonymous"; //cors support
-        img2.onload = function () {
-            var W = img2.width;
-            var H = img2.height;
-            profilePictureCanvas2.width = W;
-            profilePictureCanvas2.height = H;
-            ctx.drawImage(img2, 0, 0); //draw image
-        };
-        */
         
     });
 
