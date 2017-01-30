@@ -2,6 +2,9 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
 
     var profilePictureCanvas = null, ctx = null, img = null;
 
+//2017-01-29 Guri trying to add another picture
+    var profilePictureCanvas2 = null;
+
     $scope.partial = $routeParams.partial;
     $scope.profileId = $routeParams.id;
 
@@ -86,6 +89,21 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
             profilePictureCanvas.height = H;
             ctx.drawImage(img, 0, 0); //draw image
         };
+        
+        //2017-01-29 Guri trying to add another picture
+        profilePictureCanvas2 = document.getElementById("house-profile-canvas2");
+        ctx = profilePictureCanvas2.getContext("2d");
+        img2 = new Image();
+        img2.crossOrigin = "Anonymous"; //cors support
+        img2.onload = function () {
+            var W = img2.width;
+            var H = img2.height;
+            profilePictureCanvas2.width = W;
+            profilePictureCanvas2.height = H;
+            ctx.drawImage(img2, 0, 0); //draw image
+        };
+        
+        
     });
 
     $scope.addInhabitant = function (firstName, lastName, email, sendInvitation) {
