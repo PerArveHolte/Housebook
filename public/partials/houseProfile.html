@@ -1,4 +1,6 @@
-<div class=" house-profile" ng-controller="HouseProfileCtlr">
+<!-- This file and the "pictures.html" file must be merged at a later point -->
+
+<div class="house-profile" ng-controller="HouseProfileCtlr">
     <div class="col-md-2 left-side">
         <div class="house-profile-picture"  data-target="#basicPropertiesModal" data-toggle="modal">
             <div class="img-wrap">
@@ -6,16 +8,6 @@
                 <p class="img-description">Click to edit</p>
             </div>
         </div>
-        
-<!-- 2017-01-29 Guri trying to add another image -->
-<!-- Add space for house image 
-        <div class="house-profile-picture2"  data-target="#basicPropertiesModal" data-toggle="modal">
-            <div class="img-wrap">
-                <canvas class="center-block" id="house-profile-canvas2" style=""></canvas>
-                <p class="img-description">Click to edit2</p>
-            </div>
-        </div>
--->
         
         <ul class="nav nav-tabs nav-stacked">
             <li><a ng-href="#/house/{{profileId}}" ng-class="{'active':!partial}">House profile</a></li>
@@ -36,13 +28,16 @@
             <ul class="nav nav-tabs" role="tablist">
                 <li role="presentation" class="active"><a data-target="#basicInfo" aria-controls="basicInfo" role="tab" data-toggle="tab">Basic info</a></li>
                 <li role="presentation"><a data-target="#building" aria-controls="building" role="tab" data-toggle="tab">Building</a></li>
-<!--
+                <li role="presentation"><a data-target="#pictures" aria-controls="pictures" role="tab" data-toggle="tab">Pictures</a></li>
+
+                <!-- 2017-02-01 Guri removed this. Will be added later.
                 <li role="presentation"><a data-target="#add" aria-controls="add" role="tab" data-toggle="tab">Add&hellip;</a></li>
 -->
             </ul>
             <div class="tab-content clearfix">
                 <div role="tabpanel" class="tab-pane active" id="basicInfo"><div ng-include="'partials/profile/basicInfo.html'"></div></div>
                 <div role="tabpanel" class="tab-pane" id="building"><div ng-include="'partials/profile/building.html'"></div></div>
+                <div role="tabpanel" class="tab-pane" id="pictures"><div ng-include="'partials/profile/pictures.html'"></div></div>
 <!--
                 <div role="tabpanel" class="tab-pane" id="add"><div>Comming soon..</div></div>
 -->
@@ -51,4 +46,5 @@
     </div>
     <div ng-include="'partials/modals/profilePictureModal.html'"></div>
     <div ng-include="'partials/modals/addInhabitantModal.html'"></div>
+    <div ng-include="'partials/modals/addPictureModal.html'"></div>
 </div>

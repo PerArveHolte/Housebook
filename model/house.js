@@ -10,8 +10,6 @@ var house = db.Schema({
     manuals: [{type: String, required: false}],
     pictures: [{type: db.Schema.Types.ObjectId, ref: 'Image', required: false}],
     profilePicture: {type: imageModel.schema, required: false, select: true},
-    //2017-01-30 Guri adding another picture
-    //profilePicture2: {type: imageModel.schema, required:false, select: true},
     backgroundPicture: {type: imageModel.schema, required: false, select: true},
     address: {type: addressModel.schema, required: false},
     builtYear: {type: Number, required: false},
