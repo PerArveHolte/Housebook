@@ -30,12 +30,13 @@ vidom.config(function ($routeProvider, $locationProvider, cfpLoadingBarProvider,
                     }
             }})
             
-    //2017-01-30 Guri trying to add pictures page
-            .when('/house/:id/pictures', {controller: 'HouseCtrl', templateUrl: 'partials/pictures.html', resolve: {
-                            auth: function (AuthSvc, $rootScope, $location) {
-                                revalidateSession(AuthSvc, $rootScope, $location, false);
-                            }
+    //2017-01-30 Guri trying to add pictures ctlr
+            .when('/house/pictures/:id', {controller: 'PictureCtlr', templateUrl: 'partials/pictures.html', resolve: {
+                    auth: function (AuthSvc, $rootScope, $location) {
+                        revalidateSession(AuthSvc, $rootScope, $location, false);
+                    }
             }})
+    //End of pictures ctlr
             .when('/house/:id/:partial?', {controller: 'HouseCtlr', templateUrl: 'partials/houseProfile.html', resolve: {
                     auth: function (AuthSvc, $rootScope, $location) {
                         revalidateSession(AuthSvc, $rootScope, $location, false);

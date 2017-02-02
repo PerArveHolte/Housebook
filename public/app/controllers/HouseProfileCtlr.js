@@ -7,6 +7,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
 
     $scope.basicInfoIsEditing = false;
     $scope.buildingSectionIsEditing = false;
+    $scope.pictureSectionIsEditing = false;
 
     HouseProfileSvc.getProfile($routeParams.id).then(function (response) {
         $scope.profile = response;
@@ -50,6 +51,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         });
 
         $('#basicPropertiesModal').modal('hide');
+        $('#addPictureModal').modal('hide');
     };
 
     function loadThumbnail() {
@@ -65,7 +67,6 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         } else {
             pic = $scope.profile.profilePicture.path;
         }
-//        img.src = $scope.profile.profilePicture ? 'https://s3.amazonaws.com/housebook-uploads-staging/' + $scope.profileId + '/400x300/' + pic : '/img/default.png';
         img.src = $scope.profile.profilePicture ? 'https://vidomtestbucket.s3.amazonaws.com/' + $scope.profileId + '/400x300/' + pic : '/img/default.png';
     };
 
@@ -94,22 +95,6 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         console.log("Not implemented");
     };
 
-    $scope.cancelEditingSection = function () {
-        switch ($scope.editingSectionId) {
-            case 'basicInfo':
-                $scope.mutableProfile = null;
-                $scope.basicInfoIsEditing = false;
-                break;
-            case 'building':
-                $scope.mutableProfile = null;
-                $scope.buildingSectionIsEditing = false;
-                ;
-                break;
-            default:
-                break;
-        }
-    };
-
     $scope.updateSection = function () {
         switch ($scope.editingSectionId) {
             case 'basicInfo':
@@ -131,6 +116,14 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
                 HouseProfileSvc.updateProfile($scope.profile).then(function () {
                     $scope.mutableProfile = null;
                     $scope.buildingSectionIsEditing = false;
+                });
+                break;
+            case 'pictures':
+                $scope.profile = $scope.mutableProfile;
+                $scope.profile.pictures = _.filter($scope.profile.pictures, {selected: true});
+                HouseProfileSvc.updateProfile($scope.profile).then(function () {
+                    $scope.mutableProfile = null;
+                    $scope.pictureSectionIsEditing = false;
                 });
                 break;
             default:
