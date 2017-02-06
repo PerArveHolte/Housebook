@@ -51,7 +51,6 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         });
 
         $('#basicPropertiesModal').modal('hide');
-        $('#addPictureModal').modal('hide');
     };
 
     function loadThumbnail() {
