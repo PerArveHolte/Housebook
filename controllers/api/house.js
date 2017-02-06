@@ -81,7 +81,9 @@ router.post('/', function (req, res, next) {
         street2: req.body.address.street2,
         postalCode: req.body.address.postalCode,
         city: req.body.address.city,
+/* 2017-02-06 Guri commented this out as state is not relevant for Norway
         state: req.body.address.state,
+        */
         country: req.body.address.country
     });
 
@@ -160,9 +162,11 @@ router.put('/:profileId', function (req, res, next) {
             if (!helper.objectsAreTheSame(req.body.address.city, house.address.city)) {
                 house.address.city = req.body.address.city;
             }
+/* 2017-02-05 Guri commented out "state" for now.
             if (!helper.objectsAreTheSame(req.body.address.state, house.address.state)) {
                 house.address.state = req.body.address.state;
             }
+*/
             if (!helper.objectsAreTheSame(req.body.address.country, house.address.country)) {
                 house.address.country = req.body.address.country;
             }

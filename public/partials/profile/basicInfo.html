@@ -23,7 +23,11 @@
         <div class='address col-md-10' >
             <address ng-if='!basicInfoIsEditing'>
                 <strong>{{profile.address.street1}} {{profile.address.street2}}</strong>,
-                {{profile.address.postalCode}} {{profile.address.state}} {{profile.address.city}} {{profile.address.country}}<br>
+                {{profile.address.postalCode}} 
+                <!-- 2017-02-06 Guri: State is not relevant for now
+                {{profile.address.state}} 
+                -->
+                {{profile.address.city}} {{profile.address.country}}<br>
             </address>
             <div class='clearfix google-maps col-md-6'>
                 <p class="heading">Map</p>
@@ -72,20 +76,23 @@
             </div>
             <br>
             <div class="">
-                <div class='col-md-2'>City</div>
-                <div class="col-md-10"><input type="text" class="col-md-4 input-sm" ng-model="mutableProfile.address.city"></div>
-            </div>
-            <br>
-            <div class="">
                 <div class='col-md-2'>Post code</div>
                 <div class="col-md-10"><input type="text" class="col-md-1 input-sm" ng-model="mutableProfile.address.postalCode"></div>
             </div>
             <br>
             <div class="">
+                <div class='col-md-2'>City</div>
+                <div class="col-md-10"><input type="text" class="col-md-4 input-sm" ng-model="mutableProfile.address.city"></div>
+            </div>
+            <br>
+            
+            <!-- 2017-02-06 Guri: State is not relevant for now
+            <div class="">
                 <div class='col-md-2'>State</div>
                 <div class="col-md-10"><input type="text" class="col-md-4 input-sm" ng-model="mutableProfile.address.state"></div>
             </div>
             <br>
+            -->
             <div class="">
                 <div class='col-md-2'>Country</div>
                 <div class="col-md-10"><input type="text" class="col-md-4 input-sm" ng-model="mutableProfile.address.country"></div>
