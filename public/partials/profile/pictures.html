@@ -15,6 +15,9 @@
         <div class='col-md-2'>Picture1</div>
         <div class='col-md-10' ng-if="!profile.picture1"><i class="text-muted">Not specified.</i></div>
         <div class='col-md-10' ng-if="profile.picture1">{{profile.picture1}}</div><br>
+        
+        <input ng-model="testing.name">
+        <p ng-show="testing.name">Hi {{testing.name}}</p>
     </div>
     <div ng-if="pictureSectionIsEditing">
         <div class="picture1"  data-target="#picture1Modal" data-toggle="modal">
