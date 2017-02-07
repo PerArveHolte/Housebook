@@ -145,7 +145,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
                 $scope.buildingSectionIsEditing = true;
                 $scope.mutableProfile = angular.copy($scope.profile);
                 
-                //TODO: figure out better way of handling this
+                //TODO Kamila: figure out better way of handling this
                 var allFacilities = [{id: 'parking', label: 'Parking place'}, {id: 'garage', label: 'Garage'}, {id: 'elevator', label: 'Elevator'}, {id: 'terrace', label: 'Terrace'}, {id: 'guard', label: 'Guard'}, {id: 'fireplace', label: 'Fireplace'}, {id: 'sauna', label: 'Sauna'}, {id: 'garden', label: 'Garden'}];
                 if ($scope.mutableProfile.facilities.length) {
                     var selectedKeys = _.pluck($scope.profile.facilities, 'id');
@@ -156,8 +156,16 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
                 }
                 $scope.mutableProfile.facilities = allFacilities;
                 break;
+            case 'pictures':
+                $scope.pictureSectionIsEditing = true;
+                $scope.mutableProfile = angular.copy($scope.profile);
+                break;
             default:
                 break;
         }
+    };
+
+//2017-02-08: This function must be created
+    $scope.cancelEditingSection = function () {
     };
 });
