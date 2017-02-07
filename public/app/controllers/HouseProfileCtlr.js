@@ -50,7 +50,8 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
             HouseProfileSvc.savePicture($routeParams.id, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, $rootScope.user._id);
         });
 
-        $('#basicPropertiesModal').modal('hide');
+//2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
+        $('#profilePictureModal').modal('hide');
     };
 
     function loadThumbnail() {
