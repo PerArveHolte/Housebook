@@ -18,11 +18,11 @@
         {{"https://vidomtestbucket.s3.amazonaws.com/"+profile.profilePicture.path}} profile.thumbnail:{{profile.thumbnail}} 
         house.thumbnail:{{house.thumbnail}} </div><br>
         Image src:
-        <img src="'https://vidomtestbucket.s3.amazonaws.com/'+profile.profilePicture.path" alt="Default house picture">
+        <img src="https://vidomtestbucket.s3.amazonaws.com/{{profile.profilePicture.path}}" alt="Default house picture">
         ng-if:
-        <img ng-if="!house.thumbnail" src="../../images/house-default.jpg" alt="Default house picture" class="center-block">
+        <img ng-if="!profile.profilePicture" src="../../images/house-default.jpg" alt="Default house picture" class="center-block">
         ng-show:
-        <img ng-show="house.thumbnail" id="userImg" ng-src="{{house.thumbnail}}" class="center-block">
+        <img ng-show="profile.profilePicture" id="userImg" ng-src="{{profile.profilePicture}}" class="center-block">
 
         <div class='col-md-2'>Picture1</div>
         <div class='col-md-10' ng-if="!profile.pictures[0]"><i class="text-muted">Not specified.</i></div>
