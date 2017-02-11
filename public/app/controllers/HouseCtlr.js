@@ -10,7 +10,7 @@ vidom.controller('HouseCtlr', function ($scope, $rootScope, $location, HouseProf
 
     $scope.defaultHouseSpace = {_id: -1, name: "default house space", description: "Demo house profile"};
 
-    $scope.goToCreateProfilePage = function () {
+    $scope.goToCreateHouseProfilePage = function () {
         $location.path('/house/create');
         return false;
     };
@@ -23,7 +23,7 @@ vidom.controller('HouseCtlr', function ($scope, $rootScope, $location, HouseProf
         });
     };
     
-    $scope.openProfile=function(id){
+    $scope.openHouseProfile=function(id){
         return $location.path('/house/'+id);
     };
     
