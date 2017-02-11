@@ -15,7 +15,8 @@
         <div class='col-md-2'>ProfilePicture</div>
         <div class='col-md-10' ng-if="!profile.profilePicture"><i class="text-muted">Not specified.</i></div>
         <div class='col-md-10' ng-if="profile.profilePicture">{{profile.profilePicture}}
-        {{"https://vidomtestbucket.s3.amazonaws.com/"+profile.profilePicture.path}} {{profile.thumbnail}}</div><br>
+        {{"https://vidomtestbucket.s3.amazonaws.com/"+profile.profilePicture.path}} profile.thumbnail:{{profile.thumbnail}} 
+        house.thumbnail:{{house.thumbnail}} </div><br>
         <div class='col-md-2'>Picture1</div>
         <div class='col-md-10' ng-if="!profile.pictures[0]"><i class="text-muted">Not specified.</i></div>
         <div class='col-md-10' ng-if="profile.pictures[0]">{{profile.pictures[0]}}</div><br>
