@@ -12,7 +12,12 @@
     </div>
 -->
     <div ng-if="!pictureSectionIsEditing">
-
+        <div class='col-md-2'>ProfilePicture</div>
+        <div class='col-md-10' ng-if="!profile.profilePicture"><i class="text-muted">Not specified.</i></div>
+        <div class='col-md-10' ng-if="profile.profilePicture">{{profile.profilePicture}}</div><br>
+        <div class='col-md-2'>Picture1</div>
+        <div class='col-md-10' ng-if="!profile.pictures[0]"><i class="text-muted">Not specified.</i></div>
+        <div class='col-md-10' ng-if="profile.pictures[0]">{{profile.pictures[0]}}</div><br>
     </div>
     <div ng-if="pictureSectionIsEditing">
     
