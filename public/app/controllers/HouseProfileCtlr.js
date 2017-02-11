@@ -121,6 +121,21 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
             case 'pictures':
                 $scope.profile = $scope.mutableProfile;
                 $scope.profile.pictures = _.filter($scope.profile.pictures, {selected: true});
+
+                /*2017-02-11 Guri adding some code to make things work smothly
+                profilePictureCanvas = document.getElementById("house-profile-canvas2");
+                ctx = profilePictureCanvas.getContext("2d");
+                img = new Image();
+                img.crossOrigin = "Anonymous"; //cors support
+                img.onload = function () {
+                    var W = img.width;
+                    var H = img.height;
+                    profilePictureCanvas.width = W;
+                    profilePictureCanvas.height = H;
+                    ctx.drawImage(img, 0, 0); //draw image
+                };
+                // End of Guris experiment */
+
                 HouseProfileSvc.updateProfile($scope.profile).then(function () {
                     $scope.mutableProfile = null;
                     $scope.pictureSectionIsEditing = false;
