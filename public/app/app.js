@@ -29,14 +29,6 @@ vidom.config(function ($routeProvider, $locationProvider, cfpLoadingBarProvider,
                         revalidateSession(AuthSvc, $rootScope, $location, false);
                     }
             }})
-            
-    //2017-01-30 Guri adding a pictures ctlr - not sure if this is correct..
-/*            .when('/house/pictures/:id', {controller: 'PictureCtlr', templateUrl: 'partials/pictures.html', resolve: {
-                    auth: function (AuthSvc, $rootScope, $location) {
-                        revalidateSession(AuthSvc, $rootScope, $location, false);
-                    }
-            }})*/
-    //End of pictures ctlr
             .when('/house/:id/:partial?', {controller: 'HouseCtlr', templateUrl: 'partials/houseProfile.html', resolve: {
                     auth: function (AuthSvc, $rootScope, $location) {
                         revalidateSession(AuthSvc, $rootScope, $location, false);
