@@ -1,3 +1,4 @@
+//2017-02-12 Guri: Was wondering if this "HouseCtlr" actually should be named "UserCtlr"?
 vidom.controller('HouseCtlr', function ($scope, $rootScope, $location, HouseProfileSvc) {
     $scope.houses = $rootScope.user ? $rootScope.user.createdHouseProfile : [];
     angular.forEach($scope.houses, function(houseProfile){

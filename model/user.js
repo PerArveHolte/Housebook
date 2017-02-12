@@ -18,6 +18,9 @@ var user = db.Schema({
 
     auth: {type: String, select: false},
     roles: {type: Array, select: true},
+
+/* 2017-02-12 Guri: To be fixed later: In place of keeping a list of created house profiles, 
+ * there should be implemented a database-table "house-user-role" table, ref architecture discussion. */
     createdHouseProfile: [{
             ref: {type: db.Schema.Types.ObjectId, ref: 'House', required: false},
             name: {type: String, required: true, select: true},
