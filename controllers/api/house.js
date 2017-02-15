@@ -1,3 +1,5 @@
+//2017-02-15 Guri: Is any code in this file ever in use?
+
 var router = require('express').Router();
 
 var jwt = require('jwt-simple');
