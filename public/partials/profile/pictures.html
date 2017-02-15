@@ -7,11 +7,16 @@
     <div ng-if="!pictureSectionIsEditing">
         <div class='col-md-2'>ProfilePicture</div>
         <div class='col-md-10' ng-if="!profile.profilePicture"><img src="../../images/house-default.jpg" alt="Default house picture"></div>
+
+        <!-- 2017-02-15 Guri: Removed temparily in order to debug the application
         <div class='col-md-10' ng-if="profile.profilePicture"><img src="https://vidomtestbucket.s3.amazonaws.com/{{profile.profilePicture.path}}" alt="Default house picture"></div>
+        -->
         <div class='col-md-2'>Picture1</div>
         <div class='col-md-10' ng-if="!profile.pictures[0]"><img src="../../images/house-default.jpg" alt="Default house picture"></div>
+        <!-- 2017-02-15 Guri: Removed temparily in order to debug the application
         <div class='col-md-10' ng-if="profile.pictures[0]"><img src="https://vidomtestbucket.s3.amazonaws.com/{{profile.pictures[0].path}}" alt="Default house picture"></div><br>
-
+        -->
+        
 <!--        <div ng-repeat="picture in pictures" class=""> <!-- ng-click="editPicture(profile.pictures[i])"> -->
 <!--        </div>
 -->
