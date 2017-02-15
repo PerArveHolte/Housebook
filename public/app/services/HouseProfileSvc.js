@@ -16,7 +16,8 @@ vidom.service('HouseProfileSvc', function ($q, $http) {
     
     obj.savePicture = function (profileId, name, type, file, isProfilePicture, createdBy) {
         var defer = $q.defer();
-
+        console.log("Inside obj.savePicture");
+        
         var data = {profileId: profileId, fileName: name, fileType: file.type};
         $http({
             method: 'GET',
