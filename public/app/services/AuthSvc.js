@@ -33,7 +33,8 @@ vidom.factory('AuthSvc', function ($q, $http, $location, $window) {
             var user = JSON.parse($window.localStorage.getItem('user'));
             defer.resolve(user);
         }
-
+        console.log("In get user. Found user:");
+        console.log(user);
 
         $http.get('/users', {headers: {'x-auth': $window.localStorage.getItem('token')}}).then(function (response) {
             $window.localStorage.setItem('user', JSON.stringify(response.data));

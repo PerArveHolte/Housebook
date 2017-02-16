@@ -33,13 +33,13 @@
             <span ng-if="createAccountForm.repeatPassword.$invalid && createAccountForm.repeatPassword.$touched" class="text-danger small">Repeat password.</span>
             <span ng-if="user.password !== user.repeatPassword && createAccountForm.repeatPassword.$touched" class="text-danger small">Password desn't match.</span>
         </div>
-<!--
+
         <div class="checkbox">
-            <label>
-                <input type="checkbox" value="terms"> Accept terms and conditions
-            </label>
+<!--            <label> -->
+                Solely holders of valid Vidom pilot membership or Housebook pilot membership can sign up for this application. If you don't hold a membership, apply for one via our "Send us feedback" button below.
+<!--            </label> -->
         </div>
--->
+
         <button class="btn btn-lg btn-block" ng-disabled="createAccountForm.$invalid || user.password !== user.repeatPassword" type="submit" analytics-on="click" analytics-event="Register account" analytics-category="Actions">Signup</button>
     </form>
 </div>

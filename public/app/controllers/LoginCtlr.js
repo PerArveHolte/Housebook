@@ -27,10 +27,9 @@ vidom.controller('LoginCtlr', function ($scope, $rootScope, $location, $window, 
                 });
             });
         })
-                .catch(function (err) {
-                    $scope.validationError = {msg: err.msg ? err.msg : err.data};
-
-                });
+        .catch(function (err) {
+            $scope.validationError = {msg: err.msg ? err.msg : err.data};
+        });
     };
 
     $scope.signUp = function (user) {

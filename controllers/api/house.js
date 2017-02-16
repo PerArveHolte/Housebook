@@ -1,3 +1,5 @@
+//2017-02-15 Guri: Is any code in this file ever in use?
+
 var router = require('express').Router();
 
 var jwt = require('jwt-simple');
@@ -54,7 +56,16 @@ router.post('/:profileId', function (req, res, next) {
             if (req.body.isProfilePicture) {
                 picture.isProfilePicture = true;
                 house.profilePicture = picture;
+                console.log("Saving profile picture");
             }
+
+//2017-02-15 Guri trying to add picture to database profile
+            if (!req.body.isProfilePicture) {
+                picture.isProfilePicture = false;
+                house.picture[0] = picture;
+                console.log("Saving picture[0]");
+            }
+//End of Guri's struggles
 
             house.save(function (err) {
                 if (err)
