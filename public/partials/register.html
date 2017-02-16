@@ -28,12 +28,12 @@
             <input type="password" id="loginRepeatPassword" name="loginRepeatPassword" class="form-control" placeholder="Repeat password" ng-model="user.repeatPassword" required="">
             <span ng-if="createAccountForm.loginRepeatPassword.$invalid && createAccountForm.loginRepeatPassword.$touched" class="text-danger small">Repeat password.</span>
             <span ng-if="user.password !==user.repeatPassword && createAccountForm.loginRepeatPassword.$touched" class="text-danger small">Passwords don't match.</span>
-<!--            <div class="checkbox">
+            <div class="checkbox">
                 <label>
                     <input type="checkbox" value="terms"> Accept terms and conditions
                 </label>
             </div>
--->
+
             <button class="btn btn-lg btn-block" ng-disabled="createAccountForm.$invalid || user.password !==user.repeatPassword" type="submit"  analytics-on="click" analytics-event="Signup" analytics-category="Actions">Signup</button>
         </form>
     </div>
