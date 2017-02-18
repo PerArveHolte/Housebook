@@ -39,7 +39,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
     };
 
 //2017-02-18 Guri: Todo: Rename this function to "saveProfilePicture" and create another one for saving of other pictures
-    $scope.savePicture = function (isProfilePicture) {
+    $scope.savePicture = function () {
 
 //2017-02-13 Guri: Was wondering if it would be better to send the file as an argument rather then finding it here..
         var file = document.getElementById('file').files[0];
