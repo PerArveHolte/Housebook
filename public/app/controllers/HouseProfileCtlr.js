@@ -36,8 +36,9 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
             };
             FR.readAsDataURL(input.files[0]);
         }
-    }
+    };
 
+//2017-02-18 Guri: Todo: Rename this function to "saveProfilePicture" and create another one for saving of other pictures
     $scope.savePicture = function (isProfilePicture) {
 
 //2017-02-13 Guri: Was wondering if it would be better to send the file as an argument rather then finding it here..
@@ -50,10 +51,10 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         var img400x300URI = dataURItoBlob($scope.img400x300URI);
         var img600x400URI = dataURItoBlob($scope.img600x400URI);
 
-        HouseProfileSvc.savePicture($routeParams.id, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), isProfilePicture, $rootScope.user._id).then(function () {
+        HouseProfileSvc.savePicture($routeParams.id, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, $rootScope.user._id).then(function () {
             img.setAttribute("src", $scope.img400x300URI);
-            HouseProfileSvc.savePicture($routeParams.id, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), isProfilePicture, $rootScope.user._id);
-            HouseProfileSvc.savePicture($routeParams.id, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), isProfilePicture, $rootScope.user._id);
+            HouseProfileSvc.savePicture($routeParams.id, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, $rootScope.user._id);
+            HouseProfileSvc.savePicture($routeParams.id, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, $rootScope.user._id);
         });
 
 //2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
