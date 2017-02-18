@@ -33,6 +33,9 @@ vidom.controller('LoginCtlr', function ($scope, $rootScope, $location, $window, 
     };
 
     $scope.signUp = function (user) {
+        user.username = user.email;
+        console.log("LoginCtrl: signup");
+        console.log(user);
         AuthSvc.signUp(user).then(function (response) {
             AuthSvc.login(user.username, user.password).then(function (response) {
                 $window.localStorage.setItem('token', response.data);
