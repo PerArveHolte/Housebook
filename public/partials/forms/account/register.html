@@ -2,12 +2,13 @@
     <form name="createAccountForm" ng-init="user = {}" class="form-login" ng-submit="signUp(user)">
         <h3 class="form-signin-heading text-center">Create account</h3>
         <p class='text-danger' ng-if='validationError'>{{validationError.msg}}</p>
+
+<!--
         <div class="form-group">
             <label for="username" class="sr-only">Username</label>
             <input type="text" name="username" class="form-control" ng-model="user.username" id="username" placeholder="Username" required="" autocorrect="off" autocapitalize="none">
             <span ng-if="createAccountForm.username.$invalid && createAccountForm.username.$touched" class="text-danger small">Username is required.</span>
         </div>
-<!--
         <div class="form-group">
             <label for="firstName" class="sr-only">First name</label>
             <input type="text" class="form-control" ng-model="user.firstName" id="firstName" placeholder="First name">
