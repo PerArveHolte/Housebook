@@ -1,4 +1,4 @@
-<!-- 2017-02-16 Guri tror ar denne fila ikke er i bruk -->
+<!-- 2017-02-16 Guri tror at denne fila ikke er i bruk -->
 
 <div class=" ">
     <!--<div id="logo"></div>-->
@@ -6,11 +6,12 @@
         <form name="createAccountForm" ng-init="user = {}" class="form-login" ng-submit="signUp(user)">
             <h3 class="form-signin-heading text-center">Create account</h3>
             <p class='text-danger' ng-if='validationError'>{{validationError.msg}}</p>
+<!--
+
             <label for="signupUserName" class="sr-only">User name</label>
             <input type="text" id="signupUserName" class="form-control" name="username" placeholder="User name" ng-model="user.username" required="" autocorrect="off" autocapitalize="none">
             <span ng-if="createAccountForm.username.$invalid && createAccountForm.username.$touched" class="text-danger small">Username is required.</span>
             <br>
-<!--
             <label for="signupFirstName" class=" sr-only">First name</label>
             <input type="text" id="signupFirstName" name="signupFirstName" class="form-control" placeholder="First name" ng-model="user.firstName">
             <br>
