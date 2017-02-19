@@ -1,6 +1,5 @@
 //2017-02-15 Guri: Is any code in this file ever in use?
 
-/* 2017-02-19 Guri testing if this file is ever in use
 var router = require('express').Router();
 
 var jwt = require('jwt-simple');
@@ -32,6 +31,7 @@ router.get('/:profileId', function (req, res, next) {
             });
 });
 
+/* Guri trying to find out if this function is in use at all
 router.post('/:profileId', function (req, res, next) {
     if (!req.headers['x-auth'] || !req.headers['x-auth'].length) {
         console.log("Missing token");
@@ -82,11 +82,10 @@ router.post('/:profileId', function (req, res, next) {
         return res.sendStatus(201);
     });
 });
-
-
 End of Guri testing if this file is ever in use */
+
+
 /*Create house profile*/
-/* 2017-02-19 Guri testing if this file is ever in use
 router.post('/', function (req, res, next) {
     console.log("Inside file: house.js, function: router.post");
     if (!req.headers['x-auth'] || !req.headers['x-auth'].length) {
@@ -132,10 +131,8 @@ router.post('/', function (req, res, next) {
         });
     });
 });
-End of Guri testing if this file is ever in use */
 
 /*Update house profile*/
-/* 2017-02-19 Guri testing if this file is ever in use
 router.put('/:profileId', function (req, res, next) {
     if (!req.headers['x-auth'] || !req.headers['x-auth'].length) {
         console.log("Missing token");
@@ -210,4 +207,3 @@ router.put('/:profileId', function (req, res, next) {
 });
 
 module.exports = router;
-End of Guri testing if this file is ever in use */
