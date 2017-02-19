@@ -36,6 +36,7 @@ router.post('/:profileId', function (req, res, next) {
         console.log("Missing token");
         return res.sendStatus(401);
     }
+    console.log("Inside router.post");
     console.log(req.params.profileId);
 
     House.findOne({"_id": ObjectId(req.params.profileId)}).exec(function (err, house) {

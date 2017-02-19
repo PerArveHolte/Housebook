@@ -17,27 +17,30 @@ vidom.service('HouseProfileSvc', function ($q, $http) {
     obj.savePicture = function (profileId, name, type, file, isProfilePicture, createdBy) {
         var defer = $q.defer();
         var data = {profileId: profileId, fileName: name, fileType: file.type}; //2017-02-19 Guri: The file.type variable seems to be empty.
+        
+        /* Guri's assumption: Gets the address from S3 where the image shall be put 
+         * Guri thinks the statement "url: '/aws/sign-s3'" refers to file api/aws.js, function router.get('/sign-s3' [...])*/
         $http({
             method: 'GET',
             url: '/aws/sign-s3',
             params: data
         }).then(function (response) {
+            
+            /* Guri's assumption: Puts image into s3 bucket */
             $http({
                 method: 'PUT',
                 url: response.data.signedRequest,
                 data: file,
                 headers: {'Content-type': file.type}
             }).then(function (uploadResponse) {
-                console.log("Successfully put something somewhere..");
-                console.log("uploadResponse is: "+ uploadResponse);
-                console.log("uploadResponse.data is: " + uploadResponse.data);
-                console.log("uploadResponse.status is: " + uploadResponse.status);
-                console.log("uploadResponse.headers is: " + uploadResponse.headers);
-                console.log("uploadResponse.config is: " + uploadResponse.config);
-                console.log("uploadResponse.statusText is: " + uploadResponse.statusText);
-                
+                console.log("\nSuccessfully put something somewhere..");
+                console.log("name is: "+ name);
+                console.log("type is: " + type);
+               
                 var payload = {fileName: name, contentType: type, isProfilePicture: isProfilePicture, userId: createdBy};
-
+              
+                /* Guri's assumption: Puts path to image into mongoDB 
+                * Guri thinks the statement "$http.post('/house/' + profileId [...]" refers to file api/house.js, function router.post('/:profileId', [...])*/
                 $http.post('/house/' + profileId, JSON.stringify(payload));
                 defer.resolve(uploadResponse);
 
