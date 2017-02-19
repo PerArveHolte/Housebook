@@ -30,6 +30,12 @@ vidom.service('HouseProfileSvc', function ($q, $http) {
             }).then(function (uploadResponse) {
                 console.log("Successfully put something somewhere..");
                 console.log("uploadResponse is: "+ uploadResponse);
+                console.log("uploadResponse.data is: " + uploadResponse.data);
+                console.log("uploadResponse.status is: " + uploadResponse.status);
+                console.log("uploadResponse.headers is: " + uploadResponse.headers);
+                console.log("uploadResponse.config is: " + uploadResponse.config);
+                console.log("uploadResponse.statusText is: " + uploadResponse.statusText);
+                
                 var payload = {fileName: name, contentType: type, isProfilePicture: isProfilePicture, userId: createdBy};
 
                 $http.post('/house/' + profileId, JSON.stringify(payload));
