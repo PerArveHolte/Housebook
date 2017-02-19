@@ -43,7 +43,7 @@ vidom.service('HouseProfileSvc', function ($q, $http) {
                 data: file,
                 headers: {'Content-type': file.type}
             }).then(function (uploadResponse) {
-
+                console.log("Successfully put something somewhere..");
                 var payload = {fileName: name, contentType: type, isProfilePicture: isProfilePicture, userId: createdBy};
 
                 $http.post('/house/' + profileId, JSON.stringify(payload));
@@ -51,10 +51,12 @@ vidom.service('HouseProfileSvc', function ($q, $http) {
 
             }, function (err) {
                 defer.reject(err);
+                console.log("Inside error");
             });
 
         }, function (err) {
             defer.reject(err);
+            console.log("Inside error2");
         });
 
         return defer.promise;
