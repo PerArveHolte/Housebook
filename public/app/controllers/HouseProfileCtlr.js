@@ -192,6 +192,26 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
     };
 
 //2017-02-08: Guri: This function must be created
-    $scope.cancelEditingSection = function () {
+
+$scope.cancelEditingSection = function () {
+        switch ($scope.editingSectionId) {
+            case 'basicInfo':
+                $scope.mutableProfile = null;
+                $scope.basicInfoIsEditing = false;
+                break;
+            case 'building':
+                $scope.mutableProfile = null;
+                $scope.buildingSectionIsEditing = false;
+                ;
+                break;
+            case 'pictures':
+                $scope.mutableProfile = null;
+                $scope.pictureSectionIsEditing = false;
+                ;
+                break;
+        default:
+                break;
+        }
     };
+
 });

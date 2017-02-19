@@ -9,8 +9,8 @@ var house = db.Schema({
     inhabitants: [{type: db.Schema.Types.ObjectId, ref: 'User', required: false}],
     manuals: [{type: String, required: false}],
     pictures: [{type: db.Schema.Types.ObjectId, ref: 'Image', required: false}],
-    profilePicture: {type: imageModel.schema, required: false, select: true},   //foreign-key
-    backgroundPicture: {type: imageModel.schema, required: false, select: true},  //foreign-key
+    profilePicture: {type: imageModel.schema, required: false, select: true},   
+    backgroundPicture: {type: imageModel.schema, required: false, select: true},  
     address: {type: addressModel.schema, required: false},
     builtYear: {type: Number, required: false},
     movedInYear: {type: Number, required: false},
