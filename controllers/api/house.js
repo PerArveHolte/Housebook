@@ -42,7 +42,7 @@ router.post('/:profileId', function (req, res, next) {
     House.findOne({"_id": ObjectId(req.params.profileId)}).exec(function (err, house) {
         if (err)
             return next(err);
-        console.log("isProfilePicture " + req.body.isProfilePicture);
+//        console.log("isProfilePicture " + req.body.isProfilePicture);
 
         if (req.body.contentType) {
             console.log("create img object");
@@ -67,6 +67,7 @@ router.post('/:profileId', function (req, res, next) {
                 console.log("Saving another picture");
             }
             house.pictures[0] = picture;
+            house.backgroudPicture = picture;
             // End of Guri's struggles
 
             house.save(function (err) {
