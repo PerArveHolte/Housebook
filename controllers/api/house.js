@@ -82,6 +82,7 @@ router.post('/:profileId', function (req, res, next) {
 
 /*Create house profile*/
 router.post('/', function (req, res, next) {
+    console.log("Inside file: house.js, function: router.post");
     if (!req.headers['x-auth'] || !req.headers['x-auth'].length) {
         return res.sendStatus(401);
     }
