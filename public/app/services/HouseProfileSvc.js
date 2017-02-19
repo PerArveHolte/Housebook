@@ -19,10 +19,11 @@ vidom.service('HouseProfileSvc', function ($q, $http) {
         console.log("Inside obj.savePicture");
         console.log("profileId is: " + profileId);
         console.log("name is: " + name);
-        console.log("type is: " + type);
-        console.log("file is: " + file);
-        console.log("isProfilePicture is: " + isProfilePicture);
-        console.log("createdBy is: " + createdBy);
+//        console.log("type is: " + type);
+//        console.log("file is: " + file);
+        console.log("file.type is: " + file.type);
+//        console.log("isProfilePicture is: " + isProfilePicture);
+//        console.log("createdBy is: " + createdBy);
         var data = {profileId: profileId, fileName: name, fileType: file.type};
         console.log("data is: " + data);
         $http({
