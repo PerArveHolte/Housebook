@@ -36,6 +36,7 @@ vidom.service('HouseProfileSvc', function ($q, $http) {
         }).then(function (response) {
             console.log("Inside function");
             console.log("response.data.signedRequest is: " + response.data.signedRequest);
+            console.log("file is: " + file);
             $http({
                 method: 'PUT',
                 url: response.data.signedRequest,
