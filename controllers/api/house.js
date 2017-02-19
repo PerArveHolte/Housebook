@@ -31,7 +31,6 @@ router.get('/:profileId', function (req, res, next) {
             });
 });
 
-/* Guri trying to find out if this function is in use at all
 router.post('/:profileId', function (req, res, next) {
     if (!req.headers['x-auth'] || !req.headers['x-auth'].length) {
         console.log("Missing token");
@@ -82,7 +81,6 @@ router.post('/:profileId', function (req, res, next) {
         return res.sendStatus(201);
     });
 });
-End of Guri testing if this file is ever in use */
 
 
 /*Create house profile*/
