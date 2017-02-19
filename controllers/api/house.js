@@ -1,5 +1,6 @@
 //2017-02-15 Guri: Is any code in this file ever in use?
 
+/* 2017-02-19 Guri testing if this file is ever in use
 var router = require('express').Router();
 
 var jwt = require('jwt-simple');
@@ -82,7 +83,10 @@ router.post('/:profileId', function (req, res, next) {
     });
 });
 
+
+End of Guri testing if this file is ever in use */
 /*Create house profile*/
+/* 2017-02-19 Guri testing if this file is ever in use
 router.post('/', function (req, res, next) {
     console.log("Inside file: house.js, function: router.post");
     if (!req.headers['x-auth'] || !req.headers['x-auth'].length) {
@@ -96,9 +100,9 @@ router.post('/', function (req, res, next) {
         street2: req.body.address.street2,
         postalCode: req.body.address.postalCode,
         city: req.body.address.city,
-/* 2017-02-06 Guri commented this out as state is not relevant for Norway
-        state: req.body.address.state,
-        */
+// 2017-02-06 Guri commented this out as state is not relevant for Norway 
+        //state: req.body.address.state,
+        
         country: req.body.address.country
     });
 
@@ -128,8 +132,10 @@ router.post('/', function (req, res, next) {
         });
     });
 });
+End of Guri testing if this file is ever in use */
 
 /*Update house profile*/
+/* 2017-02-19 Guri testing if this file is ever in use
 router.put('/:profileId', function (req, res, next) {
     if (!req.headers['x-auth'] || !req.headers['x-auth'].length) {
         console.log("Missing token");
@@ -177,11 +183,11 @@ router.put('/:profileId', function (req, res, next) {
             if (!helper.objectsAreTheSame(req.body.address.city, house.address.city)) {
                 house.address.city = req.body.address.city;
             }
-/* 2017-02-05 Guri commented out "state" for now.
-            if (!helper.objectsAreTheSame(req.body.address.state, house.address.state)) {
-                house.address.state = req.body.address.state;
-            }
-*/
+// 2017-02-05 Guri commented out "state" for now.
+//            if (!helper.objectsAreTheSame(req.body.address.state, house.address.state)) {
+//                house.address.state = req.body.address.state;
+//            }
+
             if (!helper.objectsAreTheSame(req.body.address.country, house.address.country)) {
                 house.address.country = req.body.address.country;
             }
@@ -204,3 +210,4 @@ router.put('/:profileId', function (req, res, next) {
 });
 
 module.exports = router;
+End of Guri testing if this file is ever in use */

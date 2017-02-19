@@ -34,7 +34,7 @@ vidom.service('HouseProfileSvc', function ($q, $http) {
                 headers: {'Content-type': file.type}
             }).then(function (uploadResponse) {
                 console.log("\nSuccessfully put something somewhere..");
-                console.log("profileid is: "+ profileId);
+                console.log("houseId is: "+ profileId);
                
                 var payload = {fileName: name, contentType: type, isProfilePicture: isProfilePicture, userId: createdBy};
               
