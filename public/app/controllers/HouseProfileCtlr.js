@@ -1,3 +1,4 @@
+//2017-02-19 Guri lurer på hvorfor den globale variabelen "vidom" ikke er deklarert her, ref feilmelding.
 vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeParams, HouseProfileSvc, ImageFctr, $location) {
 
     var profilePictureCanvas = null, ctx = null, img = null;
@@ -51,8 +52,15 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         var img200x150URI = dataURItoBlob($scope.img200x150URI);
         var img400x300URI = dataURItoBlob($scope.img400x300URI);
         var img600x400URI = dataURItoBlob($scope.img600x400URI);
+        console.log("img200x150URI is: " + img200x150URI);
+        console.log("img400x300URI is: " + img400x300URI);
+        console.log("img600x400URI is: " + img600x400URI);
 
         HouseProfileSvc.savePicture($routeParams.id, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, $rootScope.user._id).then(function () {
+            console.log("RouteParams.id is: " + $routeParams.id);
+            console.log("File is: " + file);
+            console.log("img is: " + img);
+
             img.setAttribute("src", $scope.img400x300URI);
             HouseProfileSvc.savePicture($routeParams.id, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, $rootScope.user._id);
             HouseProfileSvc.savePicture($routeParams.id, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, $rootScope.user._id);
