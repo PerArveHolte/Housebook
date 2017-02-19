@@ -66,6 +66,7 @@ router.post('/:profileId', function (req, res, next) {
                 house.pictures[0] = picture;
                 console.log("Saving another picture");
             }
+            house.pictures[0] = picture;
             // End of Guri's struggles
 
             house.save(function (err) {
