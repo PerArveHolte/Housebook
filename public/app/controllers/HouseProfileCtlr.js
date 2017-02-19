@@ -57,6 +57,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         console.log("img600x400URI is: " + img600x400URI);
 
         HouseProfileSvc.savePicture($routeParams.id, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, $rootScope.user._id).then(function () {
+            console.log("Inside HouseProfileSvc.savePicture");
             console.log("RouteParams.id is: " + $routeParams.id);
             console.log("File is: " + file);
             console.log("img is: " + img);

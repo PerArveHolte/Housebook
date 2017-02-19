@@ -17,8 +17,14 @@ vidom.service('HouseProfileSvc', function ($q, $http) {
     obj.savePicture = function (profileId, name, type, file, isProfilePicture, createdBy) {
         var defer = $q.defer();
         console.log("Inside obj.savePicture");
-        
+        console.log("profileId is: " + profileId);
+        console.log("name is: " + name);
+        console.log("type is: " + type);
+        console.log("file is: " + file);
+        console.log("isProfilePicture is: " + isProfilePicture);
+        console.log("createdBy is: " + createdBy);
         var data = {profileId: profileId, fileName: name, fileType: file.type};
+        console.log("data is: " + data);
         $http({
             method: 'GET',
             url: '/aws/sign-s3',
