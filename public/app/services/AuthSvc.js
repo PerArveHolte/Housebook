@@ -27,6 +27,7 @@ vidom.factory('AuthSvc', function ($q, $http, $location, $window) {
         return $http.post('/users', JSON.stringify(model));
     };
 
+    //2017-02-19 Guri: The "getUser" seems to be called once for each houses displayed in the houses splash screen. Would believe it is enough to call it once at that screen.
     obj.getUser = function () {
         var defer = $q.defer();
         if ($window.localStorage.getItem('user')) {

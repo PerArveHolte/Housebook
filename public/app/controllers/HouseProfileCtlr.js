@@ -1,3 +1,4 @@
+//2017-02-19 Guri lurer på hvorfor den globale variabelen "vidom" ikke er deklarert her, ref feilmelding.
 vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeParams, HouseProfileSvc, ImageFctr, $location) {
 
     var profilePictureCanvas = null, ctx = null, img = null;
@@ -36,26 +37,47 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
             };
             FR.readAsDataURL(input.files[0]);
         }
-    }
+    };
 
-    $scope.savePicture = function (isProfilePicture) {
+//2017-02-18 Guri: Todo: Rename this function to "saveProfilePicture" and create another one for saving of other pictures
+    $scope.savePicture = function () {
 
 //2017-02-13 Guri: Was wondering if it would be better to send the file as an argument rather then finding it here..
         var file = document.getElementById('file').files[0];
 
+        console.log("Inside HouseProfileCtlr.savePicture");
+        console.log("file is: " + file);
+        console.log("$routeScope.user._id is: " + $rootScope.user._id);
+        console.log("$routeParams.id: " + $routeParams.id);
+
         var img200x150URI = dataURItoBlob($scope.img200x150URI);
         var img400x300URI = dataURItoBlob($scope.img400x300URI);
         var img600x400URI = dataURItoBlob($scope.img600x400URI);
+//        console.log("img200x150URI is: " + img200x150URI);
+//        console.log("img200x150URI.type is: " + img200x150URI.type);
+//        console.log("img400x300URI is: " + img400x300URI);
+//        console.log("img600x400URI is: " + img600x400URI);
 
-        HouseProfileSvc.savePicture($routeParams.id, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), isProfilePicture, $rootScope.user._id).then(function () {
-            img.setAttribute("src", $scope.img400x300URI);
-            HouseProfileSvc.savePicture($routeParams.id, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), isProfilePicture, $rootScope.user._id);
-            HouseProfileSvc.savePicture($routeParams.id, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), isProfilePicture, $rootScope.user._id);
+        var houseId = $routeParams.id;
+        var userId = $rootScope.user._id;
+        console.log("houseId is: " + houseId);
+        console.log("userId is: " + userId);
+        
+        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, userId).then(function () {
+            console.log("Inside HouseProfileSvc.savePicture");
+            console.log("houseId is: " + houseId);
+            console.log("File is: " + file);
+            console.log("File.name is: " + file.name);
+            console.log("File.type is: " + file.type);
+
+            img.setAttribute("src", $scope.img400x300URI); //load the image up into the modal to be shown to the user.
+            HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, userId);
+            HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, userId);
         });
 
 //2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
         $('#profilePictureModal').modal('hide');
-        $('#addPictureModal').modal('hide');
+//        $('#addPictureModal').modal('hide');
     };
 
     function loadThumbnail() {
@@ -170,6 +192,26 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
     };
 
 //2017-02-08: Guri: This function must be created
-    $scope.cancelEditingSection = function () {
+
+$scope.cancelEditingSection = function () {
+        switch ($scope.editingSectionId) {
+            case 'basicInfo':
+                $scope.mutableProfile = null;
+                $scope.basicInfoIsEditing = false;
+                break;
+            case 'building':
+                $scope.mutableProfile = null;
+                $scope.buildingSectionIsEditing = false;
+                ;
+                break;
+            case 'pictures':
+                $scope.mutableProfile = null;
+                $scope.pictureSectionIsEditing = false;
+                ;
+                break;
+        default:
+                break;
+        }
     };
+
 });
