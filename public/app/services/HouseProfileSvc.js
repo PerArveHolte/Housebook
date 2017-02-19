@@ -15,7 +15,6 @@ vidom.service('HouseProfileSvc', function ($q, $http) {
     };
     
     obj.savePicture = function (profileId, name, type, file, isProfilePicture, createdBy) {
-        var defer = $q.defer();
         console.log("Inside obj.savePicture");
         console.log("profileId is: " + profileId);
         console.log("name is: " + name);
@@ -24,13 +23,19 @@ vidom.service('HouseProfileSvc', function ($q, $http) {
         console.log("file.type is: " + file.type);
 //        console.log("isProfilePicture is: " + isProfilePicture);
 //        console.log("createdBy is: " + createdBy);
-        var data = {profileId: profileId, fileName: name, fileType: file.type};
-        console.log("data is: " + data);
+        var defer = $q.defer();
+        console.log("defer is: " + defer);
+        var data = {profileId: profileId, fileName: name, fileType: type};
+//        var data = {profileId: profileId, fileName: name, fileType: file.type};
+        console.log("data.profileId is: " + data.profileId);
+        console.log("data.fileName is: " + data.fileName);
         $http({
             method: 'GET',
             url: '/aws/sign-s3',
             params: data
         }).then(function (response) {
+            console.log("Inside function");
+            console.log("response.data.signedRequest is: " + response.data.signedRequest);
             $http({
                 method: 'PUT',
                 url: response.data.signedRequest,
