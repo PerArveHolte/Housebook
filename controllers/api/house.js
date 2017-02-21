@@ -1,5 +1,3 @@
-//2017-02-15 Guri: Is any code in this file ever in use?
-
 var router = require('express').Router();
 
 var jwt = require('jwt-simple');
@@ -18,7 +16,7 @@ router.get('/:profileId', function (req, res, next) {
         console.log("Missing token");
         return res.sendStatus(401);
     }
-    console.log("req.params.profileId " + req.params.profileId);
+//    console.log("req.params.profileId " + req.params.profileId);
     House.findOne({"_id": ObjectId(req.params.profileId)})
             .populate({path: 'createdBy'})
             .populate({path: 'inhabitants'})
@@ -36,8 +34,8 @@ router.post('/:profileId', function (req, res, next) {
         console.log("Missing token");
         return res.sendStatus(401);
     }
-    console.log("Inside router.post");
-    console.log(req.params.profileId);
+//    console.log("Inside router.post");
+    console.log("House_id is: " +req.params.profileId);
 
     //The exec-function is executing query towards the database
     House.findOne({"_id": ObjectId(req.params.profileId)}).exec(function (err, house) {
@@ -55,6 +53,7 @@ router.post('/:profileId', function (req, res, next) {
             });
             console.log("Prepare img to save with house");
 
+
             if (req.body.isProfilePicture) {
                 picture.isProfilePicture = true;
                 house.profilePicture = picture;
@@ -65,18 +64,24 @@ router.post('/:profileId', function (req, res, next) {
             if(!req.body.isProfilePicture){
                 picture.isProfilePicture = false;
                 house.pictures[0] = picture;
-                console.log("Saving another picture");
+                house.backgroudPicture = picture;
+                console.log("\nSaving another picture");
+                console.log("House is: " +house);
+//                console.log("House.profilePicture is: "+house.profilePicture);
+//                console.log("house.pictures[0] is: "+house.pictures[0]);
+//                console.log("house.backgroudPicture is: "+house.backgroudPicture);
+                console.log("ObjectId(req.params.profileId) is: " +ObjectId(req.params.profileId));
             }
-            house.pictures[0] = picture;
-            house.backgroudPicture = picture;
             // End of Guri's struggles
 
+            // 2017-02-21 Guri: house.save saves to where?
             house.save(function (err) {
                 if (err)
                     return next(err);
-                console.log("Image saved");
+                console.log("\nImage saved");
+                console.log("House is: " +house);
+                console.log("ObjectId(req.params.profileId) is: " +ObjectId(req.params.profileId));
             });
-
         }
 
         return res.sendStatus(201);
