@@ -16,7 +16,7 @@ router.get('/:profileId', function (req, res, next) {
         console.log("Missing token");
         return res.sendStatus(401);
     }
-    console.log("req.params.profileId " + req.params.profileId);
+//    console.log("req.params.profileId " + req.params.profileId);
     House.findOne({"_id": ObjectId(req.params.profileId)})
             .populate({path: 'createdBy'})
             .populate({path: 'inhabitants'})
@@ -34,14 +34,14 @@ router.post('/:profileId', function (req, res, next) {
         console.log("Missing token");
         return res.sendStatus(401);
     }
-    console.log("Inside router.post");
-    console.log(req.params.profileId);
+//    console.log("Inside router.post");
+    console.log("House_id is: " +req.params.profileId);
 
     //The exec-function is executing query towards the database
     House.findOne({"_id": ObjectId(req.params.profileId)}).exec(function (err, house) {
         if (err)
             return next(err);
-        console.log("isProfilePicture " + req.body.isProfilePicture);
+//        console.log("isProfilePicture " + req.body.isProfilePicture);
 
         if (req.body.contentType) {
             console.log("create img object");
@@ -53,11 +53,12 @@ router.post('/:profileId', function (req, res, next) {
             });
             console.log("Prepare img to save with house");
 
-            if (req.body.isProfilePicture) {
+
+  //          if (req.body.isProfilePicture) {
                 picture.isProfilePicture = true;
                 house.profilePicture = picture;
                 console.log("Saving profile picture");
-            }
+ //           }
 
             //2017-02-19 Guri trying to add another picture to the database
             if(!req.body.isProfilePicture){
@@ -72,6 +73,7 @@ router.post('/:profileId', function (req, res, next) {
             }
             // End of Guri's struggles
 
+            // 2017-02-21 Guri: house.save saves to where?
             house.save(function (err) {
                 if (err)
                     return next(err);
