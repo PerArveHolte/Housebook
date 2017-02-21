@@ -11,6 +11,7 @@ vidom.controller('HouseCtlr', function ($scope, $rootScope, $location, HouseProf
 //            url: 'https://${S3_BUCKET_NAME}.s3.amazonaws.com/${fileName}',
         }else {
             houseProfile.thumbnail = "/img/defaultSmall.png";
+            console.log("No profile-picture");
         }
     });
 
