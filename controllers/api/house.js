@@ -52,18 +52,19 @@ router.post('/:profileId', function (req, res, next) {
                 uploadedBy: req.body.userId
             });
             console.log("Prepare img to save with house");
-
+            console.log("House is: " +house);
 
             if (req.body.isProfilePicture) {
                 picture.isProfilePicture = true;
                 house.profilePicture = picture;
-                console.log("Saving profile picture");
+                console.log("\nSaving profile picture");
+                console.log("House is: " +house);
             }
 
             //2017-02-19 Guri trying to add another picture to the database
             if(!req.body.isProfilePicture){
                 picture.isProfilePicture = false;
-                house.pictures[0] = picture;
+ //               house.pictures[0] = picture;
                 house.backgroudPicture = picture;
                 console.log("\nSaving another picture");
                 console.log("House is: " +house);
@@ -74,11 +75,9 @@ router.post('/:profileId', function (req, res, next) {
             }
             // End of Guri's struggles
 
-            // 2017-02-21 Guri: house.save saves to where?
-            house.save(function (err) {
+\            house.save(function (err) {
                 if (err)
                     return next(err);
-                console.log("\nImage saved");
                 console.log("House is: " +house);
                 console.log("ObjectId(req.params.profileId) is: " +ObjectId(req.params.profileId));
             });
@@ -91,7 +90,7 @@ router.post('/:profileId', function (req, res, next) {
 
 /*Create house profile*/
 router.post('/', function (req, res, next) {
-    console.log("Inside file: house.js, function: router.post");
+    console.log("\nInside file: house.js, function: router.post");
     if (!req.headers['x-auth'] || !req.headers['x-auth'].length) {
         return res.sendStatus(401);
     }
@@ -116,9 +115,9 @@ router.post('/', function (req, res, next) {
         ownership: req.body.ownership,
         address: address
     });
-
-    console.log("\nSending house with JSON.stringify(house):" + JSON.stringify(house));
-    debugger;
+    
+    console.log("\nhouse is created: "+house);
+    console.log("Sending house with JSON.stringify(house):" + JSON.stringify(house));
     User.findOne({username: auth.username}).exec(function (err, user) {
         house.createdBy = user._id;
         house.save(function (err) {
@@ -132,6 +131,8 @@ router.post('/', function (req, res, next) {
                 user.save();
             });
 
+            console.log("Res is: "+res);
+            console.log("house._id is: "+house._id);
             return res.send(house._id);
         });
     });
