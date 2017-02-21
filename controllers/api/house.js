@@ -1,5 +1,3 @@
-//2017-02-15 Guri: Is any code in this file ever in use?
-
 var router = require('express').Router();
 
 var jwt = require('jwt-simple');
@@ -43,7 +41,7 @@ router.post('/:profileId', function (req, res, next) {
     House.findOne({"_id": ObjectId(req.params.profileId)}).exec(function (err, house) {
         if (err)
             return next(err);
-//        console.log("isProfilePicture " + req.body.isProfilePicture);
+        console.log("isProfilePicture " + req.body.isProfilePicture);
 
         if (req.body.contentType) {
             console.log("create img object");
@@ -64,8 +62,11 @@ router.post('/:profileId', function (req, res, next) {
             //2017-02-19 Guri trying to add another picture to the database
             if(!req.body.isProfilePicture){
                 picture.isProfilePicture = false;
-                house.pictures[0] = picture;
                 console.log("Saving another picture");
+                console.log("House is: " +house);
+                console.log("House.profilePicture is: "+house.profilePicture);
+                console.log("house.pictures[0] is: "+house.pictures[0]);
+                house.pictures[0] = picture;
             }
             house.pictures[0] = picture;
             house.backgroudPicture = picture;
@@ -76,7 +77,6 @@ router.post('/:profileId', function (req, res, next) {
                     return next(err);
                 console.log("Image saved");
             });
-
         }
 
         return res.sendStatus(201);
