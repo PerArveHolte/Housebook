@@ -51,12 +51,12 @@ router.post('/:profileId', function (req, res, next) {
                 uploaded: new Date(),
                 uploadedBy: req.body.userId
             });
-            console.log("\nPrepare img to save with house");
-            console.log("House is: " +house);
-            console.log("The theory is that profilePicture does not exist in house document yet");
-            console.log("house.profilePicture is: "+house.profilePicture);
 
             if (req.body.isProfilePicture) {
+                console.log("\nPrepare img to save with house");
+                console.log("House is: " +house);
+                console.log("The theory is that profilePicture does not exist in house document yet");
+                console.log("house.profilePicture is: "+house.profilePicture);
                 picture.isProfilePicture = true;
                 house.profilePicture = picture;
                 console.log("\nSaving profile picture");
@@ -68,12 +68,12 @@ router.post('/:profileId', function (req, res, next) {
                 picture.isProfilePicture = false;
  //               house.pictures[0] = picture;
                 house.backgroudPicture = picture;
-                console.log("\nSaving another picture");
-                console.log("House is: " +house);
+//                console.log("\nSaving another picture");
+//                console.log("House is: " +house);
 //                console.log("House.profilePicture is: "+house.profilePicture);
 //                console.log("house.pictures[0] is: "+house.pictures[0]);
 //                console.log("house.backgroudPicture is: "+house.backgroudPicture);
-                console.log("ObjectId(req.params.profileId) is: " +ObjectId(req.params.profileId));
+//                console.log("ObjectId(req.params.profileId) is: " +ObjectId(req.params.profileId));
             }
             // End of Guri's struggles
 
