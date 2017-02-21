@@ -15,47 +15,37 @@ vidom.service('HouseProfileSvc', function ($q, $http) {
     };
     
     obj.savePicture = function (profileId, name, type, file, isProfilePicture, createdBy) {
-        console.log("Inside obj.savePicture");
-        console.log("profileId is: " + profileId);
-        console.log("name is: " + name);
-        console.log("type is: " + type);
-//        console.log("file is: " + file);
-        console.log("file.type is: " + file.type);
-//        console.log("isProfilePicture is: " + isProfilePicture);
-//        console.log("createdBy is: " + createdBy);
         var defer = $q.defer();
-        console.log("defer is: " + defer);
         var data = {profileId: profileId, fileName: name, fileType: file.type}; //2017-02-19 Guri: The file.type variable seems to be empty.
-        console.log("data.profileId is: " + data.profileId);
-        console.log("data.fileName is: " + data.fileName);
-        console.log("data.fileType is: " + data.fileType);
+        
+        /* Guri's assumption: Gets the address from S3 where the image shall be put 
+         * Guri thinks the statement "url: '/aws/sign-s3'" refers to file api/aws.js, function router.get('/sign-s3' [...])*/
         $http({
             method: 'GET',
             url: '/aws/sign-s3',
             params: data
         }).then(function (response) {
-            console.log("Inside function");
-            console.log("response is: "+ response);
-            console.log("response.data is: " + response.data);
-            console.log("response.data.signedRequest is: " + response.data.signedRequest);
-            console.log("response.status is: " + response.status);
             
-            console.log("file is: " + file);
+            /* Guri's assumption: Puts image into s3 bucket */
             $http({
                 method: 'PUT',
                 url: response.data.signedRequest,
                 data: file,
                 headers: {'Content-type': file.type}
             }).then(function (uploadResponse) {
-                console.log("Successfully put something somewhere..");
+                console.log("\nSuccessfully put something somewhere..");
+                console.log("houseId is: "+ profileId);
+               
                 var payload = {fileName: name, contentType: type, isProfilePicture: isProfilePicture, userId: createdBy};
-
+              
+                /* Guri's assumption: Puts path to image into mongoDB 
+                * Guri thinks the statement "$http.post('/house/' + profileId [...]" refers to file api/house.js, function router.post('/:profileId', [...])*/
                 $http.post('/house/' + profileId, JSON.stringify(payload));
                 defer.resolve(uploadResponse);
 
             }, function (err) {
                 defer.reject(err);
-                console.log("Inside error");
+                console.log("Inside error1");
             });
 
         }, function (err) {

@@ -36,12 +36,14 @@ router.post('/:profileId', function (req, res, next) {
         console.log("Missing token");
         return res.sendStatus(401);
     }
+    console.log("Inside router.post");
     console.log(req.params.profileId);
 
+    //The exec-function is executing query towards the database
     House.findOne({"_id": ObjectId(req.params.profileId)}).exec(function (err, house) {
         if (err)
             return next(err);
-        console.log("isProfilePicture " + req.body.isProfilePicture);
+//        console.log("isProfilePicture " + req.body.isProfilePicture);
 
         if (req.body.contentType) {
             console.log("create img object");
@@ -59,6 +61,16 @@ router.post('/:profileId', function (req, res, next) {
                 console.log("Saving profile picture");
             }
 
+            //2017-02-19 Guri trying to add another picture to the database
+            if(!req.body.isProfilePicture){
+                picture.isProfilePicture = false;
+                house.pictures[0] = picture;
+                console.log("Saving another picture");
+            }
+            house.pictures[0] = picture;
+            house.backgroudPicture = picture;
+            // End of Guri's struggles
+
             house.save(function (err) {
                 if (err)
                     return next(err);
@@ -71,8 +83,10 @@ router.post('/:profileId', function (req, res, next) {
     });
 });
 
+
 /*Create house profile*/
 router.post('/', function (req, res, next) {
+    console.log("Inside file: house.js, function: router.post");
     if (!req.headers['x-auth'] || !req.headers['x-auth'].length) {
         return res.sendStatus(401);
     }
@@ -84,9 +98,9 @@ router.post('/', function (req, res, next) {
         street2: req.body.address.street2,
         postalCode: req.body.address.postalCode,
         city: req.body.address.city,
-/* 2017-02-06 Guri commented this out as state is not relevant for Norway
-        state: req.body.address.state,
-        */
+// 2017-02-06 Guri commented this out as state is not relevant for Norway 
+        //state: req.body.address.state,
+        
         country: req.body.address.country
     });
 
@@ -165,11 +179,11 @@ router.put('/:profileId', function (req, res, next) {
             if (!helper.objectsAreTheSame(req.body.address.city, house.address.city)) {
                 house.address.city = req.body.address.city;
             }
-/* 2017-02-05 Guri commented out "state" for now.
-            if (!helper.objectsAreTheSame(req.body.address.state, house.address.state)) {
-                house.address.state = req.body.address.state;
-            }
-*/
+// 2017-02-05 Guri commented out "state" for now.
+//            if (!helper.objectsAreTheSame(req.body.address.state, house.address.state)) {
+//                house.address.state = req.body.address.state;
+//            }
+
             if (!helper.objectsAreTheSame(req.body.address.country, house.address.country)) {
                 house.address.country = req.body.address.country;
             }
