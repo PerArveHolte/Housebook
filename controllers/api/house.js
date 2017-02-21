@@ -41,7 +41,7 @@ router.post('/:profileId', function (req, res, next) {
     House.findOne({"_id": ObjectId(req.params.profileId)}).exec(function (err, house) {
         if (err)
             return next(err);
-//        console.log("isProfilePicture " + req.body.isProfilePicture);
+        console.log("req.body.contentType is: " + req.body.contentType);
 
         if (req.body.contentType) {
             console.log("create img object");
@@ -117,7 +117,8 @@ router.post('/', function (req, res, next) {
         address: address
     });
 
-    console.log(JSON.stringify(house));
+    console.log("\nSending house with JSON.stringify(house):" + JSON.stringify(house));
+    debugger;
     User.findOne({username: auth.username}).exec(function (err, user) {
         house.createdBy = user._id;
         house.save(function (err) {
