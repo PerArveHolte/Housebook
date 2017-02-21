@@ -80,8 +80,8 @@ router.post('/:profileId', function (req, res, next) {
             house.save(function (err) {
                 if (err)
                     return next(err);
-                console.log("House is: " +house);
-                console.log("ObjectId(req.params.profileId) is: " +ObjectId(req.params.profileId));
+//                console.log("House is: " +house);
+//                console.log("ObjectId(req.params.profileId) is: " +ObjectId(req.params.profileId));
             });
         }
 
