@@ -62,14 +62,14 @@ router.post('/:profileId', function (req, res, next) {
             //2017-02-19 Guri trying to add another picture to the database
             if(!req.body.isProfilePicture){
                 picture.isProfilePicture = false;
+                house.pictures[0] = picture;
+                house.backgroudPicture = picture;
                 console.log("Saving another picture");
                 console.log("House is: " +house);
                 console.log("House.profilePicture is: "+house.profilePicture);
                 console.log("house.pictures[0] is: "+house.pictures[0]);
-                house.pictures[0] = picture;
+                console.log("house.backgroudPicture is: "+house.backgroudPicture);
             }
-            house.pictures[0] = picture;
-            house.backgroudPicture = picture;
             // End of Guri's struggles
 
             house.save(function (err) {
