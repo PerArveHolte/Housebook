@@ -75,7 +75,7 @@ router.post('/:profileId', function (req, res, next) {
             }
             // End of Guri's struggles
 
-\            house.save(function (err) {
+            house.save(function (err) {
                 if (err)
                     return next(err);
                 console.log("House is: " +house);
