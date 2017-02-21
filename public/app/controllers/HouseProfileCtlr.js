@@ -2,7 +2,7 @@
 vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeParams, HouseProfileSvc, ImageFctr, $location) {
 
     var profilePictureCanvas = null, ctx = null, img = null;
-    var pictureCanvas = null;
+//    var pictureCanvas = null;
 
     $scope.partial = $routeParams.partial;
     $scope.profileId = $routeParams.id;

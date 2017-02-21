@@ -39,6 +39,7 @@ router.post('/:profileId', function (req, res, next) {
     console.log("Inside router.post");
     console.log(req.params.profileId);
 
+    //The exec-function is executing query towards the database
     House.findOne({"_id": ObjectId(req.params.profileId)}).exec(function (err, house) {
         if (err)
             return next(err);
