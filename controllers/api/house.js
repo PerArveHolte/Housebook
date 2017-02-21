@@ -54,13 +54,13 @@ router.post('/:profileId', function (req, res, next) {
 
             if (req.body.isProfilePicture) {
                 console.log("\nPrepare img to save with house");
+                console.log("\n\nThe theory is that profilePicture does not exist in house document yet");
                 console.log("House is: " +house);
-                console.log("The theory is that profilePicture does not exist in house document yet");
                 console.log("house.profilePicture is: "+house.profilePicture);
                 picture.isProfilePicture = true;
                 house.profilePicture = picture;
                 house.backgroudPicture = picture;
-                console.log("\nSaving profile picture");
+                console.log("\n\nSaving profile picture");
                 console.log("House is: " +house);
             }
 
