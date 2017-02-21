@@ -76,7 +76,9 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         } else {
             pic = $scope.profile.profilePicture.path;
         }
-        img.src = $scope.profile.profilePicture ? 'https://vidomtestbucket.s3.amazonaws.com/' + $scope.profileId + '/400x300/' + pic : '/img/default.png';
+        img.src = $scope.profile.profilePicture ? 'https://${S3_BUCKET_NAME}.s3.amazonaws.com/' + $scope.profileId + '/400x300/' + pic : '/img/default.png';
+//        img.src = $scope.profile.profilePicture ? 'https://vidomtestbucket.s3.amazonaws.com/' + $scope.profileId + '/400x300/' + pic : '/img/default.png';
+
     };
 
     //load on start
