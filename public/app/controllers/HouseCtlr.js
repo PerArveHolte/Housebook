@@ -3,6 +3,7 @@ vidom.controller('HouseCtlr', function ($scope, $rootScope, $location, HouseProf
     $scope.houses = $rootScope.user ? $rootScope.user.createdHouseProfile : [];
     angular.forEach($scope.houses, function(houseProfile){
         if (houseProfile.ref && houseProfile.ref.profilePicture){
+            console.log("HouseCtlr. $S3_BUCKET_NAME is: ${S3_BUCKET_NAME}"+ $S3_BUCKET_NAME);
             houseProfile.thumbnail = "https://${S3_BUCKET_NAME}.s3.amazonaws.com/"+houseProfile.ref.profilePicture.path;
 //            houseProfile.thumbnail = "https://vidomtestbucket.s3.amazonaws.com/"+houseProfile.ref.profilePicture.path;
 //            url: 'https://${S3_BUCKET_NAME}.s3.amazonaws.com/${fileName}',
