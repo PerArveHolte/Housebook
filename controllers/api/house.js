@@ -54,22 +54,23 @@ router.post('/:profileId', function (req, res, next) {
             console.log("Prepare img to save with house");
 
 
-  //          if (req.body.isProfilePicture) {
+            if (req.body.isProfilePicture) {
                 picture.isProfilePicture = true;
                 house.profilePicture = picture;
                 console.log("Saving profile picture");
- //           }
+            }
 
             //2017-02-19 Guri trying to add another picture to the database
             if(!req.body.isProfilePicture){
                 picture.isProfilePicture = false;
                 house.pictures[0] = picture;
                 house.backgroudPicture = picture;
-                console.log("Saving another picture");
+                console.log("\nSaving another picture");
                 console.log("House is: " +house);
-                console.log("House.profilePicture is: "+house.profilePicture);
-                console.log("house.pictures[0] is: "+house.pictures[0]);
-                console.log("house.backgroudPicture is: "+house.backgroudPicture);
+//                console.log("House.profilePicture is: "+house.profilePicture);
+//                console.log("house.pictures[0] is: "+house.pictures[0]);
+//                console.log("house.backgroudPicture is: "+house.backgroudPicture);
+                console.log("ObjectId(req.params.profileId) is: " +ObjectId(req.params.profileId));
             }
             // End of Guri's struggles
 
@@ -77,7 +78,9 @@ router.post('/:profileId', function (req, res, next) {
             house.save(function (err) {
                 if (err)
                     return next(err);
-                console.log("Image saved");
+                console.log("\nImage saved");
+                console.log("House is: " +house);
+                console.log("ObjectId(req.params.profileId) is: " +ObjectId(req.params.profileId));
             });
         }
 
