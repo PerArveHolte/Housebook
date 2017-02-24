@@ -4,14 +4,9 @@ vidom.controller('HouseCtlr', function ($scope, $rootScope, $location, HouseProf
     angular.forEach($scope.houses, function(houseProfile){
         if (houseProfile.ref && houseProfile.ref.profilePicture){
             console.log("\nProfile picture");
-//            console.log("HouseCtlr. s3Params.bucket is: "+ process.env.S3_BUCKET_NAME);
-//            console.log("houseProfile.thumbnail url is: "+ "https://"+process.env.S3_BUCKET_NAME+"/"+houseProfile.ref.profilePicture.path);
-//            var text = "https://"+process.env.S3_BUCKET_NAME+"/"+houseProfile.ref.profilePicture.path;
-//            houseProfile.thumbnail = text;
             houseProfile.thumbnail = "https://vidomtestbucket.s3.amazonaws.com/"+houseProfile.ref.profilePicture.path;
         }else {
             houseProfile.thumbnail = "/img/defaultSmall.png";
-//            console.log("No profile-picture");
         }
     });
 
