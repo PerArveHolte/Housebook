@@ -7,8 +7,8 @@
     Author     : Kamila Przychodzen <kamila.przychodzen@gmail.com>
 */
 .house-profile h2 {
-  font: 400 3.5em/1.1em "Scada", sans-serif;
-  color: #e0474c;
+  font: 400 3.5em/1.1em "Open Sans", sans-serif;
+  color: #CC00CC;
 }
 .house-profile .left-side .nav {
   background-color: white;
@@ -55,7 +55,7 @@
 }
 .house-profile .house-profile-picture .edit-profile-picture a {
   padding: 10px 10px 0 0;
-  color: #7acfd6;
+  color: #333333;
   text-decoration: none;
 }
 .house-profile .house-profile-picture #house-profile-canvas {
