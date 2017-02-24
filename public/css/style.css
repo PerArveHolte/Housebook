@@ -75,9 +75,8 @@ nav .navbar-form button {
   padding: 0px;
   background-image: url('/images/Vidom_Logo_Farge.png');
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: 10% 50%;
   background-size: 800px;
+  background-position: 10% 50%;
 }
 .marketing {
   text-align: center;
