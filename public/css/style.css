@@ -18,7 +18,7 @@ a:hover {
   text-decoration: none;
 }
 a.red {
-  color: #b11a21;
+  color: #333333;
 }
 footer {
   background-color: #f1f0ee;
@@ -32,12 +32,12 @@ nav {
   text-align: center;
 }
 nav .navbar-brand {
-  color: #b11a21 !important;
+  color: #333333 !important;
   font-weight: bolder;
   font-size: 28px;
 }
 nav .navbar-text {
-  color: #b11a21 !important;
+  color: #333333 !important;
 }
 nav .navbar-form {
   border: none;
@@ -115,7 +115,7 @@ nav .navbar-form button {
 .houses-grid .house-space-on-grid div.lead,
 .houses-grid .house-space-on-grid a {
   padding: 10px 10px 0px 10px;
-  color: #b11a21;
+  color: #333333;
   font-family: "Scada";
 }
 .houses-grid .house-space-on-grid .pull-right > .dropdown-menu {
