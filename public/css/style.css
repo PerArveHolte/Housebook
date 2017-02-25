@@ -18,7 +18,7 @@ a:hover {
   text-decoration: none;
 }
 a.red {
-  color: #b11a21;
+  color: #333333;
 }
 footer {
   background-color: #f1f0ee;
@@ -32,21 +32,21 @@ nav {
   text-align: center;
 }
 nav .navbar-brand {
-  color: #b11a21 !important;
+  color: #333333 !important;
   font-weight: bolder;
   font-size: 28px;
 }
 nav .navbar-text {
-  color: #b11a21 !important;
+  color: #333333 !important;
 }
 nav .navbar-form {
   border: none;
 }
 nav .navbar-form button {
-  background-color: #e0474c;
+  background-color: #CC00CC;
 }
 #logo {
-  background-image: url(../..//images/logo_tett.png);
+  background-image: url(../..//images/Vidom_Logo_Farge.png);
   height: 100px;
   background-size: auto 90%;
   background-position: 43% 100%;
@@ -61,32 +61,32 @@ nav .navbar-form button {
   background-color: white;
 }
 .form-login input {
-  border-color: #D3E9EC;
+  border-color: #CC00CC;
 }
 .form-login h2 {
-  color: #6c6457;
+  color: #CC00CC;
   text-transform: uppercase;
 }
 .form-login button {
-  background-color: #e0474c;
+  background-color: #CC00CC;
   color: white;
 }
 .main-container {
   padding: 0px;
-  background-image: url('/images/logo_firkant.png');
+  background-image: url('/images/Vidom_Logo_Farge.png');
   background-repeat: no-repeat;
-  background-size: contain;
-  background-position: 20% 50%;
+  background-size: 800px;
+  background-position: 10% 50%;
 }
 .marketing {
   text-align: center;
 }
 .marketing .heading {
-  color: #e0474c;
+  color: #CC00CC;
   text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5), 0px -1px 0px rgba(0, 0, 0, 0.5);
 }
 .marketing .marketing-tag {
-  color: #e0474c;
+  color: #CC00CC;
   text-shadow: 0px 1px 0px #f1f0ee, 0px -1px 0px #fc4a1a;
   line-height: 30px;
   font-size: 26px;
@@ -95,7 +95,7 @@ nav .navbar-form button {
 .marketing .marketing-description {
   padding: 10px;
   text-align: justify;
-  color: #6c6457;
+  color: #CC00CC;
 }
 .houses-grid {
   display: block;
@@ -115,14 +115,14 @@ nav .navbar-form button {
 .houses-grid .house-space-on-grid div.lead,
 .houses-grid .house-space-on-grid a {
   padding: 10px 10px 0px 10px;
-  color: #b11a21;
+  color: #333333;
   font-family: "Scada";
 }
 .houses-grid .house-space-on-grid .pull-right > .dropdown-menu {
   right: -180px;
 }
 .modal .modal-header {
-  background-color: #e0474c;
+  background-color: #CC00CC;
   color: white;
   text-align: center;
 }
