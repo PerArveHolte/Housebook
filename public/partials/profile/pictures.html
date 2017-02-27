@@ -7,7 +7,8 @@
     <div ng-if="!pictureSectionIsEditing">
         <div class='col-md-2'>ProfilePicture</div>
         <div class='col-md-10' ng-if="!profile.profilePicture"><img src="../../images/house-default.jpg" alt="Default house picture"></div>
-        <div class='col-md-10' ng-if="profile.profilePicture"><img src="https://${S3_BUCKET_NAME}.s3.amazonaws.com/{{profile.profilePicture.path}}" alt="Default house picture"></div>
+        <div class='col-md-10' ng-if="profile.profilePicture"><img src="https://vidomtestbucket.s3.amazonaws.com/{{profile.profilePicture.path}}" alt="Default house picture"></div>
+                <canvas class="center-block" id="house-profile-canvas" style=""></canvas>
         <div class='col-md-2'>BackgroundPicture</div>
         <div class='col-md-10' ng-if="!profile.backgroundPicture"><img src="../../images/house-default.jpg" alt="Default house picture"></div>
         <div class='col-md-10' ng-if="profile.backgroundPicture"><img src="https://${S3_BUCKET_NAME}.s3.amazonaws.com/{{profile.backgroundPicture.path}}" alt="Default house picture"></div><br>
