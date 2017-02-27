@@ -10,7 +10,7 @@
         <div class='col-md-10' ng-if="profile.profilePicture"><img src="https://${S3_BUCKET_NAME}.s3.amazonaws.com/{{profile.profilePicture.path}}" alt="Default house picture"></div>
         <div class='col-md-2'>BackgroundPicture</div>
         <div class='col-md-10' ng-if="!profile.backgroundPicture"><img src="../../images/house-default.jpg" alt="Default house picture"></div>
-        <div class='col-md-10' ng-if="profile.pictures[0]"><img src="https://${S3_BUCKET_NAME}.s3.amazonaws.com/{{profile.pictures[0].path}}" alt="Default house picture"></div><br>
+        <div class='col-md-10' ng-if="profile.backgroundPicture"><img src="https://${S3_BUCKET_NAME}.s3.amazonaws.com/{{profile.backgroundPicture.path}}" alt="Default house picture"></div><br>
         
 <!--        <div ng-repeat="picture in pictures" class=""> <!- - ng-click="editPicture(profile.pictures[i])"> -->
 <!--        </div>
