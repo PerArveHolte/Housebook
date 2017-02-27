@@ -62,6 +62,7 @@ router.post('/:profileId', function (req, res, next) {
                 house.backgroudPicture = picture;
                 console.log("\n\nSaving profile picture");
                 console.log("House is: " +house);
+                db.house.insert([{"name":"Guris test background picture house", "backgroundPicture":picture}]);
             }
 
             //2017-02-19 Guri trying to add another picture to the database
