@@ -98,8 +98,6 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
             profilePictureCanvas.height = H;
             ctx.drawImage(img, 0, 0); //draw image
         };
-        
-        
     });
 
     $scope.addInhabitant = function (firstName, lastName, email, sendInvitation) {
@@ -175,8 +173,6 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
                 break;
         }
     };
-
-//2017-02-08: Guri: This function must be created
 
 $scope.cancelEditingSection = function () {
         switch ($scope.editingSectionId) {
