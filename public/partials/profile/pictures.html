@@ -20,16 +20,22 @@
                 <img src="https://vidomtestbucket.s3.amazonaws.com/{{profile.backgroundPicture.path}}" alt="Default house picture">
                 </a>
             </div>
+            <div class="col-xs-6 col-md-3">
+                <a href="#" class="thumbnail">
+                <img src="https://vidomtestbucket.s3.amazonaws.com/{{profile.picture[0].path}}" alt="Default house picture">
+                </a>
+            </div>
         </div>
 
-        <!-- 2017-02-28 Guri to change the code to "picture in pictures" or similar -->
+        <!-- 2017-02-28 Guri to change the code to "picture in pictures" or similar 
         <div ng-repeat="picture in pictures" class="row"> <!-- 2017-02-28 Guri: Include what to do when the user clicks a picture here
-                                                          ng-click="openPicture(house.ref._id)"> -->
+                                                          ng-click="openPicture(house.ref._id)"> 
             <div class="col-xs-6 col-md-3" >
                 <img ng-if="!profile.backgroundPicture" src="../images/house-default.jpg" alt="Default house picture" class="center-block">
                 <img ng-show="profile.backgroundPicture" id="userImg" ng-src="{{profile.backgroundPicture}}" class="center-block">
             </div>
         </div>
+        -->
         
 <!--        <div ng-repeat="picture in pictures" class=""> <!- - ng-click="editPicture(profile.pictures[i])"> -->
 <!--        </div>
