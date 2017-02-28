@@ -28,5 +28,5 @@ vidom.controller('HouseCtlr', function ($scope, $rootScope, $location, HouseProf
     $scope.openHouseProfile=function(id){
         return $location.path('/house/'+id);
     };
-
+    
 });
