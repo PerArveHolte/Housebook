@@ -8,14 +8,16 @@
         <div class='col-md-2'>ProfilePicture</div>
         <div class='col-md-10' ng-if="!profile.profilePicture"><img src="../../images/house-default.jpg" alt="Default house picture"></div>
         <div class='col-md-10' ng-if="profile.profilePicture"><img src="https://vidomtestbucket.s3.amazonaws.com/{{profile.profilePicture.path}}" alt="Default house picture"></div>
-        <div class='col-md-2'>BackgroundPicture (hard-coded)</div>
-        <div class='col-md-10' ng-if="!profile.backgroundPicture"><img src="../../images/house-default.jpg" alt="Default house picture"></div>
-        <div class='col-md-10' ng-if="profile.backgroundPicture"><img src="https://vidomtestbucket.s3.amazonaws.com/{{profile.backgroundPicture.path}}" alt="Default house picture"></div><br>
     
         <div class="row">
             <div class="col-xs-6 col-md-3">
                 <a href="#" class="thumbnail">
-                <img src="https://vidomtestbucket.s3.amazonaws.com/{{profile.pictures[0].path}}" alt="Default house picture">
+                <img src="https://vidomtestbucket.s3.amazonaws.com/{{profile.profilePicture.path}}" alt="Default house picture">
+                </a>
+            </div>
+            <div class="col-xs-6 col-md-3">
+                <a href="#" class="thumbnail">
+                <img src="https://vidomtestbucket.s3.amazonaws.com/{{profile.backgroundPicture.path}}" alt="Default house picture">
                 </a>
             </div>
         </div>
@@ -24,8 +26,8 @@
         <div ng-repeat="picture in pictures" class="row"> <!-- 2017-02-28 Guri: Include what to do when the user clicks a picture here
                                                           ng-click="openPicture(house.ref._id)"> -->
             <div class="col-xs-6 col-md-3" >
-                <img ng-if="!house.thumbnail" src="../images/house-default.jpg" alt="Default house picture" class="center-block">
-                <img ng-show="house.thumbnail" id="userImg" ng-src="{{house.thumbnail}}" class="center-block">
+                <img ng-if="!profile.backgroundPicture" src="../images/house-default.jpg" alt="Default house picture" class="center-block">
+                <img ng-show="profile.backgroundPicture" id="userImg" ng-src="{{profile.backgroundPicture}}" class="center-block">
             </div>
         </div>
         
