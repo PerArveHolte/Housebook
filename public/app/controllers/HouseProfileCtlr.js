@@ -41,7 +41,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
 
 //2017-02-18 Guri: Todo: Rename this function to "saveProfilePicture" and create another one for saving of other pictures
     $scope.savePicture = function () {
-
+        console.log("Inside savePicture");
 //2017-02-13 Guri: Was wondering if it would be better to send the file as an argument rather then finding it here..
         var file = document.getElementById('file').files[0];
 
@@ -59,6 +59,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
             HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, userId);
         });
 
+        console.log("Finished saving three versions of the photo. Next: closing the modal");
 //2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
         $('#profilePictureModal').modal('hide');
     };
@@ -97,8 +98,6 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
             profilePictureCanvas.height = H;
             ctx.drawImage(img, 0, 0); //draw image
         };
-        
-        
     });
 
     $scope.addInhabitant = function (firstName, lastName, email, sendInvitation) {
@@ -174,8 +173,6 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
                 break;
         }
     };
-
-//2017-02-08: Guri: This function must be created
 
 $scope.cancelEditingSection = function () {
         switch ($scope.editingSectionId) {

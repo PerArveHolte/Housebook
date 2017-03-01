@@ -24,21 +24,33 @@ vidom.config(function ($routeProvider, $locationProvider, cfpLoadingBarProvider,
                     }
                 }
             })
-            .when('/house/create', {controller: 'HouseCtlr', templateUrl: 'partials/createHouseProfile.html', resolve: {
+            .when('/house/create', {
+                controller: 'HouseCtlr', 
+                templateUrl: 'partials/createHouseProfile.html', 
+                resolve: {
                     auth: function (AuthSvc, $rootScope, $location) {
                         revalidateSession(AuthSvc, $rootScope, $location, false);
                     }
-            }})
-            .when('/house/:id/:partial?', {controller: 'HouseCtlr', templateUrl: 'partials/houseProfile.html', resolve: {
+                }
+            })
+            .when('/house/:id/:partial?', {
+                controller: 'HouseCtlr', 
+                templateUrl: 'partials/houseProfile.html', 
+                resolve: {
                     auth: function (AuthSvc, $rootScope, $location) {
                         revalidateSession(AuthSvc, $rootScope, $location, false);
                     }
-                }})
-            .when('/house', {controller: 'HouseCtlr', templateUrl: 'partials/houseSplashScreen.html', resolve: {
+                }
+            })
+            .when('/house', {
+                controller: 'HouseCtlr', 
+                templateUrl: 'partials/houseSplashScreen.html', 
+                resolve: {
                     auth: function (AuthSvc, $rootScope, $location) {
                         revalidateSession(AuthSvc, $rootScope, $location, false);
                     }
-                }})
+                }
+            })
             .when('/user/change-password/:token?', {controller: 'LoginCtlr', templateUrl: 'partials/forms/account/changePassword.html'})
     //2017-02-18 Guri lurer paa hvorfor controller i linja under er "HouseCtlr" og ikke "MainCtrl"
             .when('/user/reset-password', {controller: 'HouseCtlr', templateUrl: 'partials/forms/account/resetPassword.html'})
