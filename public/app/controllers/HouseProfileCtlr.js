@@ -39,30 +39,6 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         }
     };
 
-//2017-02-18 Guri: Todo: Rename this function to "saveProfilePicture" and create another one for saving of other pictures
-    $scope.savePicture = function () {
-        console.log("Inside savePicture");
-//2017-02-13 Guri: Was wondering if it would be better to send the file as an argument rather then finding it here..
-        var file = document.getElementById('file').files[0];
-
-        var img200x150URI = dataURItoBlob($scope.img200x150URI);
-        var img400x300URI = dataURItoBlob($scope.img400x300URI);
-        var img600x400URI = dataURItoBlob($scope.img600x400URI);
-
-        var houseId = $routeParams.id;
-        var userId = $rootScope.user._id;
-        
-        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, userId).then(function () {
-
-            img.setAttribute("src", $scope.img400x300URI); //load the image up into the modal to be shown to the user.
-            HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, userId);
-            HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, userId);
-        });
-
-//        console.log("Finished saving three versions of the photo. Next: closing the modal");
-//2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
-        $('#profilePictureModal').modal('hide');
-    };
 
     function loadThumbnail() {
         var pic = null;
@@ -193,6 +169,58 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         default:
                 break;
         }
+    };
+
+
+//2017-02-18 Guri: Todo: Rename this function to "saveProfilePicture" and create another one for saving of other pictures
+    $scope.savePicture = function () {
+        console.log("Inside savePicture()");
+//2017-02-13 Guri: Was wondering if it would be better to send the file as an argument rather then finding it here..
+        var file = document.getElementById('file').files[0];
+
+        var img200x150URI = dataURItoBlob($scope.img200x150URI);
+        var img400x300URI = dataURItoBlob($scope.img400x300URI);
+        var img600x400URI = dataURItoBlob($scope.img600x400URI);
+
+        var houseId = $routeParams.id;
+        var userId = $rootScope.user._id;
+        
+        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, -1, userId).then(function () {
+
+            img.setAttribute("src", $scope.img400x300URI); //load the image up into the modal to be shown to the user.
+            HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, -1, userId);
+            HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, -1, userId);
+        });
+
+//        console.log("Finished saving three versions of the photo. Next: closing the modal");
+//2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
+        $('#profilePictureModal').modal('hide');
+    };
+
+
+//2017-03-01 Guri: Start of hardcoding the ten pictures. This has to be done differently in the future.
+    $scope.savePicture0 = function () {
+        console.log("Inside savePicture0");
+//2017-02-13 Guri: Was wondering if it would be better to send the file as an argument rather then finding it here..
+        var file = document.getElementById('file').files[0];
+
+        var img200x150URI = dataURItoBlob($scope.img200x150URI);
+        var img400x300URI = dataURItoBlob($scope.img400x300URI);
+        var img600x400URI = dataURItoBlob($scope.img600x400URI);
+
+        var houseId = $routeParams.id;
+        var userId = $rootScope.user._id;
+        
+        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), false, 0, userId).then(function () {
+
+            img.setAttribute("src", $scope.img400x300URI); //load the image up into the modal to be shown to the user.
+            HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, 0, userId);
+            HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, 0, userId);
+        });
+
+//        console.log("Finished saving three versions of the photo. Next: closing the modal");
+//2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
+        $('#addPictureModal').modal('hide');
     };
 
 });

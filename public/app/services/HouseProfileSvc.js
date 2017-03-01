@@ -13,8 +13,9 @@ vidom.service('HouseProfileSvc', function ($q, $http) {
 
         return defer.promise;
     };
-    
-    obj.savePicture = function (profileId, name, type, file, isProfilePicture, createdBy) {
+
+    //2017-03-01 Guri added number value "pictureNo", where 0 - 9 are reserved for the 0 - 9 pictures. The profile picture has value -1.
+    obj.savePicture = function (profileId, name, type, file, isProfilePicture, pictureNo, createdBy) {
         var defer = $q.defer();
         var data = {profileId: profileId, fileName: name, fileType: file.type}; //2017-02-19 Guri: The file.type variable seems to be empty.
         
