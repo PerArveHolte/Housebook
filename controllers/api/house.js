@@ -53,11 +53,16 @@ router.post('/:profileId', function (req, res, next) {
             if (req.body.isProfilePicture) {
                 picture.isProfilePicture = true;
                 house.profilePicture = picture;
-                house.backgroundPicture = picture;
             }
 
             //2017-02-19 Guri trying to add another picture to the database
             if(!req.body.isProfilePicture){
+                house.backgroundPicture = picture;
+            }
+            
+            console.log("\nReq.body.pictureNo is: "+req.body.pictureNo +"\n");
+            if(req.body.pictureNo === 0){
+                house.pictures[0] = picture;
             }
             // End of Guri's struggles
 

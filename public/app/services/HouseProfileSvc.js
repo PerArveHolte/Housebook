@@ -46,12 +46,10 @@ vidom.service('HouseProfileSvc', function ($q, $http) {
 
             }, function (err) {
                 defer.reject(err);
-                console.log("Inside error1");
             });
 
         }, function (err) {
             defer.reject(err);
-            console.log("Inside error2");
         });
 
         return defer.promise;
