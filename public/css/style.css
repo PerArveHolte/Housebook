@@ -8,17 +8,17 @@ body {
   font-size: 12pt;
   padding-bottom: 70px;
   background-color: #f1f0ee;
-  color: black;
+  color: #333333;
 }
 a,
-.clicable {
+.clickable {
   cursor: pointer;
 }
 a:hover {
   text-decoration: none;
 }
 a.red {
-  color: #333333;
+  color: #CC00CC;
 }
 footer {
   background-color: #f1f0ee;
@@ -61,10 +61,10 @@ nav .navbar-form button {
   background-color: white;
 }
 .form-login input {
-  border-color: #CC00CC;
+  border-color: #D3E9EC;
 }
 .form-login h2 {
-  color: #CC00CC;
+  color: #6c6457;
   text-transform: uppercase;
 }
 .form-login button {
@@ -75,18 +75,18 @@ nav .navbar-form button {
   padding: 0px;
   background-image: url('/images/Vidom_Logo_Farge.png');
   background-repeat: no-repeat;
-  background-size: 800px;
-  background-position: 10% 50%;
+  background-size: contain;
+  background-position: 20% 50%;
 }
 .marketing {
   text-align: center;
 }
 .marketing .heading {
-  color: #CC00CC;
+  color: #e0474c;
   text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5), 0px -1px 0px rgba(0, 0, 0, 0.5);
 }
 .marketing .marketing-tag {
-  color: #CC00CC;
+  color: #e0474c;
   text-shadow: 0px 1px 0px #f1f0ee, 0px -1px 0px #fc4a1a;
   line-height: 30px;
   font-size: 26px;
@@ -95,7 +95,7 @@ nav .navbar-form button {
 .marketing .marketing-description {
   padding: 10px;
   text-align: justify;
-  color: #CC00CC;
+  color: #6c6457;
 }
 .houses-grid {
   display: block;
@@ -115,8 +115,8 @@ nav .navbar-form button {
 .houses-grid .house-space-on-grid div.lead,
 .houses-grid .house-space-on-grid a {
   padding: 10px 10px 0px 10px;
-  color: #333333;
-  font-family: "Scada";
+  color: #CC00CC;
+  font-family: "Open Sans";
 }
 .houses-grid .house-space-on-grid .pull-right > .dropdown-menu {
   right: -180px;

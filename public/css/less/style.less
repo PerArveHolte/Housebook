@@ -1,14 +1,14 @@
 @import "colors.less";
-
+//main settings for all pages//
 body {
     padding: 5px;
     font: "Open Sans", sans-serif;
     font-size: 12pt;
     padding-bottom: 70px; 
     background-color: @light-grey;
-    color:black;
+    color:@hex-grey; //text color in body on each page//
 }
-a, .clicable{
+a, .clickable{
     cursor: pointer;
 }
 a:hover{
@@ -28,22 +28,22 @@ nav{
     font: 300 1.5em/1.1em "Open Sans", sans-serif;
     text-align: center;
 
-    .navbar-brand{
-        color:@hex-pink !important;
+    .navbar-brand{//top menu text//
+        color:@hex-grey !important;
         font-weight: bolder;
         font-size: 28px;
     }
-    .navbar-text{
-        color:@hex-pink !important;
+    .navbar-text{//in use?//
+        color:@hex-grey !important;
     }
     .navbar-form{
         border:none;
-        button{
+        button{//in use?//
             background-color: @hex-pink;
         }
     }
 }
-#logo{
+#logo{//not in use//
     background-image: url(../..//images/Vidom_Logo_Farge.png);
     height:100px;
     background-size: auto 90%;
@@ -51,7 +51,7 @@ nav{
     background-repeat: no-repeat;
 }
 
-.form-login{
+.form-login{//"Create account" box//
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.65);
     -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.65);
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.65);
@@ -62,18 +62,18 @@ nav{
     input{
         border-color: @brand-bg-lighter;
     }
-    h2{
+    h2{//in use?//
         color: @brand-font-rgb;
         text-transform: uppercase;
     }
-    button{
+    button{// "Signup" button//
         background-color: @hex-pink;
         color:white;
     }
 }
 .main-container{
     padding:0px;
-    background-image: url('/images/home-vector.jpg');
+    background-image: url('/images/Vidom_Logo_Farge.png');//background picture login page//
     background-repeat: no-repeat;
     background-size: contain;
 
@@ -81,7 +81,7 @@ nav{
 }
 
 
-.marketing{
+.marketing{//var dette tekst vi brukte tidligere? altså ikke i bruk nå?//
     text-align: center;
 
     .heading{
@@ -105,7 +105,7 @@ nav{
     }
 }
 
-
+//vet ikke hva dette er..//
 .houses-grid{
     display:block;
 
@@ -134,7 +134,7 @@ nav{
         }
     }
 }
-
+//skjema som popper opp når man trykker "send us your feedback"//
 .modal{
     .modal-header{
         background-color: @hex-pink;
@@ -146,7 +146,7 @@ nav{
     }
 }
 
-.btn-feedback{
+.btn-feedback{//"send us your feedback" knapp//
     /*background-color: @curry;*/
     float: right;
     margin-top: 7px;
@@ -159,7 +159,7 @@ nav{
     width:100%;
 }
 
-.form-panel{
+.form-panel{//skjema når man oppretter ny hus-profil//
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.65);
     -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.65);
     box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.65);
