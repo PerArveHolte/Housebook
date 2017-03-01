@@ -172,6 +172,8 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
     };
 
 
+//URGENT: FIX THE savePicture-function.
+
 //2017-02-18 Guri: Todo: Rename this function to "saveProfilePicture" and create another one for saving of other pictures
     $scope.savePicture = function () {
         console.log("Inside savePicture()");
