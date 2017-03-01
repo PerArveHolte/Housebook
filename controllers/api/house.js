@@ -16,17 +16,17 @@ router.get('/:profileId', function (req, res, next) {
         console.log("Missing token");
         return res.sendStatus(401);
     }
-//    console.log("req.params.profileId " + req.params.profileId);
+
     House.findOne({"_id": ObjectId(req.params.profileId)})
-            .populate({path: 'createdBy'})
-            .populate({path: 'inhabitants'})
-            .exec(function (err, house) {
-                if (err) {
-                    return next(err);
-                } else {
-                    return res.json(house);
-                }
-            });
+        .populate({path: 'createdBy'})
+        .populate({path: 'inhabitants'})
+        .exec(function (err, house) {
+            if (err) {
+                return next(err);
+            } else {
+                return res.json(house);
+            }
+        });
 });
 
 router.post('/:profileId', function (req, res, next) {
@@ -34,8 +34,6 @@ router.post('/:profileId', function (req, res, next) {
         console.log("Missing token");
         return res.sendStatus(401);
     }
-//    console.log("Inside router.post");
-    console.log("House_id is: " +req.params.profileId);
 
     //The exec-function is executing query towards the database
     House.findOne({"_id": ObjectId(req.params.profileId)}).exec(function (err, house) {
