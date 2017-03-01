@@ -59,7 +59,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
             HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, userId);
         });
 
-        console.log("Finished saving three versions of the photo. Next: closing the modal");
+//        console.log("Finished saving three versions of the photo. Next: closing the modal");
 //2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
         $('#profilePictureModal').modal('hide');
     };
@@ -174,7 +174,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         }
     };
 
-$scope.cancelEditingSection = function () {
+    $scope.cancelEditingSection = function () {
         switch ($scope.editingSectionId) {
             case 'basicInfo':
                 $scope.mutableProfile = null;

@@ -16,17 +16,17 @@ router.get('/:profileId', function (req, res, next) {
         console.log("Missing token");
         return res.sendStatus(401);
     }
-//    console.log("req.params.profileId " + req.params.profileId);
+
     House.findOne({"_id": ObjectId(req.params.profileId)})
-            .populate({path: 'createdBy'})
-            .populate({path: 'inhabitants'})
-            .exec(function (err, house) {
-                if (err) {
-                    return next(err);
-                } else {
-                    return res.json(house);
-                }
-            });
+        .populate({path: 'createdBy'})
+        .populate({path: 'inhabitants'})
+        .exec(function (err, house) {
+            if (err) {
+                return next(err);
+            } else {
+                return res.json(house);
+            }
+        });
 });
 
 router.post('/:profileId', function (req, res, next) {
@@ -34,8 +34,6 @@ router.post('/:profileId', function (req, res, next) {
         console.log("Missing token");
         return res.sendStatus(401);
     }
-//    console.log("Inside router.post");
-    console.log("House_id is: " +req.params.profileId);
 
     //The exec-function is executing query towards the database
     House.findOne({"_id": ObjectId(req.params.profileId)}).exec(function (err, house) {
@@ -53,36 +51,19 @@ router.post('/:profileId', function (req, res, next) {
             });
 
             if (req.body.isProfilePicture) {
-                console.log("\nPrepare img to save with house");
-                console.log("\n\nThe theory is that profilePicture does not exist in house document yet");
-                console.log("House is: " +house);
-                console.log("house.profilePicture is: "+house.backgroundPicture);
                 picture.isProfilePicture = true;
                 house.profilePicture = picture;
                 house.backgroundPicture = picture;
-                console.log("\n\nSaving profile picture");
-                console.log("House is: " +house);
             }
 
             //2017-02-19 Guri trying to add another picture to the database
             if(!req.body.isProfilePicture){
-//                picture.isProfilePicture = false;
- //               house.pictures[0] = picture;
-//                house.backgroudPicture = picture;
-//                console.log("\nSaving another picture");
-//                console.log("House is: " +house);
-//                console.log("House.profilePicture is: "+house.profilePicture);
-//                console.log("house.pictures[0] is: "+house.pictures[0]);
-//                console.log("house.backgroudPicture is: "+house.backgroudPicture);
-//                console.log("ObjectId(req.params.profileId) is: " +ObjectId(req.params.profileId));
             }
             // End of Guri's struggles
 
             house.save(function (err) {
                 if (err)
                     return next(err);
-//                console.log("House is: " +house);
-//                console.log("ObjectId(req.params.profileId) is: " +ObjectId(req.params.profileId));
             });
         }
 
