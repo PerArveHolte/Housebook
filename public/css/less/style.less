@@ -28,10 +28,20 @@ nav{
     font: 300 1.5em/1.1em "Open Sans", sans-serif;
     text-align: center;
 
-    .navbar-brand{//top menu text//
-        color:@hex-grey !important;
+    .navbar-brand{//top menu "brand"//
+        color:@darkermain !important; //if text added in top menu//
+        /*background-image: url('/images/Vidom_Logo_Farge.png');
+        background-size: contain;
+        background-repeat: no-repeat;
         font-weight: bolder;
         font-size: 28px;
+        text-indent: 90%;*/
+        //max-height: 80%;//
+        //max-width: 20%; //
+        overflow: visible;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-left: 0;
     }
     .navbar-text{//in use?//
         color:@hex-grey !important;
@@ -60,7 +70,7 @@ nav{
     background-color:white;
 
     input{
-        border-color: @brand-bg-lighter;
+        border-color: @hex-pink;
     }
     h2{//in use?//
         color: @brand-font-rgb;
@@ -73,11 +83,11 @@ nav{
 }
 .main-container{
     padding:0px;
-    background-image: url('/images/Vidom_Logo_Farge.png');//background picture login page//
+    /*background-image: url('/images/Vidom_Logo_Farge.png');//background picture login page//
     background-repeat: no-repeat;
     background-size: contain;
 
-    background-position: 20% 50%;
+    background-position: 20% 50%;*/
 }
 
 
@@ -147,7 +157,8 @@ nav{
 }
 
 .btn-feedback{//"send us your feedback" knapp//
-    /*background-color: @curry;*/
+    background-color: @darkermain;
+    border-color: @darkermain;
     float: right;
     margin-top: 7px;
     margin-bottom: 5px;
