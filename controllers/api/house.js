@@ -60,11 +60,11 @@ router.post('/:profileId', function (req, res, next) {
                 house.backgroundPicture = picture;
             }
             
-            console.log("\nReq.body.pictureNo is: "+req.body.pictureNumber +"\n");
+            console.log("\n\nReq.body.pictureNo is: "+req.body.pictureNumber +"\n");
             if(req.body.pictureNumber === 0){
-                house.pictures[0] = picture;
-                console.log("house is: "+house);
-                house.pictures.push(picture);
+                //add picture to position 0, replace the picture there.
+                house.pictures.splice(0,1,picture); //splice(position, no of items to remove, item to insert);
+                console.log("Picture is: "+picture);
                 console.log("house is: "+house);
             }
             // End of Guri's struggles
