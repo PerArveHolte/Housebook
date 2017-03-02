@@ -34,14 +34,12 @@ vidom.service('HouseProfileSvc', function ($q, $http) {
                 data: file,
                 headers: {'Content-type': file.type}
             }).then(function (uploadResponse) {
-                console.log("\nSuccessfully put something somewhere..");
-                console.log("houseId is: "+ profileId);
-               
+
+                //Upload information into the "payload" variable to send it to the house.js file for further processing
                 var payload = {fileName: name, contentType: type, isProfilePicture: isProfilePicture, pictureNumber: pictureNo, userId: createdBy};
 //                var payload = {fileName: name, contentType: type, isProfilePicture: isProfilePicture, userId: createdBy};
               
-                /* Guri's assumption: Puts path to image into mongoDB 
-                * Guri thinks the statement "$http.post('/house/' + profileId [...]" refers to file api/house.js, function router.post('/:profileId', [...])*/
+                // The statement "$http.post('/house/' + profileId [...]" refers to file api/house.js, function router.post('/:profileId', [...])
                 $http.post('/house/' + profileId, JSON.stringify(payload));
                 defer.resolve(uploadResponse);
 

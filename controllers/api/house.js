@@ -63,6 +63,9 @@ router.post('/:profileId', function (req, res, next) {
             console.log("\nReq.body.pictureNo is: "+req.body.pictureNumber +"\n");
             if(req.body.pictureNumber === 0){
                 house.pictures[0] = picture;
+                console.log("house is: "+house);
+                house.pictures.push(picture);
+                console.log("house is: "+house);
             }
             // End of Guri's struggles
 
