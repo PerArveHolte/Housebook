@@ -60,8 +60,8 @@ router.post('/:profileId', function (req, res, next) {
                 house.backgroundPicture = picture;
             }
             
-            console.log("\nReq.body.pictureNo is: "+req.body.pictureNo +"\n");
-            if(req.body.pictureNo === 0){
+            console.log("\nReq.body.pictureNo is: "+req.body.pictureNumber +"\n");
+            if(req.body.pictureNumber === 0){
                 house.pictures[0] = picture;
             }
             // End of Guri's struggles
