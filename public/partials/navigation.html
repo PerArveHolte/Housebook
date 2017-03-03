@@ -2,7 +2,7 @@
 <!-- 20.01.2017 Guri has commented this out as it is redundant to the red button on the house profile page.
     <a ng-if="user" href="#/house/create" class="btn btn-info navbar-btn pull-left"><i aria-hidden="true" class="glyphicon glyphicon-plus"></i>&nbsp;Add new profile</a>
 -->
-<ul class="nav navbar-nav">
+<ul class="nav navbar-nav"> 
         <li  ng-if="user"><a  href="#/house" >Home</a></li>
 <!-- 19.01.2017 Guri has commented these until they have content
         <li ng-if="user"><a  href="">Belongings</a></li>
@@ -10,8 +10,7 @@
         <li><a  href="" >Invite</a></li>
         <li><a  href="" >FAQ</a></li>
 -->
-
-    </ul>
+</ul>
     <ul class="nav navbar-nav">
         <li ng-if="user">
             <a class="dropdown-toggle" data-toggle="dropdown">Hello, {{user.username}}! <b class="caret"></b></a>
@@ -20,8 +19,8 @@
                 <li><a  href="" ng-click="logOut()">Log out</a></li>
             </ul>
         </li>
-        <li ng-if="!user" class="dropdown">
-            <a  class="dropdown-toggle" data-toggle="dropdown" id='login-dp-toggle'>Sign in <b class="caret"></b></a>
+        <li ng-if="!user" class="dropdown"> <!--Login dropdown i hovedside -->
+            <a  class="dropdown-toggle" data-toggle="dropdown" id='login-dp-toggle'>Log in <b class="caret"></b></a>
             <ul id="login-dp" class="dropdown-menu">
                 <li>
                     <div class="row">
@@ -31,7 +30,7 @@
                             <form class="form" role="form" ng-submit="login(user.username, user.password)" accept-charset="UTF-8" id="login-nav">
                                 <div class="form-group">
                                     <label class="sr-only" for="exampleInputEmail2">Username</label>
-                                    <input type="text" class="form-control" ng-model="user.username" id="exampleInputEmail2" placeholder="Username" required="">
+                                    <input type="text" class="form-control" ng-model="user.username" id="exampleInputEmail2" placeholder="Email" required="">
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="exampleInputPassword2">Password</label>
@@ -44,7 +43,7 @@
                                     </label>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" class="btn btn-primary btn-block"  analytics-on="click" analytics-event="Login" analytics-category="Actions">Sign in</button>
+                                    <button type="submit" class="btn btn-primary btn-block"  analytics-on="click" analytics-event="Login" analytics-category="Actions">Log in</button>
                                 </div>
 <!--                                <hr>
                                 <div>
