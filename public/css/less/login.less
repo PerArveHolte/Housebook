@@ -1,20 +1,26 @@
 @import "colors.less";
+//copy from: http://bootsnipp.com/snippets/featured/fancy-navbar-login-sign-in-form//
 
+//"Sign in" dropdown on login page//
 #login-dp{
     min-width: 250px;
     padding: 14px 14px 0;
     overflow:hidden;
     background-color:rgb(255,255,255);
+    color: @hex-grey;
 }
+//"Forgot password. bootstrap autofarger(blå - success))"//
 #login-dp .help-block{
-    font-size:12pt;   
+    font-size:12pt; 
 }
+//.bottom not in use for now//
 #login-dp .bottom{
     background-color:rgb(255,255,255);
     border-top:1px solid #ddd;
     clear:both;
     padding:14px;
 }
+//social buttons not in use for now//
 #login-dp .social-buttons{
     margin:12px 0    
 }
@@ -44,10 +50,11 @@
     color: #fff;
     background-color:@hex-pink;
 }
+//tror ikke @media er i bruk//
 @media(max-width:768px){
     #login-dp{
-        background-color: inherit;
-        color: #fff;
+        background-color: @emerald;
+        color: @emerald;
     }
     #login-dp .bottom{
         background-color: inherit;

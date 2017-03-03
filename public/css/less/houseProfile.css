@@ -1,0 +1,6 @@
+/* 
+    Created on : 2016-12-13, 23:19:18
+    Author     : Kamila Przychodzen <kamila.przychodzen@gmail.com>
+*/
+.house-profile h2{font:400 3.5em/1.1em "Open Sans",sans-serif;color:#c0c}.house-profile .left-side .nav{background-color:#fff;padding:10px;box-sizing:border-box}.house-profile .left-side .nav a{color:#333;font:400 1.1em/0.8em 'Open Sans',sans-serif}.house-profile .left-side .nav .active{text-decoration:none;background-color:#eee}.house-profile .house-profile-preferences p{color:grey}.house-profile .house-profile-preferences .tab-content{background-color:#fff;padding:10px}.house-profile .house-profile-preferences .google-maps{position:relative;padding-bottom:35%;height:0;overflow:hidden;margin-top:20px}.house-profile .house-profile-preferences .google-maps iframe{position:absolute;top:0;left:0;width:100%!important;height:100%!important}.house-profile .house-profile-picture{margin-bottom:15px}.house-profile .house-profile-picture .edit-profile-picture{position:absolute;top:10;right:20}.house-profile .house-profile-picture .edit-profile-picture a{padding:10px 10px 0 0;color:#333;text-decoration:none}.house-profile .house-profile-picture #house-profile-canvas{width:100%;max-height:300px;max-width:300px}
+/* This beautiful CSS-File has been crafted with LESS (lesscss.org) and compiled by simpLESS (wearekiss.com/simpless) */
