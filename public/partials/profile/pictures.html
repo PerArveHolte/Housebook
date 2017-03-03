@@ -1,29 +1,27 @@
 <section>
-<!--    <span class='pull-right' >
-        <a ng-if='pictureSectionIsEditing === false' ng-click='editSection("pictures")' analytics-on="click" analytics-event="Edit pictures" analytics-category="Actions"><i class='glyphicon glyphicon-edit'></i>&nbsp;Edit section</a>
-        <a ng-if='pictureSectionIsEditing === true' ng-click='updateSection()'>&nbsp;Save</a>
-        <a ng-if='pictureSectionIsEditing === true' ng-click="cancelEditingSection()">&nbsp;Cancel</a>
-    </span><br> -->
-<!--    <div ng-if="!pictureSectionIsEditing"> -->
-        <div class="row">
-            <div class="col-xs-6 col-md-3">
-                <a href="#" class="thumbnail">
-                <img src="https://vidomtestbucket.s3.amazonaws.com/{{profile.profilePicture.path}}" alt="Default house picture">
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <a href="#" class="thumbnail">
-                <img src="https://vidomtestbucket.s3.amazonaws.com/{{profile.backgroundPicture.path}}" alt="Default house picture">
-                </a>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <a href="#" class="thumbnail">
-                <img src="https://vidomtestbucket.s3.amazonaws.com/{{profile.picture[0].path}}" alt="Default house picture">
-                </a>
-            </div>
+    <div class="row">
+        <div class="col-xs-6 col-md-3">
+            <img src="https://vidomtestbucket.s3.amazonaws.com/{{profile.profilePicture.path}}" alt="Default house picture">
         </div>
-        <!-- 2017-02-28 Guri todo: Add a function to go to when the user clicks this button.. -->
-        <div class="row" style="margin: 10px;"><button type="button" class="btn btn-lg btn-danger"  ng-click=""><i class="glyphicon glyphicon-plus"></i> Add new picture</button></div>
-<!--    </div> -->
+        <div class="col-xs-6 col-md-3">
+            <img src="https://vidomtestbucket.s3.amazonaws.com/{{profile.backgroundPicture.path}}" alt="Default house picture">
+        </div>
+        <div class="col-xs-6 col-md-3" data-target="#addPictureModal" data-toggle="modal">
+            <a>
+            <img src="https://vidomtestbucket.s3.amazonaws.com/{{profile.picture[0].path}}" alt="Default house picture">
+            </a>
+        </div>
+    </div>
+    <!-- 2017-02-28 Guri todo: Add a function to go to when the user clicks this button.. -->
+<!--    <div class="row" style="margin: 10px;"><button type="button" class="btn btn-lg btn-danger"  ng-click=""><i class="glyphicon glyphicon-plus"></i> Add new picture</button></div> -->
     <div ng-include="'partials/modals/addPictureModal.html'"></div>
 </section>
+
+
+<!--
+        <div class="col-xs-6 col-md-3">
+            <a href="#" class="thumbnail">
+            <img src="https://vidomtestbucket.s3.amazonaws.com/{{profile.profilePicture.path}}" alt="Default house picture">
+            </a>
+        </div>
+-->

@@ -97,6 +97,8 @@
 
             <div ng-include=" '/partials/contactForm.html'"></div>
 
+            <!-- Since jQuery shouldn't be used together with AngularJS, ref https://scotch.io/tutorials/how-to-correctly-use-bootstrapjs-and-angularjs-together
+            , what happens if we comment out the line below? Will it have any impact on our code? -->
             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
             <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
             <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js" type="text/javascript"></script>
