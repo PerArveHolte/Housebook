@@ -59,7 +59,7 @@ router.post('/:profileId', function (req, res, next) {
                 console.log("house.profilePicture is: "+house.backgroundPicture);
                 picture.isProfilePicture = true;
                 house.profilePicture = picture;
-                house.backgroudPicture = picture;
+                house.backgroundPicture = picture;
                 console.log("\n\nSaving profile picture");
                 console.log("House is: " +house);
             }
