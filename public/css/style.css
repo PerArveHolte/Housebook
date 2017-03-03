@@ -131,6 +131,14 @@ nav .navbar-form button {
 .houses-grid .house-space-on-grid .pull-right > .dropdown-menu {
   right: -180px;
 }
+.btn-lg {
+  border-color: #CC00CC;
+  background-color: #CC00CC;
+}
+.btn-lg:hover {
+  border-color: #990099;
+  background-color: #990099;
+}
 .modal .modal-header {
   background-color: #CC00CC;
   color: white;
