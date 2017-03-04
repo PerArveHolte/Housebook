@@ -172,11 +172,9 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
     };
 
 
-//URGENT: FIX THE savePicture-function.
-
 //2017-02-18 Guri: Todo: Rename this function to "saveProfilePicture" and create another one for saving of other pictures
-    $scope.savePicture = function () {
-        console.log("Inside savePicture()");
+    $scope.saveProfilePicture = function () {
+        console.log("Inside saveProfilePicture()");
 //2017-02-13 Guri: Was wondering if it would be better to send the file as an argument rather then finding it here..
         var file = document.getElementById('profilePictureFile').files[0];
         console.log("File.name is: "+file.name);
@@ -190,7 +188,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         
         HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, -1, userId).then(function () {
 
-            img.setAttribute("src", $scope.img400x300URI); //load the image up into the modal to be shown to the user.
+            img.setAttribute("src", $scope.img400x300URI); //load the image onto the profilePicture placement in the houseProfile.html.
             HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, -1, userId);
             HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, -1, userId);
         });
@@ -204,6 +202,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
 //2017-03-01 Guri: Start of hardcoding the ten pictures. This has to be done differently in the future.
     $scope.savePicture0 = function () {
         console.log("Inside savePicture0");
+        
 //2017-02-13 Guri: Was wondering if it would be better to send the file as an argument rather then finding it here..
         var file = document.getElementById('file0').files[0];
 
@@ -214,14 +213,13 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         var houseId = $routeParams.id;
         var userId = $rootScope.user._id;
         
-        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), false, 0, userId).then(function () {
+        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, 0, userId).then(function () {
 
-            img.setAttribute("src", $scope.img400x300URI); //load the image up into the modal to be shown to the user.
+//            img.setAttribute("src", $scope.img400x300URI); 
             HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, 0, userId);
             HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, 0, userId);
         });
 
-//        console.log("Finished saving three versions of the photo. Next: closing the modal");
 //2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
         $('#addPictureModal').modal('hide');
     };
