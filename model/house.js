@@ -19,6 +19,7 @@ var house = db.Schema({
     storages: {type: Number, required: false},
     meters: {type: Number, required: false},
     rooms: {type: Number, required: false},
+    notes: {type: String, select: true, required: false},
     facilities: [{id: String, label: String}]
 });
 module.exports = db.model('House', house);

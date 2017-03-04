@@ -165,6 +165,9 @@ router.put('/:profileId', function (req, res, next) {
         if (!helper.objectsAreTheSame(req.body.rooms, house.rooms)) {
             house.rooms = req.body.rooms;
         }
+        if (!helper.objectsAreTheSame(req.body.notes, house.notes)) {
+            house.notes = req.body.notes;
+        }
         if (req.body.address) {
             if (!helper.objectsAreTheSame(req.body.address.street1, house.address.street1)) {
                 house.address.street1 = req.body.address.street1;
