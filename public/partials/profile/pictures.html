@@ -1,21 +1,29 @@
 <section>
     <div class="row">
-        <div class="col-xs-6 col-md-3">
-            <img src="https://vidomtestbucket.s3.amazonaws.com/{{profile.profilePicture.path}}" alt="Default house picture">
-        </div>
-        <div class="col-xs-6 col-md-3">
-            <img src="https://vidomtestbucket.s3.amazonaws.com/{{profile.backgroundPicture.path}}" alt="Default house picture">
-        </div>
-        <div class="col-xs-6 col-md-3" data-target="#addPictureModal" data-toggle="modal">
+        <div class="col-xs-6 col-md-3" data-target="#addPicture0Modal" data-toggle="modal">
             <a>
-            <img src="https://vidomtestbucket.s3.amazonaws.com/{{profile.picture0.path}}" alt="Default house picture">
+            <img ng-if="!profile.picture0" src="../images/house-default.jpg" alt="Default house picture">
+            <img ng-show="profile.picture0" ng-src="https://vidomtestbucket.s3.amazonaws.com/{{profile.picture0.path}}">
             </a>
-<!--            <a>Click to change picture</a> -->
+        </div>
+        <div class="col-xs-6 col-md-3" data-target="#addPicture1Modal" data-toggle="modal">
+            <a>
+            <img ng-if="!profile.picture1" src="../images/house-default.jpg" alt="Default house picture">
+            <img ng-show="profile.picture1" ng-src="https://vidomtestbucket.s3.amazonaws.com/{{profile.picture1.path}}">
+            </a>
+        </div>
+        <div class="col-xs-6 col-md-3" data-target="#addPicture2Modal" data-toggle="modal">
+            <a>
+            <img ng-if="!profile.picture2" src="../images/house-default.jpg" alt="Default house picture">
+            <img ng-show="profile.picture2" ng-src="https://vidomtestbucket.s3.amazonaws.com/{{profile.picture2.path}}">
+            </a>
         </div>
     </div>
     <!-- 2017-02-28 Guri todo: Add a function to go to when the user clicks this button.. -->
 <!--    <div class="row" style="margin: 10px;"><button type="button" class="btn btn-lg btn-danger"  ng-click=""><i class="glyphicon glyphicon-plus"></i> Add new picture</button></div> -->
-    <div ng-include="'partials/modals/addPictureModal.html'"></div>
+    <div ng-include="'partials/modals/addPicture0Modal.html'"></div>
+    <div ng-include="'partials/modals/addPicture1Modal.html'"></div>
+    <div ng-include="'partials/modals/addPicture2Modal.html'"></div>
 </section>
 
 

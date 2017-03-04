@@ -52,21 +52,65 @@ router.post('/:profileId', function (req, res, next) {
                     uploadedBy: req.body.userId
                 });
 
+/*2017-03-05 Guri: The profilePictureNumber (-1) and backgroundPictureNumber (-2) should be decleared as a 
+ * global variable somewhere and used in the code in place of sending -1 and -2 directly.
+ */
+                switch(req.body.pictureNumber){
+                    case -1:    //-1 is the profile picture
+                        picture.isProfilePicture = true;
+                        house.profilePicture = picture;
+                        break;
+                    case -2:  
+                        house.backgroundPicture = picture;
+                        break;
+                    case 0:  
+                        house.picture0 = picture;
+                        break;
+                    case 1:  
+                        house.picture1 = picture;
+                        break;
+                    case 2:  
+                        house.picture2 = picture;
+                        break;
+                    case 3:  
+                        house.picture3 = picture;
+                        break;
+                    case 4:  
+                        house.picture4 = picture;
+                        break;
+                    case 5:  
+                        house.picture5 = picture;
+                        break;
+                    case 6:  
+                        house.picture6 = picture;
+                        break;
+                    case 7:  
+                        house.picture7 = picture;
+                        break;
+                    case 8:  
+                        house.picture8 = picture;
+                        break;
+                    case 9:  
+                        house.picture9 = picture;
+                        break;
+                    default:          
+                        console.log("Error: Other picture number: Not dealt with");
+                }
                 
-                if (req.body.pictureNumber === -1) {
+/*                if (req.body.pictureNumber === -1) {
                     picture.isProfilePicture = true;
                     house.profilePicture = picture;
                 }
-
+*/
     //            console.log("\n\nReq.body.pictureNo is: "+req.body.pictureNumber +"\n");
-                if(req.body.pictureNumber === 0){
-                    //add picture to position 0, replace the picture there.
+/*                if(req.body.pictureNumber === 0){
                     house.picture0 = picture;
     //                house.pictures.splice(0,1,picture); //splice(position, no of items to remove, item to insert);
                     console.log("Picture is: "+picture);
                     console.log("house is: "+house);
                 }
-                // End of Guri's struggles
+*/
+                                // End of Guri's struggles
             }
             
             house.save(function (err) {
