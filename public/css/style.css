@@ -155,6 +155,10 @@ nav .navbar-form button {
   margin-bottom: 5px;
   font-size: 18px;
 }
+.btn-feedback:hover {
+  background-color: #CC00CC;
+  border-color: #CC00CC;
+}
 #loading-bar .bar {
   position: relative;
   width: 100%;
