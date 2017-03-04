@@ -213,7 +213,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         var houseId = $routeParams.id;
         var userId = $rootScope.user._id;
         
-        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), false, 0, userId).then(function () {
+        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, 0, userId).then(function () {
 
 //            img.setAttribute("src", $scope.img400x300URI); 
             HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, 0, userId);

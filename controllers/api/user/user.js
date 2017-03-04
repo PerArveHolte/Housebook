@@ -12,7 +12,6 @@ router.get('/', function (req, res, next) {
         return res.sendStatus(401);
     }
     var auth = jwt.decode(req.headers['x-auth'], config.secret);
-    console.log("jwt decode");
 
     User.findOne({username: auth.username})
             .populate({path: 'createdHouseProfile.ref'})

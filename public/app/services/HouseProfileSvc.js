@@ -17,6 +17,8 @@ vidom.service('HouseProfileSvc', function ($q, $http) {
     //2017-03-01 Guri added number value "pictureNo", where 0 - 9 are reserved for the 0 - 9 pictures. The profile picture has value -1.
 //    obj.savePicture = function (profileId, name, type, file, isProfilePicture, pictureNo, createdBy) {
     obj.savePicture = function (profileId, name, type, file, isThumbnail, pictureNo, createdBy) {
+
+        console.log("\nInside service savePicture");
         var defer = $q.defer();
         var data = {profileId: profileId, fileName: name, fileType: file.type}; //2017-02-19 Guri: The file.type variable seems to be empty.
         
@@ -36,6 +38,7 @@ vidom.service('HouseProfileSvc', function ($q, $http) {
                 headers: {'Content-type': file.type}
             }).then(function (uploadResponse) {
 
+                console.log("isThumbnail is: "+isThumbnail);
                 //Upload information into the "payload" variable to send it to the house.js file for further processing
                 var payload = {fileName: name, contentType: type, isThumbnail: isThumbnail, pictureNumber: pictureNo, userId: createdBy};
 //                var payload = {fileName: name, contentType: type, isProfilePicture: isProfilePicture, userId: createdBy};
