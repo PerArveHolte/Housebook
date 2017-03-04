@@ -39,37 +39,36 @@ router.post('/:profileId', function (req, res, next) {
     House.findOne({"_id": ObjectId(req.params.profileId)}).exec(function (err, house) {
         if (err)
             return next(err);
-        console.log("req.body.contentType is: " + req.body.contentType);
 
+        //2017-03-04 Guri: 
         if (req.body.contentType) {
-            console.log("create img object");
+//            console.log("create img object");
 
-            var picture = new Image({
-                path: req.params.profileId + '/' + req.body.fileName,
-                uploaded: new Date(),
-                uploadedBy: req.body.userId
-            });
+            if (req.body.isThumbnail){      //if the picture is the thumbnail picture, save it to the database
 
-            if (req.body.isProfilePicture) {
-                picture.isProfilePicture = true;
-                house.profilePicture = picture;
+                var picture = new Image({
+                    path: req.params.profileId + '/' + req.body.fileName,
+                    uploaded: new Date(),
+                    uploadedBy: req.body.userId
+                });
+
+                
+                if (req.body.pictureNumber === -1) {
+                    picture.isProfilePicture = true;
+                    house.profilePicture = picture;
+                }
+
+    //            console.log("\n\nReq.body.pictureNo is: "+req.body.pictureNumber +"\n");
+                if(req.body.pictureNumber === 0){
+                    //add picture to position 0, replace the picture there.
+                    house.picture0 = picture;
+    //                house.pictures.splice(0,1,picture); //splice(position, no of items to remove, item to insert);
+                    console.log("Picture is: "+picture);
+                    console.log("house is: "+house);
+                }
+                // End of Guri's struggles
             }
-
-            //2017-02-19 Guri trying to add another picture to the database
-//            if(!req.body.isProfilePicture){
-//                house.backgroundPicture = picture;
-//            }
             
-            console.log("\n\nReq.body.pictureNo is: "+req.body.pictureNumber +"\n");
-            if(req.body.pictureNumber === 0){
-                //add picture to position 0, replace the picture there.
-                house.picture0 = picture;
-//                house.pictures.splice(0,1,picture); //splice(position, no of items to remove, item to insert);
-                console.log("Picture is: "+picture);
-                console.log("house is: "+house);
-            }
-            // End of Guri's struggles
-
             house.save(function (err) {
                 if (err)
                     return next(err);
