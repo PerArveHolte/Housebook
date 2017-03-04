@@ -63,7 +63,8 @@ router.post('/:profileId', function (req, res, next) {
             console.log("\n\nReq.body.pictureNo is: "+req.body.pictureNumber +"\n");
             if(req.body.pictureNumber === 0){
                 //add picture to position 0, replace the picture there.
-                house.pictures.splice(0,1,picture); //splice(position, no of items to remove, item to insert);
+                house.picture0 = picture;
+//                house.pictures.splice(0,1,picture); //splice(position, no of items to remove, item to insert);
                 console.log("Picture is: "+picture);
                 console.log("house is: "+house);
             }
