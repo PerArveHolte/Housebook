@@ -63,7 +63,6 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
             $scope.readURL(this);
         });
         
-        console.log("Reloading the profile picture");
         profilePictureCanvas = document.getElementById("house-profile-canvas");
         ctx = profilePictureCanvas.getContext("2d");
         img = new Image();
@@ -74,6 +73,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
             profilePictureCanvas.width = W;
             profilePictureCanvas.height = H;
             ctx.drawImage(img, 0, 0); //draw image
+            console.log("Reloading the profile picture");
         };
     });
 
