@@ -215,6 +215,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
 
 //2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
         $('#addPicture0Modal').modal('hide');
+        reload(true);
     };
 
     $scope.savePicture1 = function () {
