@@ -73,7 +73,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
             profilePictureCanvas.width = W;
             profilePictureCanvas.height = H;
             ctx.drawImage(img, 0, 0); //draw image
-            console.log("\nReloading the profile picture");
+            console.log("\nReloading the profile picture1");
         };
     });
 
@@ -107,11 +107,11 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
             case 'pictures':
                 $scope.profile = $scope.mutableProfile;
                 $scope.profile.pictures = _.filter($scope.profile.pictures, {selected: true});
-                console.log("\nReloading pictures");
+//                console.log("\nReloading pictures");
                 HouseProfileSvc.updateProfile($scope.profile).then(function () {
                     $scope.mutableProfile = null;
                     $scope.pictureSectionIsEditing = false;
-                    console.log("Updating pictures");
+//                    console.log("Updating pictures");
                 });
                 break;
             default:
