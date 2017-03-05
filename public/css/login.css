@@ -58,8 +58,8 @@
 }
 @media (max-width: 768px) {
   #login-dp {
-    background-color: #4abdac;
-    color: #4abdac;
+    background-color: white;
+    color: white;
   }
   #login-dp .bottom {
     background-color: inherit;
