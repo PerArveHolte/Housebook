@@ -2,8 +2,13 @@
     <div class="row">
         <div class="col-xs-6 col-md-3" data-target="#addPicture0Modal" data-toggle="modal">
             <a>
-            <img ng-if="!profile.picture0" src="../images/house-default.jpg" alt="Default house picture">
-            <img ng-show="profile.picture0" ng-src="https://vidomtestbucket.s3.amazonaws.com/{{profile.picture0.path}}">
+                <canvas class="center-block" id="picture0-canvas"></canvas>
+            </a>
+        </div>
+        <div class="col-xs-6 col-md-3" data-target="#addPicture0Modal" data-toggle="modal">
+            <a>
+                <img ng-if="!profile.picture0" src="../images/house-default.jpg" alt="Default house picture">
+                <img ng-show="profile.picture0" ng-src="https://vidomtestbucket.s3.amazonaws.com/{{profile.picture0.path}}">
             </a>
         </div>
         <div class="col-xs-6 col-md-3" data-target="#addPicture1Modal" data-toggle="modal">
