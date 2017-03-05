@@ -174,10 +174,8 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
 
 //2017-02-18 Guri: Todo: Rename this function to "saveProfilePicture" and create another one for saving of other pictures
     $scope.saveProfilePicture = function () {
-        console.log("Inside saveProfilePicture()");
 //2017-02-13 Guri: Was wondering if it would be better to send the file as an argument rather then finding it here..
         var file = document.getElementById('profilePictureFile').files[0];
-        console.log("File.name is: "+file.name);
 
         var img200x150URI = dataURItoBlob($scope.img200x150URI);
         var img400x300URI = dataURItoBlob($scope.img400x300URI);
@@ -193,7 +191,6 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
             HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, -1, userId);
         });
 
-//        console.log("Finished saving three versions of the photo. Next: closing the modal");
 //2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
         $('#profilePictureModal').modal('hide');
     };
@@ -201,9 +198,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
 
 //2017-03-01 Guri: Start of hardcoding the ten pictures. This has to be done differently in the future.
     $scope.savePicture0 = function () {
-        console.log("Inside savePicture0");
         
-//2017-02-13 Guri: Was wondering if it would be better to send the file as an argument rather then finding it here..
         var file = document.getElementById('file0').files[0];
 
         var img200x150URI = dataURItoBlob($scope.img200x150URI);
@@ -214,14 +209,32 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         var userId = $rootScope.user._id;
         
         HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, 0, userId).then(function () {
-
-//            img.setAttribute("src", $scope.img400x300URI); 
             HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, 0, userId);
             HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, 0, userId);
         });
 
 //2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
-        $('#addPictureModal').modal('hide');
+        $('#addPicture0Modal').modal('hide');
+    };
+
+    $scope.savePicture1 = function () {
+        
+        var file = document.getElementById('file1').files[0];
+
+        var img200x150URI = dataURItoBlob($scope.img200x150URI);
+        var img400x300URI = dataURItoBlob($scope.img400x300URI);
+        var img600x400URI = dataURItoBlob($scope.img600x400URI);
+
+        var houseId = $routeParams.id;
+        var userId = $rootScope.user._id;
+        
+        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, 1, userId).then(function () {
+            HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, 1, userId);
+            HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, 1, userId);
+        });
+
+//2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
+        $('#addPicture1Modal').modal('hide');
     };
 
 });
