@@ -11,6 +11,17 @@ var house = db.Schema({
     pictures: [{type: db.Schema.Types.ObjectId, ref: 'Image', required: false}],
     profilePicture: {type: imageModel.schema, required: false, select: true},   
     backgroundPicture: {type: imageModel.schema, required: false, select: true},  
+    //2017-03-05 Guri: Yes, these pictures should be added to the pictures-array. Just couldn't figure out how to do it prior to the release deadline.
+    picture0: {type: imageModel.schema, required: false, select: true},
+    picture1: {type: imageModel.schema, required: false, select: true},
+    picture2: {type: imageModel.schema, required: false, select: true},
+    picture3: {type: imageModel.schema, required: false, select: true},
+    picture4: {type: imageModel.schema, required: false, select: true},
+    picture5: {type: imageModel.schema, required: false, select: true},
+    picture6: {type: imageModel.schema, required: false, select: true},
+    picture7: {type: imageModel.schema, required: false, select: true},
+    picture8: {type: imageModel.schema, required: false, select: true},
+    picture9: {type: imageModel.schema, required: false, select: true},
     address: {type: addressModel.schema, required: false},
     builtYear: {type: Number, required: false},
     movedInYear: {type: Number, required: false},
@@ -18,6 +29,7 @@ var house = db.Schema({
     storages: {type: Number, required: false},
     meters: {type: Number, required: false},
     rooms: {type: Number, required: false},
+    notes: {type: String, select: true, required: false},
     facilities: [{id: String, label: String}]
 });
 module.exports = db.model('House', house);

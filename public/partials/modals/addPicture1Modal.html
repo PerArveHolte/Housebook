@@ -1,15 +1,15 @@
-<div id="profilePictureModal" class="modal fade" tabindex="-1" role="dialog">
+<div id="addPicture1Modal" class="modal fade" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header heading">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">House profile</h4>
+                <h4 class="modal-title">Change picture</h4>
             </div>
             <div class="modal-body">
                 <form class="form">
                     <div class="form-group">
-                        <label  for="file">Choose house profile picture</label>
-                        <input type="file" id="profilePictureFile" class="form-control" ng-model="defaultHouseSpace.img" onchange="angular.element(this).scope().readURL(this)" accept="image/*">
+                        <label for="file">Choose picture</label>
+                        <input type="file" id="file1" class="form-control" ng-model="defaultHouseSpace.img" onchange="angular.element(this).scope().readURL(this)" accept="image/*">
                     </div>
                     <canvas id="canvas" width="200" height="200" class="center-block"></canvas>  
                     <input type="hidden" name="userId" ng-model="user._id">
@@ -17,7 +17,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" ng-click="saveProfilePicture()"  analytics-on="click" analytics-event="Profile picture change" analytics-category="Actions">Save changes</button>
+                <button type="button" class="btn btn-primary" ng-click="savePicture1()"  analytics-on="click" analytics-event="Picture1 change" analytics-category="Actions">Save changes</button>
             </div>
         </div>
     </div>

@@ -20,6 +20,9 @@
     <div class='col-sm-4 col-md-2'>Rooms</div>
     <div class='col-md-10' ng-if="!profile.rooms"><i class="text-muted">Not specified.</i></div>
     <div class='col-md-10' ng-if="profile.rooms">{{profile.rooms}}</div>
+    <div class='col-sm-4 col-md-2'>Notes</div>
+    <div class='col-md-10' ng-if="!profile.notes"><i class="text-muted">Not specified.</i></div>
+    <div class='col-md-10' ng-if="profile.notes">{{profile.notes}}</div>
     <div class='col-sm-4 col-md-2'>Facilities</div>
     <div class='col-md-10'>
         <div ng-if="profile.facilities.length" ng-repeat="f in profile.facilities"><span><i class="fa fa-check-square-o" aria-hidden="true"></i> {{f.label}}</span></div>
@@ -59,6 +62,10 @@
     <div class="clearfix">
         <div class='col-md-2'>Rooms</div>
         <div class="col-md-10"><input type="number" class="col-md-2 input-sm" ng-model="mutableProfile.rooms" placeholder="Rooms"></div>
+    </div>
+    <div class="clearfix">
+        <div class='col-md-2'>Notes</div>
+        <div class="col-md-10"><input type="text" class="col-md-2 input-sm" ng-model="mutableProfile.notes" placeholder="Notes"></div>
     </div>
     <div class='col-md-2'>Facilities</div>
     <div class='col-md-10'>
