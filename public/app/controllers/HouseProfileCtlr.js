@@ -62,7 +62,8 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         $("input#file").change(function () { //set up a common class
             $scope.readURL(this);
         });
-
+        
+        console.log("Reloading the profile picture");
         profilePictureCanvas = document.getElementById("house-profile-canvas");
         ctx = profilePictureCanvas.getContext("2d");
         img = new Image();
