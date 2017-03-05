@@ -237,4 +237,24 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         $('#addPicture1Modal').modal('hide');
     };
 
+    $scope.savePicture2 = function () {
+        
+        var file = document.getElementById('file2').files[0];
+
+        var img200x150URI = dataURItoBlob($scope.img200x150URI);
+        var img400x300URI = dataURItoBlob($scope.img400x300URI);
+        var img600x400URI = dataURItoBlob($scope.img600x400URI);
+
+        var houseId = $routeParams.id;
+        var userId = $rootScope.user._id;
+        
+        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, 2, userId).then(function () {
+            HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, 2, userId);
+            HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, 2, userId);
+        });
+
+//2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
+        $('#addPicture2Modal').modal('hide');
+    };
+
 });
