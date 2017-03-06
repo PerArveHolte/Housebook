@@ -1,5 +1,11 @@
-*.log
-.env
+#project log spesifikk for hver bruker:
+*.log 
+#environment spesifikk for hver bruker:
+.env 
+ #project properties spesifikk for hver bruker:
 /nbproject/
+#usikker på hva so er best ift denne:
 node_modules/
+#fil sti for finder, spesifikk for hver bruker:
+.DS_Store 
 
