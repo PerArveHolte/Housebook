@@ -132,10 +132,12 @@ nav .navbar-form button {
   right: -180px;
 }
 .btn-lg {
+  color: white;
   border-color: #CC00CC;
   background-color: #CC00CC;
 }
 .btn-lg:hover {
+  color: white;
   border-color: #990099;
   background-color: #990099;
 }
