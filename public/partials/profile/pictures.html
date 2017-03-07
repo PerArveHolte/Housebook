@@ -6,40 +6,10 @@
             <img ng-show="profile.picture0" ng-src="https://vidomtestbucket.s3.amazonaws.com/{{profile.picture0.path}}">
             </a>
         </div>
-<!--        <div class="col-xs-6 col-md-3" data-target="#addPicture0Modal" data-toggle="modal">
-            <a>
-                <canvas class="center-block" id="picture0-canvas"></canvas>
-            </a>
-        </div>
--->
-        <div class="col-xs-6 col-md-3" data-target="#addPicture0Modal" data-toggle="modal">
-            <a>
-                <img ng-if="!profile.picture0" src="../images/house-default.jpg" alt="Default house picture">
-                <img ng-show="profile.picture0" ng-src="https://vidomtestbucket.s3.amazonaws.com/{{profile.picture0.path}}">
-            </a>
-        </div>
         <div class="col-xs-6 col-md-3" data-target="#addPicture1Modal" data-toggle="modal">
             <a>
             <img ng-if="!profile.picture1" src="../images/house-default.jpg" alt="Default house picture">
             <img ng-show="profile.picture1" ng-src="https://vidomtestbucket.s3.amazonaws.com/{{profile.picture1.path}}">
-            </a>
-        </div>
-        <div class="col-xs-6 col-md-3" data-target="#addPicture2Modal" data-toggle="modal">
-            <a>
-            <img ng-if="!profile.picture2" src="../images/house-default.jpg" alt="Default house picture">
-            <img ng-show="profile.picture2" ng-src="https://vidomtestbucket.s3.amazonaws.com/{{profile.picture2.path}}">
-            </a>
-        </div>
-        <div class="col-xs-6 col-md-3" data-target="#addPicture3Modal" data-toggle="modal">
-            <a>
-            <img ng-if="!profile.picture3" src="../images/house-default.jpg" alt="Default house picture">
-            <img ng-show="profile.picture3" ng-src="https://vidomtestbucket.s3.amazonaws.com/{{profile.picture3.path}}">
-            </a>
-        </div>
-        <div class="col-xs-6 col-md-3" data-target="#addPicture4Modal" data-toggle="modal">
-            <a>
-            <img ng-if="!profile.picture4" src="../images/house-default.jpg" alt="Default house picture">
-            <img ng-show="profile.picture4" ng-src="https://vidomtestbucket.s3.amazonaws.com/{{profile.picture4.path}}">
             </a>
         </div>
         <div class="col-xs-6 col-md-3" data-target="#addPicture2Modal" data-toggle="modal">
@@ -78,21 +48,7 @@
             <img ng-show="profile.picture7" ng-src="https://vidomtestbucket.s3.amazonaws.com/{{profile.picture7.path}}">
             </a>
         </div>
-<!--        <div class="col-xs-6 col-md-3" data-target="#addPicture2Modal" data-toggle="modal">
-            <a>
-            <img ng-if="!profile.picture8" src="../images/house-default.jpg" alt="Default house picture">
-            <img ng-show="profile.picture8" ng-src="https://vidomtestbucket.s3.amazonaws.com/{{profile.picture8.path}}">
-            </a>
-        </div>
-        <div class="col-xs-6 col-md-3" data-target="#addPicture2Modal" data-toggle="modal">
-            <a>
-            <img ng-if="!profile.picture9" src="../images/house-default.jpg" alt="Default house picture">
-            <img ng-show="profile.picture9" ng-src="https://vidomtestbucket.s3.amazonaws.com/{{profile.picture9.path}}">
-            </a>
-        </div>
--->
     </div>
-    <!-- 2017-02-28 Guri todo: Add a function to go to when the user clicks this button.. -->
 <!--    <div class="row" style="margin: 10px;"><button type="button" class="btn btn-lg btn-danger"  ng-click=""><i class="glyphicon glyphicon-plus"></i> Add new picture</button></div> -->
     <div ng-include="'partials/modals/addPicture0Modal.html'"></div>
     <div ng-include="'partials/modals/addPicture1Modal.html'"></div>
@@ -102,8 +58,6 @@
     <div ng-include="'partials/modals/addPicture5Modal.html'"></div>
     <div ng-include="'partials/modals/addPicture6Modal.html'"></div>
     <div ng-include="'partials/modals/addPicture7Modal.html'"></div>
-    <div ng-include="'partials/modals/addPicture8Modal.html'"></div>
-    <div ng-include="'partials/modals/addPicture9Modal.html'"></div>
 </section>
 
 
