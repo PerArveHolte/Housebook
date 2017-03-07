@@ -80,7 +80,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
     };
 
     $scope.updateSection = function () {
-//        console.log("Inside scope. the following editSectionid is identified: "+$scope.editSectionId);
+        console.log("Inside updateSection. the following editSectionid is identified: "+$scope.editSectionId);
         switch ($scope.editingSectionId) {
             case 'basicInfo':
                 $scope.profile = $scope.mutableProfile;
