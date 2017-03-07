@@ -2,8 +2,6 @@
 vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeParams, HouseProfileSvc, ImageFctr, $location) {
 
     var profilePictureCanvas = null, ctx = null, img = null;
-    var picture0Canvas = null;
-    var img0 = null;
 
     $scope.partial = $routeParams.partial;
     $scope.profileId = $routeParams.id;
@@ -74,22 +72,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
             profilePictureCanvas.width = W;
             profilePictureCanvas.height = H;
             ctx.drawImage(img, 0, 0); //draw image
-            console.log("\nReloading the profile picture1");
         };
-/*        
-        picture0Canvas = document.getElementById("profile0-canvas");
-        ctx = picture0Canvas.getContext("2d");
-        img0 = new Image();
-        img0.crossOrigin = "Anonymous"; //cors support
-        img0.onload = function () {
-            var W = img0.width;
-            var H = img0.height;
-            picture0Canvas.width = W;
-            picture0Canvas.height = H;
-            ctx.drawImage(img0, 0, 0); //draw image
-            console.log("\nReloading picture0");
-        };
-*/        
     });
 
     $scope.addInhabitant = function (firstName, lastName, email, sendInvitation) {
@@ -123,7 +106,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
             case 'pictures':
                 $scope.profile = $scope.mutableProfile;
                 $scope.profile.pictures = _.filter($scope.profile.pictures, {selected: true});
-//                console.log("\nReloading pictures");
+                console.log("\nReloading pictures");
                 HouseProfileSvc.updateProfile($scope.profile).then(function () {
                     $scope.mutableProfile = null;
                     $scope.pictureSectionIsEditing = false;
@@ -229,9 +212,6 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         
         HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, 0, userId).then(function () {
 
-/*            console.log("\nTrying to update section");
-            console.log("The following editSectionid is identified: "+$scope.editSectionId);
-            $scope.updateSection(); */
             HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, 0, userId);
             HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, 0, userId);
         });
