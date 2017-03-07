@@ -4,13 +4,8 @@
 .env 
  #project properties spesifikk for hver bruker:
 /nbproject/
-<<<<<<< HEAD
 #usikker på hva so er best ift denne:
 node_modules/
 #fil sti for finder, spesifikk for hver bruker:
 .DS_Store 
 
-=======
-node_modules/
-.DS_Store
->>>>>>> 54fc48a568747f74b9554cdc5e1f08ab22caa230
