@@ -7,7 +7,7 @@
             </a>
         </div>
         <div class="col-xs-6 col-md-3" data-target="#addPicture1Modal" data-toggle="modal">
-            <a>
+            <a ng-click="reload()">
             <img ng-if="!profile.picture1" src="../images/house-default.jpg" alt="Default house picture">
             <img ng-show="profile.picture1" ng-src="https://vidomtestbucket.s3.amazonaws.com/{{profile.picture1.path}}">
             </a>

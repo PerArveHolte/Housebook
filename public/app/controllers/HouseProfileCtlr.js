@@ -122,6 +122,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
     };
 
     $scope.editSection = function (id) {
+        //2017-03-07 Guri is wondering what happens if we take a away the editingSectionId global variable.
         $scope.editingSectionId = id;
         switch (id) {
             case 'basicInfo':
