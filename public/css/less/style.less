@@ -6,7 +6,7 @@ body {
     font-size: 12pt;
     padding-bottom: 70px; 
     background-color: @light-grey;
-    color:@hex-grey; //text color in body on each page//
+    color:@hex-grey; 
 }
 a, .clickable{
     cursor: pointer;
@@ -21,15 +21,15 @@ footer{
     background-color: @light-grey;
     border:none;
 }
-.dropdown-menu{
+.dropdown-menu{//login drop down//
     font-size: 12pt;
     color:@hex-grey;
 }
-nav{
+nav{//top line//
     font: 300 1.5em/1.1em "Open Sans", sans-serif;
     text-align: center;
 
-    .navbar-brand{//top menu "brand"//
+    .navbar-brand{//top menu "brand" dvs logo pr nå//
         color:@darkermain !important; //if text added in top menu//
         /*background-image: url('/images/Vidom_Logo_Farge.png');
         background-size: contain;
@@ -44,12 +44,12 @@ nav{
         padding-bottom: 0;
         padding-left: 0;
     }
-    .navbar-text{//in use?//
+    .navbar-text{//ikke i bruk//
         color:@hex-grey !important;
     }
     .navbar-form{
         border:none;
-        button{//in use?//
+        button{//ikke i bruk//
             background-color: @hex-pink;
         }
     }
@@ -139,13 +139,12 @@ nav{
             font-family: "Open Sans";
         }
 
-
         .pull-right>.dropdown-menu{
             right:-180px;
         }
     }
 }
-.btn-lg{
+.btn-lg{//Add new house profile knapp//
           border-color: @hex-pink;
           background-color: @hex-pink;
         }
@@ -172,6 +171,10 @@ nav{
     margin-top: 7px;
     margin-bottom: 5px;
     font-size: 18px;
+}
+.btn-feedback:hover{//"send us your feedback" knapp//
+    background-color: @hex-pink;
+    border-color: @hex-pink;
 }
 
 #loading-bar .bar {

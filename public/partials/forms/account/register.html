@@ -32,7 +32,7 @@
             <label for="repeatPassword" class="sr-only">Repeat password</label>
             <input type="password" name="repeatPassword" class="form-control" id="repeatPassword" placeholder="Repeat password" ng-model="user.repeatPassword" required="">
             <span ng-if="createAccountForm.repeatPassword.$invalid && createAccountForm.repeatPassword.$touched" class="text-danger small">Repeat password.</span>
-            <span ng-if="user.password !== user.repeatPassword && createAccountForm.repeatPassword.$touched" class="text-danger small">Password desn't match.</span>
+            <span ng-if="user.password !== user.repeatPassword && createAccountForm.repeatPassword.$touched" class="text-danger small">Password does not match.</span>
         </div>
 
         <div class="checkbox">
