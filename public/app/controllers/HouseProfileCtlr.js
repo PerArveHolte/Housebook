@@ -147,6 +147,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
                 $scope.mutableProfile.facilities = allFacilities;
                 break;
             case 'pictures':
+                console.log("Hurray! Inside pictures switch");
                 $scope.pictureSectionIsEditing = true;
                 $scope.mutableProfile = angular.copy($scope.profile);
                 break;
