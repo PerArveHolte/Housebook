@@ -203,9 +203,9 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
 
 
 //2017-03-01 Guri: Start of hardcoding the ten pictures. This has to be done differently in the future.
-    $scope.savePicture0 = function () {
+    $scope.savePicture0 = function (pictureNo, fileId) {
         
-        var file = document.getElementById('file0').files[0];
+        var file = document.getElementById(fileId).files[0];
 
         var img200x150URI = dataURItoBlob($scope.img200x150URI);
         var img400x300URI = dataURItoBlob($scope.img400x300URI);
@@ -214,10 +214,10 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         var houseId = $routeParams.id;
         var userId = $rootScope.user._id;
         
-        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, 0, userId).then(function () {
+        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, pictureNo, userId).then(function () {
 
-            HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, 0, userId);
-            HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, 0, userId);
+            HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, pictureNo, userId);
+            HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, pictureNo, userId);
         });
 
 //2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
