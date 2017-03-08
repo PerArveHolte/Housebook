@@ -14,7 +14,7 @@
 <!--                    <canvas id="canvas" width="200" height="200" class="center-block"></canvas>  -->
                     <canvas id="canvas0"></canvas>  
                     <img ng-if="!profile.picture0" src="../images/house-default.jpg" alt="Default house picture">
-                    <img ng-show="profile.picture0" ng-src="https://vidomtestbucket.s3.amazonaws.com/600x400/{{filter(profile.picture0.path,50,8)}}">
+                    <img ng-show="profile.picture0" ng-src="https://vidomtestbucket.s3.amazonaws.com/600x400/{{profile.picture0.path}}">
                     <input type="hidden" name="userId" ng-model="user._id">
                 </form>
             </div>
