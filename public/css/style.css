@@ -127,6 +127,7 @@ nav .navbar-form button {
   padding: 10px 10px 0px 10px;
   color: #CC00CC;
   font-family: "Open Sans";
+  font-weight: 700;
 }
 .houses-grid .house-space-on-grid .pull-right > .dropdown-menu {
   right: -180px;
