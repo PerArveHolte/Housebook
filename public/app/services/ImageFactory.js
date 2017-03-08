@@ -4,9 +4,7 @@ vidom.factory('ImageFctr', function ($q) {
     obj.prepareImageDataURIFromCanvas = function (width, height, imgSrc, canvasId) {
         var defer = $q.defer();
         var uri = null;
-        console.log("CanvasId is: "+canvasId);
         var canvas = canvasId ? document.getElementById(canvasId) : document.createElement("canvas");
-        console.log("Inside prepareImageDataURIFromCanvas. canvas is: "+canvas);
         var ctx = canvas.getContext("2d");
         var img = new Image();
         img.crossorigin = 'Anonymous';

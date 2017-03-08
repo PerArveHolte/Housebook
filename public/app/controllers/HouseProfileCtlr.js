@@ -18,7 +18,8 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         console.log(err);
     });
 
-    $scope.readURL = function (input) {
+//    $scope.readURL = function (input) {
+    $scope.readURL = function (input, canvas) {
         console.log("Inside $scope.readURL. Input.files is: "+input.files+"\nInput.files[0] is: "+input.files[0]);
         if (input.files && input.files[0]) {
 
@@ -31,7 +32,8 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
                 ImageFctr.prepareImageDataURIFromCanvas(400, 300, e.target.result).then(function (uri) {
                     $scope.img400x300URI = uri;
                 });
-                ImageFctr.prepareImageDataURIFromCanvas(600, 400, e.target.result, "canvas").then(function (uri) {
+//                ImageFctr.prepareImageDataURIFromCanvas(600, 400, e.target.result, "canvas").then(function (uri) {
+                ImageFctr.prepareImageDataURIFromCanvas(600, 400, e.target.result, canvas).then(function (uri) {
                     $scope.img600x400URI = uri;
                 });
                 $scope.$apply();
