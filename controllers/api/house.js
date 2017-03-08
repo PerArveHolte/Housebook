@@ -53,7 +53,7 @@ router.post('/:profileId', function (req, res, next) {
                 console.log("\nInside house.findOne. req.params.profileId is: "+req.params.profileId);
                 console.log("req.body.fileName is: "+req.body.fileName);
                 console.log("picture path is: "+picture.path);
-                console.log("filter function: "+filter(picture.path, 50,8));
+                console.log("filter function: "+picture.path.split('/'));
 /*2017-03-05 Guri: The profilePictureNumber (-1) and backgroundPictureNumber (-2) should be decleared as a 
  * global variable somewhere and used in the code in place of sending -1 and -2 directly.
  */
