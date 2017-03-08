@@ -42,7 +42,6 @@ router.post('/:profileId', function (req, res, next) {
 
         //2017-03-04 Guri: 
         if (req.body.contentType) {
-//            console.log("create img object");
 
             if (req.body.isThumbnail){      //if the picture is the thumbnail picture, save it to the database
 
@@ -52,6 +51,7 @@ router.post('/:profileId', function (req, res, next) {
                     uploadedBy: req.body.userId
                 });
 
+                console.log("Inside House.findOne. picture path is: "+picture.path);
 /*2017-03-05 Guri: The profilePictureNumber (-1) and backgroundPictureNumber (-2) should be decleared as a 
  * global variable somewhere and used in the code in place of sending -1 and -2 directly.
  */
@@ -97,20 +97,6 @@ router.post('/:profileId', function (req, res, next) {
                         console.log("Error: Other picture number: Not dealt with");
                 }
                 
-/*                if (req.body.pictureNumber === -1) {
-                    picture.isProfilePicture = true;
-                    house.profilePicture = picture;
-                }
-*/
-    //            console.log("\n\nReq.body.pictureNo is: "+req.body.pictureNumber +"\n");
-/*                if(req.body.pictureNumber === 0){
-                    house.picture0 = picture;
-    //                house.pictures.splice(0,1,picture); //splice(position, no of items to remove, item to insert);
-                    console.log("Picture is: "+picture);
-                    console.log("house is: "+house);
-                }
-*/
-                                // End of Guri's struggles
             }
             
             house.save(function (err) {
