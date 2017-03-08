@@ -19,7 +19,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
     });
 
     $scope.readURL = function (input) {
-        console.log("Inside $scope.readURL. Input is: "+input);
+        console.log("Inside $scope.readURL. Input.files is: "+input.files+"\nInput.files[0] is: "+input.files[0]);
         if (input.files && input.files[0]) {
 
             var FR = new FileReader();
