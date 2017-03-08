@@ -165,12 +165,10 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
             case 'building':
                 $scope.mutableProfile = null;
                 $scope.buildingSectionIsEditing = false;
-                ;
                 break;
             case 'pictures':
                 $scope.mutableProfile = null;
                 $scope.pictureSectionIsEditing = false;
-                ;
                 break;
         default:
                 break;
