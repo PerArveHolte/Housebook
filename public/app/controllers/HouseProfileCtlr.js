@@ -42,7 +42,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
     function loadThumbnail() {
         var pic = null;
         if (!$scope.profile.profilePicture) {
-            img.src = '/img/default.png';
+            img.src = '/img/default.jpg';
             return;
         }
 
@@ -52,7 +52,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         } else {
             pic = $scope.profile.profilePicture.path;
         }
-        img.src = $scope.profile.profilePicture ? 'https://vidomtestbucket.s3.amazonaws.com/' + $scope.profileId + '/400x300/' + pic : '/img/default.png';
+        img.src = $scope.profile.profilePicture ? 'https://vidomtestbucket.s3.amazonaws.com/' + $scope.profileId + '/400x300/' + pic : '/img/default.jpg';
 
     };
 
