@@ -9,9 +9,9 @@
                 <form class="form">
                     <div class="form-group">
                         <label for="file">Choose picture</label>
-                        <input type="file" id="file7" class="form-control" ng-model="defaultHouseSpace.img" onchange="angular.element(this).scope().readURL(this)" accept="image/*">
+                        <input type="file" id="file7" class="form-control" ng-model="defaultHouseSpace.img" onchange="angular.element(this).scope().readURL(this, 'canvas7')" accept="image/*">
                     </div>
-                    <canvas id="canvas" width="200" height="200" class="center-block"></canvas>  
+                    <canvas id="canvas7" width="200" height="200" class="center-block"></canvas>  
                     <input type="hidden" name="userId" ng-model="user._id">
                 </form>
             </div>
