@@ -203,7 +203,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
 
 
 //2017-03-01 Guri: Start of hardcoding the ten pictures. This has to be done differently in the future.
-    $scope.savePicture0 = function (pictureNo, fileId) {
+    $scope.savePicture = function (pictureNo, fileId) {
         
         var file = document.getElementById(fileId).files[0];
 
@@ -222,6 +222,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
 
 //2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
         $('#addPicture0Modal').modal('hide');
+        $('#addPicture1Modal').modal('hide');
     };
 
     $scope.savePicture1 = function () {
