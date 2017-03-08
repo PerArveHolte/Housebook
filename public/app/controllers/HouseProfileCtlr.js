@@ -27,10 +27,11 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
                 ImageFctr.prepareImageDataURIFromCanvas(200, 150, e.target.result).then(function (uri) {
                     $scope.img200x150URI = uri;
                 });
-                ImageFctr.prepareImageDataURIFromCanvas(400, 300, e.target.result, "canvas").then(function (uri) {
+//                ImageFctr.prepareImageDataURIFromCanvas(400, 300, e.target.result, "canvas").then(function (uri) {
+                ImageFctr.prepareImageDataURIFromCanvas(400, 300, e.target.result).then(function (uri) {
                     $scope.img400x300URI = uri;
                 });
-                ImageFctr.prepareImageDataURIFromCanvas(600, 400, e.target.result).then(function (uri) {
+                ImageFctr.prepareImageDataURIFromCanvas(600, 400, e.target.result, "canvas").then(function (uri) {
                     $scope.img600x400URI = uri;
                 });
                 $scope.$apply();
