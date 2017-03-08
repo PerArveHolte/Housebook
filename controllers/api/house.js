@@ -13,7 +13,7 @@ var Image = require('../../model/image');
 
 router.get('/:profileId', function (req, res, next) {
     if (!req.headers['x-auth'] || !req.headers['x-auth'].length) {
-        console.log("Missing token");
+//        console.log("Missing token");
         return res.sendStatus(401);
     }
 
@@ -31,7 +31,7 @@ router.get('/:profileId', function (req, res, next) {
 
 router.post('/:profileId', function (req, res, next) {
     if (!req.headers['x-auth'] || !req.headers['x-auth'].length) {
-        console.log("Missing token");
+//        console.log("Missing token");
         return res.sendStatus(401);
     }
 
@@ -50,8 +50,9 @@ router.post('/:profileId', function (req, res, next) {
                     uploaded: new Date(),
                     uploadedBy: req.body.userId
                 });
-
-                console.log("Inside House.findOne. picture path is: "+picture.path);
+                console.log("\nInside house.findOne. req.params.profileId is: "+req.params.profileId);
+                console.log("req.body.fileName is: "+req.body.fileName);
+                console.log("picture path is: "+picture.path);
 /*2017-03-05 Guri: The profilePictureNumber (-1) and backgroundPictureNumber (-2) should be decleared as a 
  * global variable somewhere and used in the code in place of sending -1 and -2 directly.
  */
@@ -138,7 +139,7 @@ router.post('/', function (req, res, next) {
         address: address
     });
     
-    console.log("\nhouse is created: "+house);
+//    console.log("\nhouse is created: "+house);
     console.log("Sending house with JSON.stringify(house):" + JSON.stringify(house));
     User.findOne({username: auth.username}).exec(function (err, user) {
         house.createdBy = user._id;
@@ -153,8 +154,6 @@ router.post('/', function (req, res, next) {
                 user.save();
             });
 
-            console.log("Res is: "+res);
-            console.log("house._id is: "+house._id);
             return res.send(house._id);
         });
     });
