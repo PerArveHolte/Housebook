@@ -16,8 +16,7 @@
                         <button type="button" class="btn btn-primary" ng-click="savePicture(0, 'file0')"  analytics-on="click" analytics-event="Picture0 change" analytics-category="Actions">Save changes</button>
                     </span>
                     <br><br>
-                    <output id="canvas0"></output>  
-<!--                  <canvas id="canvas0"></canvas>  -->
+                    <canvas id="canvas0" width="1" height="1"></canvas>
                     <br><br>
                     Current picture:
                     <img ng-show="profile.picture0" ng-src="https://vidomtestbucket.s3.amazonaws.com/{{profile._id}}/600x400/{{profile.picture0.corePath}}">
