@@ -8,13 +8,14 @@
             <div class="modal-body">
                 <form class="form">
                     <div class="form-group">
+<!--                        <label for="file">Choose picture</label> -->
                         <label for="file">Choose picture</label>
                         <input type="file" id="file0" class="form-control" ng-model="defaultHouseSpace.img" onchange="angular.element(this).scope().readURL(this, 'canvas0')" accept="image/*">
                     </div>
 <!--                    <canvas id="canvas" width="200" height="200" class="center-block"></canvas>  -->
                     <canvas id="canvas0"></canvas>  
                     <img ng-if="!profile.picture0" src="../images/house-default.jpg" alt="Default house picture">
-                    <img ng-show="profile.picture0" ng-src="https://vidomtestbucket.s3.amazonaws.com/600x400{{profile.picture0.path}}">
+                    <img ng-show="profile.picture0" ng-src="https://vidomtestbucket.s3.amazonaws.com/{{profile._id}}/600x400{{profile.picture0.corePath}}">
                     <input type="hidden" name="userId" ng-model="user._id">
                 </form>
             </div>
