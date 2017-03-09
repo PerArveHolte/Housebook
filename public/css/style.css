@@ -33,7 +33,7 @@ nav {
   text-align: center;
 }
 nav .navbar-brand {
-  color: #990099 !important;
+  color: #990099;
   /*background-image: url('/images/Vidom_Logo_Farge.png');
         background-size: contain;
         background-repeat: no-repeat;
@@ -54,13 +54,13 @@ nav .navbar-form {
 nav .navbar-form button {
   background-color: #CC00CC;
 }
-#logo {
-  background-image: url(../..//images/Vidom_Logo_Farge.png);
-  height: 100px;
-  background-size: auto 90%;
-  background-position: 43% 100%;
-  background-repeat: no-repeat;
-}
+/*#logo{//not in use//
+    background-image: url(../..//images/Vidom_Logo_Farge.png);
+    height:100px;
+    background-size: auto 90%;
+    background-position: 43% 100%;
+    background-repeat: no-repeat;
+}*/
 .form-login {
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.65);
   -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.65);
@@ -82,31 +82,34 @@ nav .navbar-form button {
 }
 .main-container {
   padding: 0px;
-  /*background-image: url('/images/Vidom_Logo_Farge.png');//background picture login page//
-    background-repeat: no-repeat;
-    background-size: contain;
+  background-image: url('/images/ppexample.jpg');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: 20% 50%;
+}
+/*.marketing{//var dette tekst vi brukte tidligere? altså ikke i bruk nå?//
+    text-align: center;
 
-    background-position: 20% 50%;*/
-}
-.marketing {
-  text-align: center;
-}
-.marketing .heading {
-  color: #e0474c;
-  text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.5), 0px -1px 0px rgba(0, 0, 0, 0.5);
-}
-.marketing .marketing-tag {
-  color: #e0474c;
-  text-shadow: 0px 1px 0px #f1f0ee, 0px -1px 0px #fc4a1a;
-  line-height: 30px;
-  font-size: 26px;
-  font-weight: bolder;
-}
-.marketing .marketing-description {
-  padding: 10px;
-  text-align: justify;
-  color: #6c6457;
-}
+    .heading{
+        color: @lighter-red;
+        text-shadow: 0px 1px 0px rgba(255,255,255,.5), 0px -1px 0px rgba(0,0,0,.5);
+
+    }
+
+    .marketing-tag{
+        color:@lighter-red;
+        text-shadow: 0px 1px 0px @light-grey, 0px -1px 0px @orange-dark;
+        line-height: 30px;
+
+        font-size: 26px;
+        font-weight: bolder;
+    }
+    .marketing-description{
+        padding:10px;
+        text-align: justify;
+        color:@brand-font-rgb;
+    }
+}*/
 .houses-grid {
   display: block;
 }
@@ -127,15 +130,18 @@ nav .navbar-form button {
   padding: 10px 10px 0px 10px;
   color: #CC00CC;
   font-family: "Open Sans";
+  font-weight: 700;
 }
 .houses-grid .house-space-on-grid .pull-right > .dropdown-menu {
   right: -180px;
 }
 .btn-lg {
+  color: white;
   border-color: #CC00CC;
   background-color: #CC00CC;
 }
 .btn-lg:hover {
+  color: white;
   border-color: #990099;
   background-color: #990099;
 }
@@ -154,6 +160,10 @@ nav .navbar-form button {
   margin-top: 7px;
   margin-bottom: 5px;
   font-size: 18px;
+}
+.btn-feedback:hover {
+  background-color: #CC00CC;
+  border-color: #CC00CC;
 }
 #loading-bar .bar {
   position: relative;

@@ -3,10 +3,9 @@ vidom.controller('HouseCtlr', function ($scope, $rootScope, $location, HouseProf
     $scope.houses = $rootScope.user ? $rootScope.user.createdHouseProfile : [];
     angular.forEach($scope.houses, function(houseProfile){
         if (houseProfile.ref && houseProfile.ref.profilePicture){
-            console.log("\nProfile picture");
             houseProfile.thumbnail = "https://vidomtestbucket.s3.amazonaws.com/"+houseProfile.ref.profilePicture.path;
         }else {
-            houseProfile.thumbnail = "/img/defaultSmall.png";
+            houseProfile.thumbnail = "/img/defaultSmall.jpg";
         }
     });
 

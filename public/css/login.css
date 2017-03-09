@@ -52,10 +52,14 @@
   background-color: #990099;
   border-color: #990099;
 }
+.btn-block:hover {
+  background-color: #CC00CC;
+  border-color: #CC00CC;
+}
 @media (max-width: 768px) {
   #login-dp {
-    background-color: #4abdac;
-    color: #4abdac;
+    background-color: white;
+    color: white;
   }
   #login-dp .bottom {
     background-color: inherit;

@@ -6,9 +6,9 @@ body {
     font-size: 12pt;
     padding-bottom: 70px; 
     background-color: @light-grey;
-    color:@hex-grey; //text color in body on each page//
+    color:@hex-grey; 
 }
-a, .clickable{
+a, .clickable{ //gjør logo klikkbar//
     cursor: pointer;
 }
 a:hover{
@@ -21,16 +21,16 @@ footer{
     background-color: @light-grey;
     border:none;
 }
-.dropdown-menu{
+.dropdown-menu{//login drop down//
     font-size: 12pt;
     color:@hex-grey;
 }
-nav{
+nav{//top line//
     font: 300 1.5em/1.1em "Open Sans", sans-serif;
     text-align: center;
 
-    .navbar-brand{//top menu "brand"//
-        color:@darkermain !important; //if text added in top menu//
+    .navbar-brand{//top menu "brand" dvs logo pr nå//
+        color: @darkermain;
         /*background-image: url('/images/Vidom_Logo_Farge.png');
         background-size: contain;
         background-repeat: no-repeat;
@@ -44,23 +44,23 @@ nav{
         padding-bottom: 0;
         padding-left: 0;
     }
-    .navbar-text{//in use?//
+    .navbar-text{//ikke i bruk//
         color:@hex-grey !important;
     }
     .navbar-form{
         border:none;
-        button{//in use?//
+        button{//ikke i bruk//
             background-color: @hex-pink;
         }
     }
 }
-#logo{//not in use//
+/*#logo{//not in use//
     background-image: url(../..//images/Vidom_Logo_Farge.png);
     height:100px;
     background-size: auto 90%;
     background-position: 43% 100%;
     background-repeat: no-repeat;
-}
+}*/
 
 .form-login{//"Create account" box//
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.65);
@@ -84,15 +84,15 @@ nav{
 }
 .main-container{
     padding:0px;
-    /*background-image: url('/images/Vidom_Logo_Farge.png');//background picture login page//
+    background-image: url('/images/ppexample.jpg');//background picture login page//
     background-repeat: no-repeat;
     background-size: contain;
 
-    background-position: 20% 50%;*/
+    background-position: 20% 50%;
 }
 
 
-.marketing{//var dette tekst vi brukte tidligere? altså ikke i bruk nå?//
+/*.marketing{//var dette tekst vi brukte tidligere? altså ikke i bruk nå?//
     text-align: center;
 
     .heading{
@@ -114,7 +114,7 @@ nav{
         text-align: justify;
         color:@brand-font-rgb;
     }
-}
+}*/
 
 //"home" der man oppretter ny house profile//
 .houses-grid{
@@ -137,19 +137,21 @@ nav{
             padding: 10px 10px 0px 10px; 
             color:@hex-pink;
             font-family: "Open Sans";
+            font-weight: 700;
         }
-
 
         .pull-right>.dropdown-menu{
             right:-180px;
         }
     }
 }
-.btn-lg{
+.btn-lg{//Add new house profile knapp//
+          color:white;
           border-color: @hex-pink;
           background-color: @hex-pink;
         }
 .btn-lg:hover{
+          color: white;
           border-color: @darkermain;
           background-color: @darkermain;
         }
@@ -172,6 +174,10 @@ nav{
     margin-top: 7px;
     margin-bottom: 5px;
     font-size: 18px;
+}
+.btn-feedback:hover{//"send us your feedback" knapp//
+    background-color: @hex-pink;
+    border-color: @hex-pink;
 }
 
 #loading-bar .bar {
