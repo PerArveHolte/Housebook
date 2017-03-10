@@ -45,14 +45,13 @@ router.post('/:profileId', function (req, res, next) {
 
             if (req.body.isThumbnail){      //if the picture is the thumbnail picture, save it to the database
 
+                var splitFileNames = req.body.fileName.split('/');
                 var picture = new Image({
                     path: req.params.profileId + '/' + req.body.fileName,
+                    corePath: splitFileNames[1],
                     uploaded: new Date(),
                     uploadedBy: req.body.userId
                 });
-                console.log("\nInside house.findOne. req.params.profileId is: "+req.params.profileId);
-                console.log("req.body.fileName is: "+req.body.fileName);
-                console.log("picture path is: "+picture.path);
 /*2017-03-05 Guri: The profilePictureNumber (-1) and backgroundPictureNumber (-2) should be decleared as a 
  * global variable somewhere and used in the code in place of sending -1 and -2 directly.
  */
