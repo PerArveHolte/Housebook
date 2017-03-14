@@ -20,8 +20,6 @@ var house = db.Schema({
     picture5: {type: imageModel.schema, required: false, select: true},
     picture6: {type: imageModel.schema, required: false, select: true},
     picture7: {type: imageModel.schema, required: false, select: true},
-    picture8: {type: imageModel.schema, required: false, select: true},
-    picture9: {type: imageModel.schema, required: false, select: true},
     address: {type: addressModel.schema, required: false},
     builtYear: {type: Number, required: false},
     movedInYear: {type: Number, required: false},

@@ -198,4 +198,19 @@ nav .navbar-form button {
   visibility: visible;
   opacity: 1;
 }
+.btn-primary {
+  color: white;
+  border-color: #CC00CC;
+  background-color: #CC00CC;
+}
+.btn-primary:hover {
+  color: white;
+  border-color: #990099;
+  background-color: #990099;
+}
+.btn-primary:active {
+  color: white;
+  border-color: #990099;
+  background-color: #990099;
+}
 /*# sourceMappingURL=style.css.map */

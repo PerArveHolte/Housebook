@@ -2,8 +2,6 @@
 vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeParams, HouseProfileSvc, ImageFctr, $location) {
 
     var profilePictureCanvas = null, ctx = null, img = null;
-    var picture0Canvas = null;
-    var img0 = null;
 
     $scope.partial = $routeParams.partial;
     $scope.profileId = $routeParams.id;
@@ -20,7 +18,8 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         console.log(err);
     });
 
-    $scope.readURL = function (input) {
+//    $scope.readURL = function (input) {
+    $scope.readURL = function (input, canvas) {
         if (input.files && input.files[0]) {
 
             var FR = new FileReader();
@@ -28,10 +27,11 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
                 ImageFctr.prepareImageDataURIFromCanvas(200, 150, e.target.result).then(function (uri) {
                     $scope.img200x150URI = uri;
                 });
-                ImageFctr.prepareImageDataURIFromCanvas(400, 300, e.target.result, "canvas").then(function (uri) {
+//                ImageFctr.prepareImageDataURIFromCanvas(400, 300, e.target.result, "canvas").then(function (uri) {
+                ImageFctr.prepareImageDataURIFromCanvas(400, 300, e.target.result).then(function (uri) {
                     $scope.img400x300URI = uri;
                 });
-                ImageFctr.prepareImageDataURIFromCanvas(600, 400, e.target.result).then(function (uri) {
+                ImageFctr.prepareImageDataURIFromCanvas(600, 400, e.target.result, canvas).then(function (uri) {
                     $scope.img600x400URI = uri;
                 });
                 $scope.$apply();
@@ -74,22 +74,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
             profilePictureCanvas.width = W;
             profilePictureCanvas.height = H;
             ctx.drawImage(img, 0, 0); //draw image
-            console.log("\nReloading the profile picture1");
         };
-/*        
-        picture0Canvas = document.getElementById("profile0-canvas");
-        ctx = picture0Canvas.getContext("2d");
-        img0 = new Image();
-        img0.crossOrigin = "Anonymous"; //cors support
-        img0.onload = function () {
-            var W = img0.width;
-            var H = img0.height;
-            picture0Canvas.width = W;
-            picture0Canvas.height = H;
-            ctx.drawImage(img0, 0, 0); //draw image
-            console.log("\nReloading picture0");
-        };
-*/        
     });
 
     $scope.addInhabitant = function (firstName, lastName, email, sendInvitation) {
@@ -97,6 +82,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
     };
 
     $scope.updateSection = function () {
+        console.log("Inside updateSection. the following editSectionid is identified: "+$scope.editSectionId);
         switch ($scope.editingSectionId) {
             case 'basicInfo':
                 $scope.profile = $scope.mutableProfile;
@@ -122,7 +108,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
             case 'pictures':
                 $scope.profile = $scope.mutableProfile;
                 $scope.profile.pictures = _.filter($scope.profile.pictures, {selected: true});
-//                console.log("\nReloading pictures");
+                console.log("\nReloading pictures");
                 HouseProfileSvc.updateProfile($scope.profile).then(function () {
                     $scope.mutableProfile = null;
                     $scope.pictureSectionIsEditing = false;
@@ -138,7 +124,10 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
     };
 
     $scope.editSection = function (id) {
+        //2017-03-07 Guri is wondering what happens if we take a away the editingSectionId global variable.
         $scope.editingSectionId = id;
+        console.log("id is: " +id);
+        console.log("Inside editSection. the following editSectionid is identified: "+$scope.editSectionId);
         switch (id) {
             case 'basicInfo':
                 $scope.basicInfoIsEditing = true;
@@ -160,6 +149,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
                 $scope.mutableProfile.facilities = allFacilities;
                 break;
             case 'pictures':
+                console.log("Hurray! Inside pictures switch");
                 $scope.pictureSectionIsEditing = true;
                 $scope.mutableProfile = angular.copy($scope.profile);
                 break;
@@ -177,12 +167,10 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
             case 'building':
                 $scope.mutableProfile = null;
                 $scope.buildingSectionIsEditing = false;
-                ;
                 break;
             case 'pictures':
                 $scope.mutableProfile = null;
                 $scope.pictureSectionIsEditing = false;
-                ;
                 break;
         default:
                 break;
@@ -215,9 +203,9 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
 
 
 //2017-03-01 Guri: Start of hardcoding the ten pictures. This has to be done differently in the future.
-    $scope.savePicture0 = function () {
+    $scope.savePicture = function (pictureNo, fileId) {
         
-        var file = document.getElementById('file0').files[0];
+        var file = document.getElementById(fileId).files[0];
 
         var img200x150URI = dataURItoBlob($scope.img200x150URI);
         var img400x300URI = dataURItoBlob($scope.img400x300URI);
@@ -226,216 +214,21 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         var houseId = $routeParams.id;
         var userId = $rootScope.user._id;
         
-        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, 0, userId).then(function () {
+        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, pictureNo, userId).then(function () {
 
-//            img.setAttribute("src", $scope.img400x300URI); //load the image onto the profilePicture placement in the houseProfile.html.
-
-            HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, 0, userId);
-            HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, 0, userId);
+            HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, pictureNo, userId);
+            HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, pictureNo, userId);
         });
 
-//2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
+//2017-02-07 Guri: The closing of the modals should be moved somewhere different, I assume.
         $('#addPicture0Modal').modal('hide');
-    };
-
-    $scope.savePicture1 = function () {
-        
-        var file = document.getElementById('file1').files[0];
-
-        var img200x150URI = dataURItoBlob($scope.img200x150URI);
-        var img400x300URI = dataURItoBlob($scope.img400x300URI);
-        var img600x400URI = dataURItoBlob($scope.img600x400URI);
-
-        var houseId = $routeParams.id;
-        var userId = $rootScope.user._id;
-        
-        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, 1, userId).then(function () {
-            HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, 1, userId);
-            HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, 1, userId);
-        });
-
-//2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
         $('#addPicture1Modal').modal('hide');
-    };
-
-    $scope.savePicture2 = function () {
-        
-        var file = document.getElementById('file2').files[0];
-
-        var img200x150URI = dataURItoBlob($scope.img200x150URI);
-        var img400x300URI = dataURItoBlob($scope.img400x300URI);
-        var img600x400URI = dataURItoBlob($scope.img600x400URI);
-
-        var houseId = $routeParams.id;
-        var userId = $rootScope.user._id;
-        
-        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, 2, userId).then(function () {
-            HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, 2, userId);
-            HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, 2, userId);
-        });
-
-//2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
         $('#addPicture2Modal').modal('hide');
-    };
-
-    $scope.savePicture2 = function () {
-        
-        var file = document.getElementById('file2').files[0];
-
-        var img200x150URI = dataURItoBlob($scope.img200x150URI);
-        var img400x300URI = dataURItoBlob($scope.img400x300URI);
-        var img600x400URI = dataURItoBlob($scope.img600x400URI);
-
-        var houseId = $routeParams.id;
-        var userId = $rootScope.user._id;
-        
-        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, 2, userId).then(function () {
-            HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, 2, userId);
-            HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, 2, userId);
-        });
-
-//2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
-        $('#addPicture2Modal').modal('hide');
-    };
-
-    $scope.savePicture3 = function () {
-        
-        var file = document.getElementById('file3').files[0];
-
-        var img200x150URI = dataURItoBlob($scope.img200x150URI);
-        var img400x300URI = dataURItoBlob($scope.img400x300URI);
-        var img600x400URI = dataURItoBlob($scope.img600x400URI);
-
-        var houseId = $routeParams.id;
-        var userId = $rootScope.user._id;
-        
-        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, 3, userId).then(function () {
-            HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, 3, userId);
-            HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, 3, userId);
-        });
-
-//2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
         $('#addPicture3Modal').modal('hide');
-    };
-
-    $scope.savePicture4 = function () {
-        
-        var file = document.getElementById('file4').files[0];
-
-        var img200x150URI = dataURItoBlob($scope.img200x150URI);
-        var img400x300URI = dataURItoBlob($scope.img400x300URI);
-        var img600x400URI = dataURItoBlob($scope.img600x400URI);
-
-        var houseId = $routeParams.id;
-        var userId = $rootScope.user._id;
-        
-        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, 4, userId).then(function () {
-            HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, 4, userId);
-            HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, 4, userId);
-        });
-
-//2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
         $('#addPicture4Modal').modal('hide');
-    };
-
-    $scope.savePicture5 = function () {
-        
-        var file = document.getElementById('file5').files[0];
-
-        var img200x150URI = dataURItoBlob($scope.img200x150URI);
-        var img400x300URI = dataURItoBlob($scope.img400x300URI);
-        var img600x400URI = dataURItoBlob($scope.img600x400URI);
-
-        var houseId = $routeParams.id;
-        var userId = $rootScope.user._id;
-        
-        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, 5, userId).then(function () {
-            HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, 5, userId);
-            HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, 5, userId);
-        });
-
-//2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
         $('#addPicture5Modal').modal('hide');
-    };
-
-    $scope.savePicture6 = function () {
-        
-        var file = document.getElementById('file6').files[0];
-
-        var img200x150URI = dataURItoBlob($scope.img200x150URI);
-        var img400x300URI = dataURItoBlob($scope.img400x300URI);
-        var img600x400URI = dataURItoBlob($scope.img600x400URI);
-
-        var houseId = $routeParams.id;
-        var userId = $rootScope.user._id;
-        
-        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, 6, userId).then(function () {
-            HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, 6, userId);
-            HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, 6, userId);
-        });
-
-//2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
         $('#addPicture6Modal').modal('hide');
-    };
-
-    $scope.savePicture7 = function () {
-        
-        var file = document.getElementById('file7').files[0];
-
-        var img200x150URI = dataURItoBlob($scope.img200x150URI);
-        var img400x300URI = dataURItoBlob($scope.img400x300URI);
-        var img600x400URI = dataURItoBlob($scope.img600x400URI);
-
-        var houseId = $routeParams.id;
-        var userId = $rootScope.user._id;
-        
-        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, 7, userId).then(function () {
-            HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, 7, userId);
-            HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, 7, userId);
-        });
-
-//2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
         $('#addPicture7Modal').modal('hide');
-    };
-
-    $scope.savePicture8 = function () {
-        
-        var file = document.getElementById('file8').files[0];
-
-        var img200x150URI = dataURItoBlob($scope.img200x150URI);
-        var img400x300URI = dataURItoBlob($scope.img400x300URI);
-        var img600x400URI = dataURItoBlob($scope.img600x400URI);
-
-        var houseId = $routeParams.id;
-        var userId = $rootScope.user._id;
-        
-        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, 8, userId).then(function () {
-            HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, 8, userId);
-            HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, 8, userId);
-        });
-
-//2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
-        $('#addPicture8Modal').modal('hide');
-    };
-
-    $scope.savePicture9 = function () {
-        
-        var file = document.getElementById('file9').files[0];
-
-        var img200x150URI = dataURItoBlob($scope.img200x150URI);
-        var img400x300URI = dataURItoBlob($scope.img400x300URI);
-        var img600x400URI = dataURItoBlob($scope.img600x400URI);
-
-        var houseId = $routeParams.id;
-        var userId = $rootScope.user._id;
-        
-        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, 9, userId).then(function () {
-            HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, 9, userId);
-            HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, 9, userId);
-        });
-
-//2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
-        $('#addPicture9Modal').modal('hide');
     };
 
 });

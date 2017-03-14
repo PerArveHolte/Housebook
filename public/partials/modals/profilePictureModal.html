@@ -8,8 +8,8 @@
             <div class="modal-body">
                 <form class="form">
                     <div class="form-group">
-                        <label  for="file">Choose house profile picture</label>
-                        <input type="file" id="profilePictureFile" class="form-control" ng-model="defaultHouseSpace.img" onchange="angular.element(this).scope().readURL(this)" accept="image/*">
+                        <label for="file">Choose house profile picture</label>
+                        <input type="file" id="profilePictureFile" class="form-control" ng-model="defaultHouseSpace.img" onchange="angular.element(this).scope().readURL(this, 'canvas')" accept="image/*">
                     </div>
                     <canvas id="canvas" width="200" height="200" class="center-block"></canvas>  
                     <input type="hidden" name="userId" ng-model="user._id">

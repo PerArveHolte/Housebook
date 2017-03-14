@@ -1,5 +1,5 @@
 <div id="addPicture1Modal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header heading">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -8,16 +8,22 @@
             <div class="modal-body">
                 <form class="form">
                     <div class="form-group">
-                        <label for="file">Choose picture</label>
-                        <input type="file" id="file1" class="form-control" ng-model="defaultHouseSpace.img" onchange="angular.element(this).scope().readURL(this)" accept="image/*">
+                        <label>Choose picture</label>
+                        <input type="file" id="file1" class="form-control" onchange="angular.element(this).scope().readURL(this, 'canvas1')" accept="image/*">
                     </div>
-                    <canvas id="canvas" width="200" height="200" class="center-block"></canvas>  
+                    <span class='pull-right' >
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" ng-click="savePicture(1, 'file1')"  analytics-on="click" analytics-event="Picture1 change" analytics-category="Actions">Save changes</button>
+                    </span>
+                    <br><br>
+                    <canvas id="canvas1" width="1" height="1" class="center-block"></canvas>
+                    <br>
+                    Current picture:
+                    <br>
+                    <img ng-if="!profile.picture1" src="../images/house-default.jpg" alt="Default house picture" class="center-block">
+                    <img ng-show="profile.picture1" ng-src="https://vidomtestbucket.s3.amazonaws.com/{{profile._id}}/600x400/{{profile.picture1.corePath}}" class="center-block">
                     <input type="hidden" name="userId" ng-model="user._id">
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" ng-click="savePicture1()"  analytics-on="click" analytics-event="Picture1 change" analytics-category="Actions">Save changes</button>
             </div>
         </div>
     </div>
