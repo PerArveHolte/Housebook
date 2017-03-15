@@ -82,6 +82,7 @@ nav .navbar-form button {
 }
 .main-container {
   padding: 0px;
+/*  background-image: url('/images/ppexample.jpg');*/
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 20% 50%;
