@@ -1,3 +1,5 @@
+'use strict';
+
 var vidom = angular.module('vidom', ['ngRoute', 'angular-loading-bar', 'ui.bootstrap', 'angulartics.google.analytics']);
 
 vidom.config(function ($routeProvider, $locationProvider, cfpLoadingBarProvider, $httpProvider) {

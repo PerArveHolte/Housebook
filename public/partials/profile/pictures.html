@@ -11,6 +11,10 @@
             <img ng-if="!profile.picture0" src="../images/house-default.jpg" alt="Default house picture" class="center-block">
             <img ng-show="profile.picture0" ng-src="https://vidomtestbucket.s3.amazonaws.com/{{profile.picture0.path}}" class="center-block">
             </a>
+            <button class="btn btn-sm btn-danger center-block" ng-click="removeImage(image)">
+                <span title="Remove"> <strong>Remove</strong></span>
+            </button>
+
         </div>
         <div class="col-xs-6 col-md-3" data-target="#addPicture1Modal" data-toggle="modal">
             <a>

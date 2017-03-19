@@ -1,3 +1,5 @@
+'use strict';
+
 vidom.controller('MainCtlr', function ($scope, $location, AuthSvc) {
     $scope.formSent = false;
     $scope.success = true;

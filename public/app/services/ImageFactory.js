@@ -1,3 +1,5 @@
+'use strict';
+
 vidom.factory('ImageFctr', function ($q) {
     var obj = {};
 
