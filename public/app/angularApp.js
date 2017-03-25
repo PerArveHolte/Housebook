@@ -71,7 +71,7 @@ vidom.config(function ($routeProvider, $locationProvider, cfpLoadingBarProvider,
                 },
                 production: {
                     s3bucket: 'vidomtestbucket',
-                    gooleApi: '1234'
+                    googleApi: '1234'
                 }
                 // anotherStage: { 
                 // 	customVar: 'lorem', 
