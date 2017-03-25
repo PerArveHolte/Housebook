@@ -21,7 +21,7 @@
                     Current picture:
                     <br>
                     <img ng-if="!profile.picture6" src="../images/house-default.jpg" alt="Default house picture" class="center-block">
-                    <img ng-show="profile.picture6" ng-src="https://vidomtestbucket.s3.amazonaws.com/{{profile._id}}/600x400/{{profile.picture6.corePath}}" class="center-block">
+                    <img ng-show="profile.picture6" ng-src="https://{{imageBucket}}.s3.amazonaws.com/{{profile._id}}/600x400/{{profile.picture6.corePath}}" class="center-block">
                     <input type="hidden" name="userId" ng-model="user._id">
                 </form>
             </div>

@@ -1,6 +1,6 @@
 //2017-02-19 Guri lurer på hvorfor den globale variabelen "vidom" ikke er deklarert her, ref feilmelding.
-vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeParams, HouseProfileSvc, ImageFctr, $location) {
-
+vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeParams, HouseProfileSvc, ImageFctr, $location, envService) {
+    $scope.imageBucket = envService.read('s3bucket');
     var profilePictureCanvas = null, ctx = null, img = null;
 
     $scope.partial = $routeParams.partial;
@@ -54,7 +54,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         } else {
             pic = $scope.profile.profilePicture.path;
         }
-        img.src = $scope.profile.profilePicture ? 'https://vidomtestbucket.s3.amazonaws.com/' + $scope.profileId + '/400x300/' + pic : '/img/default.jpg';
+        img.src = $scope.profile.profilePicture ? 'https://' + $scope.imageBucket + '.s3.amazonaws.com/' + $scope.profileId + '/400x300/' + pic : '/img/default.jpg';
 
     };
 
