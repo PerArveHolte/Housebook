@@ -15,6 +15,7 @@
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-default btn-primary" ng-click="savePicture(0, 'file0')"  analytics-on="click" analytics-event="Picture0 change" analytics-category="Actions">Save changes</button>
                     </span>
+
                     <br><br>
                     <canvas id="canvas0" width="1" height="1" class="center-block"></canvas>
                     <br>
@@ -23,6 +24,9 @@
                     <img ng-if="!profile.picture0" src="../images/house-default.jpg" alt="Default house picture" class="center-block">
                     <img ng-show="profile.picture0" ng-src="https://vidomtestbucket.s3.amazonaws.com/{{profile._id}}/600x400/{{profile.picture0.corePath}}" class="center-block">
                     <input type="hidden" name="userId" ng-model="user._id">
+                    <button class="btn btn-sm btn-danger pull-right" ng-click="removeImage(image)">
+                        <span title="Remove"> <strong>Remove</strong></span>
+                    </button>
                 </form>
             </div>
         </div>
