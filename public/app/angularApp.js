@@ -1,6 +1,6 @@
-var vidom = angular.module('vidom', ['ngRoute', 'angular-loading-bar', 'ui.bootstrap', 'angulartics.google.analytics']);
+var vidom = angular.module('vidom', ['ngRoute', 'angular-loading-bar', 'ui.bootstrap', 'angulartics.google.analytics', 'environment']);
 
-vidom.config(function ($routeProvider, $locationProvider, cfpLoadingBarProvider, $httpProvider) {
+vidom.config(function ($routeProvider, $locationProvider, cfpLoadingBarProvider, $httpProvider, envServiceProvider) {
 
     $httpProvider.interceptors.push('AuthHttpInterceptor');
 
@@ -56,6 +56,33 @@ vidom.config(function ($routeProvider, $locationProvider, cfpLoadingBarProvider,
             .when('/user/reset-password', {controller: 'HouseCtlr', templateUrl: 'partials/forms/account/resetPassword.html'})
             .when('/error/persistance', {templateUrl: 'partials/error/persistance.error.html'})
             .otherwise({redirectTo: '/welcome'});
+    
+    envServiceProvider.config({
+            domains: {
+                development: ['localhost', 'dev.local', '127.0.0.1'],
+                production: ['vidom.no', 'www.vidom.no']
+                // anotherStage: ['domain1', 'domain2'], 
+                // anotherStage: ['domain1', 'domain2'] 
+            },
+            vars: {
+                development: {
+                    s3bucket: 'vidomtestbucket',
+                    googleApi: '1234'
+                },
+                production: {
+                    s3bucket: 'vidomtestbucket',
+                    googleApi: '1234'
+                }
+                // anotherStage: { 
+                // 	customVar: 'lorem', 
+                // 	customVar: 'ipsum' 
+                // } 
+            }
+        });
+ 
+        // run the environment check, so the comprobation is made 
+        // before controllers and services are built 
+        envServiceProvider.check();
 });
 
 vidom.run(function ($location) {
