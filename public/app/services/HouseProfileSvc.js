@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 vidom.service('HouseProfileSvc', function ($q, $http) {
     var obj = {};

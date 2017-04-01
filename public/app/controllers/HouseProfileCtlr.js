@@ -1,8 +1,8 @@
-'use strict';
+"use strict";
 
 //2017-02-19 Guri lurer på hvorfor den globale variabelen "vidom" ikke er deklarert her, ref feilmelding.
-vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeParams, HouseProfileSvc, ImageFctr, $location) {
-
+vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeParams, HouseProfileSvc, ImageFctr, $location, envService, $q) {
+    $scope.imageBucket = envService.read('s3bucket');
     var profilePictureCanvas = null, ctx = null, img = null;
 
     $scope.partial = $routeParams.partial;
@@ -12,13 +12,16 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
     $scope.buildingSectionIsEditing = false;
     $scope.pictureSectionIsEditing = false;
 
-    HouseProfileSvc.getProfile($routeParams.id).then(function (response) {
-        $scope.profile = response;
-        $scope.currentProjectUrl = $sce.trustAsResourceUrl($scope.profile.mapq);
-        loadThumbnail();
-    }, function (err) {
-        console.log(err);
-    });
+    $scope.loadProfile = function() {
+        HouseProfileSvc.getProfile($routeParams.id).then(function (response) {
+            $scope.profile = response;
+            $scope.currentProjectUrl = $sce.trustAsResourceUrl($scope.profile.mapq);
+            loadThumbnail();
+        }, function (err) {
+            console.log(err);
+        });
+    };
+    $scope.loadProfile();
 
 //    $scope.readURL = function (input) {
     $scope.readURL = function (input, canvas) {
@@ -56,7 +59,7 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         } else {
             pic = $scope.profile.profilePicture.path;
         }
-        img.src = $scope.profile.profilePicture ? 'https://vidomtestbucket.s3.amazonaws.com/' + $scope.profileId + '/400x300/' + pic : '/img/default.jpg';
+        img.src = $scope.profile.profilePicture ? 'https://' + $scope.imageBucket + '.s3.amazonaws.com/' + $scope.profileId + '/400x300/' + pic : '/img/default.jpg';
 
     };
 
@@ -192,11 +195,11 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         var houseId = $routeParams.id;
         var userId = $rootScope.user._id;
         
-        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, -1, userId).then(function () {
+        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new Blob([img200x150URI], {type: file.type}), true, -1, userId).then(function () {
 
             img.setAttribute("src", $scope.img400x300URI); //load the image onto the profilePicture placement in the houseProfile.html.
-            HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, -1, userId);
-            HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, -1, userId);
+            HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new Blob([img400x300URI], {type: file.type}), false, -1, userId);
+            HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new Blob([img600x400URI], {type: file.type}), false, -1, userId);
         });
 
 //2017-02-07 Guri: The closing of the modal must be moved somewhere different, I assume.
@@ -216,10 +219,17 @@ vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeP
         var houseId = $routeParams.id;
         var userId = $rootScope.user._id;
         
-        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new File([img200x150URI], {type: file.type}), true, pictureNo, userId).then(function () {
-
-            HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new File([img400x300URI], {type: file.type}), false, pictureNo, userId);
-            HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new File([img600x400URI], {type: file.type}), false, pictureNo, userId);
+        HouseProfileSvc.savePicture(houseId, '200x150/' + file.name, file.type, new Blob([img200x150URI], {type: file.type}), true, pictureNo, userId).then(function (response) {
+            var promises = [];
+            promises.push(HouseProfileSvc.savePicture(houseId, '400x300/' + file.name, file.type, new Blob([img400x300URI], {type: file.type}), false, pictureNo, userId));
+            promises.push(HouseProfileSvc.savePicture(houseId, '600x400/' + file.name, file.type, new Blob([img600x400URI], {type: file.type}), false, pictureNo, userId));
+            
+            $q.all(promises).then(new function() {
+                //console.log($scope.profile);
+                $scope.loadProfile();
+                $scope.updateSection();
+                //document.location.reload();
+            });
         });
 
 //2017-02-07 Guri: The closing of the modals should be moved somewhere different, I assume.

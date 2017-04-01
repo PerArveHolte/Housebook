@@ -25,6 +25,16 @@ if (process.env.ENV_TYPE !== 'development') {
     app.use(logger('dev'));
 }
 
+/* Enforce redirect from HTTP to HTTPS */
+if (process.env.ENV_TYPE !== 'development') { /* only redirect in production */
+    app.use(function(req, res, next) {
+        if (req.headers['x-forwarded-proto'] != 'https')
+            res.redirect(['https://', req.get('Host'), req.url].join(''));
+        else
+            next();
+    });
+}
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({limit: '5mb', extended: true}));
 app.use(cookieParser());

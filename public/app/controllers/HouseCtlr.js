@@ -1,11 +1,13 @@
 'use strict';
 
 //2017-02-12 Guri: Was wondering if this "HouseCtlr" actually should be named "UserCtlr"?
-vidom.controller('HouseCtlr', function ($scope, $rootScope, $location, HouseProfileSvc) {
+vidom.controller('HouseCtlr', function ($scope, $rootScope, $location, HouseProfileSvc, envService) {
+    $scope.imageBucket = envService.read('s3bucket');
+    
     $scope.houses = $rootScope.user ? $rootScope.user.createdHouseProfile : [];
     angular.forEach($scope.houses, function(houseProfile){
         if (houseProfile.ref && houseProfile.ref.profilePicture){
-            houseProfile.thumbnail = "https://vidomtestbucket.s3.amazonaws.com/"+houseProfile.ref.profilePicture.path;
+            houseProfile.thumbnail = "https://" + $scope.imageBucket + ".s3.amazonaws.com/"+houseProfile.ref.profilePicture.path;
         }else {
             houseProfile.thumbnail = "/img/defaultSmall.jpg";
         }
