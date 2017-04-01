@@ -1,4 +1,5 @@
 "use strict";
+
 //2017-02-19 Guri lurer på hvorfor den globale variabelen "vidom" ikke er deklarert her, ref feilmelding.
 vidom.controller('HouseProfileCtlr', function ($scope, $rootScope, $sce, $routeParams, HouseProfileSvc, ImageFctr, $location, envService, $q) {
     $scope.imageBucket = envService.read('s3bucket');

@@ -1,3 +1,5 @@
+'use strict';
+
 vidom.controller('LoginCtlr', function ($scope, $rootScope, $location, $window, AuthSvc, $routeParams) {
 
     $scope.isResetPassword = $routeParams.token != undefined;

@@ -28,15 +28,15 @@ router.get('/reset/:email', function (req, res, next) {
                     return next(err);
 
                 else {
-                    var htmlContent = "Hi,<br><p>You have requested your password to be reset. Just click the link below, and you will be redirected to <strong>Vidom</strong>, and may then change your password.</p>"
-                            .concat("<br>Please go to <a href='//")
+                    var htmlContent = "Hi,<br><p>We received a request to reset your <strong>Vidom</strong> password.</p>"
+                            .concat("<br><a href='//")
                             .concat(process.env.ENV_HOST)
                             .concat("/#/user/change-password/")
                             .concat(user.resetPasswordHash)
-                            .concat("'>reset password link</a>")
-                            .concat("<br><br><p>If you have not requested to change your password, simply ignore this email.</p>")
+                            .concat("'>Click here to change your password.</a>")
+                            .concat("<br><br><p>If you didn't requested a password change, simply ignore this email.</p>")
                             .concat("<br>Cheers,")
-                            .concat("<h3>Vidom Team</h3>");
+                            .concat("<h3> The Vidom team</h3>");
 
                     var mailOptions = {
                         to: req.params.email,
