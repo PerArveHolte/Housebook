@@ -105,8 +105,8 @@ nav{//top line//
     }
 }
 .main-container{
-    padding:25px;
-    //background-image: url('/images/backgroundIMG.jpg');//background picture login page////
+    padding:0px;
+/*    background-image: url('/images/ppexample.jpg');*///background picture login page//
     background-repeat: no-repeat;
     background-size: contain;
 
@@ -182,12 +182,18 @@ nav{//top line//
     }
 }
 
+//2017-04-01 Guri lurer på om det hadde vært bedre å standardisert på btn-lg, btn-sm etc i stede for å spesifisere knapp for knapp.
 .btn-feedback{//"send us your feedback" knapp//
     float: right;
     margin-top: 7px;
     margin-bottom: 5px;
-    font-size: 18px;
     .btn-primary;
+    font-size: 14px;//18px;
+}
+.btn-feedback:hover{//"send us your feedback" knapp//
+    background-color: @hex-pink;
+    border-color: @hex-pink;
+
 }
 
 #loading-bar .bar {

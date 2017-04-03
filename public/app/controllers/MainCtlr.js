@@ -1,6 +1,11 @@
-vidom.controller('MainCtlr', function ($scope, $location, AuthSvc) {
+'use strict';
+
+vidom.controller('MainCtlr', function ($scope, $location, AuthSvc, envService) {
     $scope.formSent = false;
     $scope.success = true;
+    
+    $scope.imageBucket = envService.read('s3bucket');
+    window.console && console.log($scope.imageBucket);
 
     $scope.initContactForm = function () {
         _.defer(function () {
