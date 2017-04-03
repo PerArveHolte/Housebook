@@ -2,16 +2,16 @@
 <!-- 20.01.2017 Guri has commented this out as it is redundant to the red button on the house profile page.
     <a ng-if="user" href="#/house/create" class="btn btn-info navbar-btn pull-left"><i aria-hidden="true" class="glyphicon glyphicon-plus"></i>&nbsp;Add new profile</a>
 -->
-<ul class="nav navbar-nav">
+    <ul class="nav navbar-nav">
         <li  ng-if="user"><a  href="#/house" >Home</a></li>
-<!-- 19.01.2017 Guri has commented these until they have content
-        <li ng-if="user"><a  href="">Belongings</a></li>
-        <li><a  href="" >News</a></li>
-        <li><a  href="" >Invite</a></li>
-        <li><a  href="" >FAQ</a></li>
--->
-
+    <!-- 19.01.2017 Guri has commented these until they have content
+            <li ng-if="user"><a  href="">Belongings</a></li>
+            <li><a  href="" >News</a></li>
+            <li><a  href="" >Invite</a></li>
+            <li><a  href="" >FAQ</a></li>
+    -->
     </ul>
+
     <ul class="nav navbar-nav">
         <li ng-if="user">
             <a class="dropdown-toggle" data-toggle="dropdown">Hello, {{user.username}}! <b class="caret"></b></a>
@@ -46,7 +46,7 @@
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary btn-block"  analytics-on="click" analytics-event="Login" analytics-category="Actions">Sign in</button>
                                 </div>
-<!--                                <hr>
+    <!--                                <hr>
                                 <div>
                                     <p>Or login via:</p>
                                     <div class="btn-group btn-block btn-group-justified">

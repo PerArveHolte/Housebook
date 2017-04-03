@@ -20,6 +20,27 @@ a:hover {
 a.red {
   color: #CC00CC;
 }
+.btn-primary {
+  color: white;
+  border-color: #CC00CC;
+  background-color: #CC00CC;
+}
+.btn-primary:hover {
+  color: white;
+  border-color: #990099;
+  background-color: #990099;
+}
+.btn-primary:active {
+  color: white;
+  border-color: #990099;
+  background-color: #990099;
+  box-shadow: #CC00CC;
+}
+.btn-primary:focus {
+  border-color: #4abdac;
+  background-color: #4abdac;
+  box-shadow: #f78733;
+}
 footer {
   background-color: #f1f0ee;
   border: none;
@@ -66,7 +87,7 @@ nav .navbar-form button {
   -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.65);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.65);
   padding: 10px 20px 10px 20px;
-  margin: 10px 0 10px 0;
+  margin: 10px 10px 10px 10px;
   background-color: white;
 }
 .form-login input {
@@ -81,7 +102,7 @@ nav .navbar-form button {
   color: white;
 }
 .main-container {
-  padding: 0px;
+  padding: 25px;
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 20% 50%;
@@ -144,6 +165,17 @@ nav .navbar-form button {
   border-color: #990099;
   background-color: #990099;
 }
+.btn-lg:active {
+  color: white;
+  border-color: #990099;
+  background-color: #990099;
+  box-shadow: #CC00CC;
+}
+.btn-lg:focus {
+  border-color: #4abdac;
+  background-color: #4abdac;
+  box-shadow: #f78733;
+}
 .modal .modal-header {
   background-color: #CC00CC;
   color: white;
@@ -153,16 +185,29 @@ nav .navbar-form button {
   background-color: white;
 }
 .btn-feedback {
-  background-color: #990099;
-  border-color: #990099;
   float: right;
   margin-top: 7px;
   margin-bottom: 5px;
   font-size: 18px;
+  color: white;
+  border-color: #CC00CC;
+  background-color: #CC00CC;
 }
 .btn-feedback:hover {
-  background-color: #CC00CC;
-  border-color: #CC00CC;
+  color: white;
+  border-color: #990099;
+  background-color: #990099;
+}
+.btn-feedback:active {
+  color: white;
+  border-color: #990099;
+  background-color: #990099;
+  box-shadow: #CC00CC;
+}
+.btn-feedback:focus {
+  border-color: #4abdac;
+  background-color: #4abdac;
+  box-shadow: #f78733;
 }
 #loading-bar .bar {
   position: relative;
@@ -198,19 +243,20 @@ nav .navbar-form button {
   visibility: visible;
   opacity: 1;
 }
-.btn-primary {
-  color: white;
-  border-color: #CC00CC;
-  background-color: #CC00CC;
-}
-.btn-primary:hover {
-  color: white;
-  border-color: #990099;
-  background-color: #990099;
-}
-.btn-primary:active {
-  color: white;
-  border-color: #990099;
-  background-color: #990099;
-}
+/*.btn-primary{
+          color:white;
+          border-color: @hex-pink;
+          background-color: @hex-pink;
+        
+        &:hover{
+          color: white;
+          border-color: @darkermain;
+          background-color: @darkermain;
+        }
+        &:active{
+          color: white;
+          border-color: @darkermain;
+          background-color: @darkermain;
+        }
+            }*/
 /*# sourceMappingURL=style.css.map */
