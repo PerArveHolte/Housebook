@@ -61,8 +61,8 @@ vidom.config(function ($routeProvider, $locationProvider, cfpLoadingBarProvider,
     
     envServiceProvider.config({
             domains: {
-                development: ['localhost', 'dev.local', '127.0.0.1'],
-                production: ['vidom.no', 'www.vidom.no']
+                development: ['localhost', 'dev.local', '127.0.0.1', 'gurisvidomtest.herokuapp.com', 'vidomtest.herokuapp.com'], //if any of these are the domain in which the application runs, the variable is set to development.
+                production: ['vidom.no', 'www.vidom.no']  //if any of these are the domain in which the application runs, the variable is set to development.
                 // anotherStage: ['domain1', 'domain2'], 
                 // anotherStage: ['domain1', 'domain2'] 
             },
