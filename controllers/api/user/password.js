@@ -28,8 +28,14 @@ router.get('/reset/:email', function (req, res, next) {
                     return next(err);
 
                 else {
+                    var protocol = 'https';
+                    if (process.env.ENV_TYPE === 'development') {
+                        protocol = 'http';
+                    }
                     var htmlContent = "Hi,<br><p>We received a request to reset your <strong>Vidom</strong> password.</p>"
-                            .concat("<br><a href='//")
+                            .concat("<br><a href='")
+                            .concat(protocol)
+                            .concat("://")
                             .concat(process.env.ENV_HOST)
                             .concat("/#/user/change-password/")
                             .concat(user.resetPasswordHash)
