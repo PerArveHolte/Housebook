@@ -62,23 +62,17 @@ vidom.config(function ($routeProvider, $locationProvider, cfpLoadingBarProvider,
     envServiceProvider.config({
             domains: {
                 development: ['localhost', 'dev.local', '127.0.0.1', 'gurisvidomtest.herokuapp.com', 'vidomtest.herokuapp.com'], //if any of these are the domain in which the application runs, the variable is set to development.
-                production: ['vidom.no', 'www.vidom.no']  //if any of these are the domain in which the application runs, the variable is set to development.
-                // anotherStage: ['domain1', 'domain2'], 
-                // anotherStage: ['domain1', 'domain2'] 
+                production: ['vidom.no', 'www.vidom.no', 'vidomproduction.herokuapp.com']  //if any of these are the domain in which the application runs, the variable is set to development.
             },
             vars: {
                 development: {
-                    s3bucket: 'vidomtestbucket',
-                    googleApi: '1234'
+                    s3bucket: 'vidomtestbucket'
+//                    googleApi: '1234'     //Google Analytics code added in the index.html file
                 },
                 production: {
-                    s3bucket: 'vidomproductionbucket',
-                    googleApi: '1234'
+                    s3bucket: 'vidomproductionbucket'
+//                    googleApi: '1234'
                 }
-                // anotherStage: { 
-                // 	customVar: 'lorem', 
-                // 	customVar: 'ipsum' 
-                // } 
             }
         });
  
