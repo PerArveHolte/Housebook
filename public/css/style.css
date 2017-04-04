@@ -20,6 +20,28 @@ a:hover {
 a.red {
   color: #CC00CC;
 }
+.standardknapp {
+  color: white;
+  border-color: #CC00CC;
+  background-color: #CC00CC;
+}
+.standardknapp:hover {
+  color: white;
+  border-color: #990099;
+  background-color: #990099;
+}
+.standardknapp:active {
+  color: white;
+  border-color: #990099;
+  background-color: #990099;
+  box-shadow: #CC00CC;
+}
+.standardknapp:focus {
+  color: rgba(108, 100, 87, 0.9);
+  border-color: #333333;
+  background-color: #333333;
+  box-shadow: #333333;
+}
 footer {
   background-color: #f1f0ee;
   border: none;
@@ -66,7 +88,7 @@ nav .navbar-form button {
   -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.65);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.65);
   padding: 10px 20px 10px 20px;
-  margin: 10px 0 10px 0;
+  margin: 10px 10px 10px 10px;
   background-color: white;
 }
 .form-login input {
@@ -82,7 +104,7 @@ nav .navbar-form button {
 }
 .main-container {
   padding: 0px;
-/*  background-image: url('/images/ppexample.jpg');*/
+  /*    background-image: url('/images/ppexample.jpg');*/
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 20% 50%;
@@ -145,6 +167,66 @@ nav .navbar-form button {
   border-color: #990099;
   background-color: #990099;
 }
+.btn-lg:active {
+  color: white;
+  border-color: #990099;
+  background-color: #990099;
+  box-shadow: #CC00CC;
+}
+.btn-lg:focus {
+  color: rgba(108, 100, 87, 0.9);
+  border-color: #333333;
+  background-color: #333333;
+  box-shadow: #333333;
+}
+.btn-block {
+  color: white;
+  border-color: #CC00CC;
+  background-color: #CC00CC;
+}
+.btn-block:hover {
+  color: white;
+  border-color: #990099;
+  background-color: #990099;
+}
+.btn-block:active {
+  color: white;
+  border-color: #990099;
+  background-color: #990099;
+  box-shadow: #CC00CC;
+}
+.btn-block:focus {
+  color: rgba(108, 100, 87, 0.9);
+  border-color: #333333;
+  background-color: #333333;
+  box-shadow: #333333;
+}
+.btn-sm {
+  color: white;
+  border-color: #CC00CC;
+  background-color: #CC00CC;
+  float: right;
+  margin-top: 7px;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+.btn-sm:hover {
+  color: white;
+  border-color: #990099;
+  background-color: #990099;
+}
+.btn-sm:active {
+  color: white;
+  border-color: #990099;
+  background-color: #990099;
+  box-shadow: #CC00CC;
+}
+.btn-sm:focus {
+  color: rgba(108, 100, 87, 0.9);
+  border-color: #333333;
+  background-color: #333333;
+  box-shadow: #333333;
+}
 .modal .modal-header {
   background-color: #CC00CC;
   color: white;
@@ -153,18 +235,26 @@ nav .navbar-form button {
 .modal .modal-footer {
   background-color: white;
 }
-.btn-feedback {
-  background-color: #990099;
-  border-color: #990099;
-  float: right;
-  margin-top: 7px;
-  margin-bottom: 5px;
-  font-size: 14px;//18px;
+/*.btn-feedback{//"send us your feedback" knapp//
+    float: right;
+    margin-top: 7px;
+    margin-bottom: 5px;
+    .standardknapp;
+    font-size: 14px;//18px;
 }
-.btn-feedback:hover {
-  background-color: #CC00CC;
-  border-color: #CC00CC;
-}
+.btn-feedback:hover{//"send us your feedback" knapp//
+    background-color: @hex-pink;
+    border-color: @hex-pink;
+
+
+
+.btn-create{//"create" knapp i create house profile//
+    float: right;
+    margin-top: 7px;
+    margin-bottom: 5px;
+    .standardknapp;
+    font-size: 14px;//18px;
+}*/
 #loading-bar .bar {
   position: relative;
   width: 100%;
@@ -199,19 +289,20 @@ nav .navbar-form button {
   visibility: visible;
   opacity: 1;
 }
-.btn-primary {
-  color: white;
-  border-color: #CC00CC;
-  background-color: #CC00CC;
-}
-.btn-primary:hover {
-  color: white;
-  border-color: #990099;
-  background-color: #990099;
-}
-.btn-primary:active {
-  color: white;
-  border-color: #990099;
-  background-color: #990099;
-}
+/*.btn-primary{
+          color:white;
+          border-color: @hex-pink;
+          background-color: @hex-pink;
+        
+        &:hover{
+          color: white;
+          border-color: @darkermain;
+          background-color: @darkermain;
+        }
+        &:active{
+          color: white;
+          border-color: @darkermain;
+          background-color: @darkermain;
+        }
+            }*/
 /*# sourceMappingURL=style.css.map */

@@ -14,7 +14,7 @@
                         <textarea id="message" rows="5" class="col-xs-12" ng-model="message" placeholder="Your message" reqired></textarea>
                     </div>
 
-                    <button type="submit" ng-disabled="contactForm.$invalid" class="btn btn-success btn-lg btn-block" analytics-on="click" analytics-event="Contact form send" analytics-category="Actions">Contact us!</button>
+                    <button type="submit" ng-disabled="contactForm.$invalid" class="btn btn-lg btn-block" analytics-on="click" analytics-event="Contact form send" analytics-category="Actions">Contact us!</button>
                 </form>
 
                 <div ng-show="formSent" id="confirmation-message" class="confirmation-message">
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <div  ng-show="formSent" class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-close" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
