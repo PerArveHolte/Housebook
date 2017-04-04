@@ -52,17 +52,17 @@
             <nav class="navbar fixed-top navbar-default" ng-controller="LoginCtlr">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                        <!--<button ng-if="!user" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">-->
-                        <button type="button" class="navbar-toggle" ng-init="isNavCollapsed = true" ng-click="isNavCollapsed = !isNavCollapsed">
+                        <button ng-if="!user" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">-->
+                        <!--<button type="button" class="navbar-toggle" ng-init="isNavCollapsed = true" ng-click="isNavCollapsed = !isNavCollapsed">-->
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#"> <img src="/images/Vidom_Logo_Farge.png" class="img-responsive" width="125"></a> <!--this is kept for ikon top left in header-->
+                        <a class="navbar-brand" href="#"> <img src="/images/Vidom_Logo_Farge.png" class="img-responsive" width="125px"></a> <!--this is kept for ikon top left in header-->
                     </div>
-                    <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
-                    <div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <!--<div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">-->
                         <div ng-include=" 'partials/navigation.html'"></div>
                     </div>
                 </div>
@@ -78,13 +78,8 @@
             <!--footer-->
             <footer class="navbar navbar-default navbar-fixed-bottom">
                 <div class="container-fluid">
-<<<<<<< HEAD
-                    <button class="btn btn-feedback" ng-click="initContactForm()">Send us your feedback!</button>
-                    <p class="navbar-text">Vidom &COPY; 2017 </p>
-=======
-                    <button class="btn-sm btn-primary btn-feedback" ng-click="initContactForm()">Send us feedback!</button>
+                    <button class="btn-sm btn-feedback" ng-click="initContactForm()">Send us feedback!</button>
                     <p class="navbar-text">Vidom 1.0.1 &COPY; 2017 </p>
->>>>>>> 066de9d08e21e24ee641b34312228c139417e088
                 </div>
             </footer>
 
