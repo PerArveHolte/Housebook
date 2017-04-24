@@ -1,3 +1,5 @@
+'use strict';
+
 vidom.controller('LoginCtlr', function ($scope, $rootScope, $location, $window, AuthSvc, $routeParams) {
 
     $scope.isResetPassword = $routeParams.token != undefined;
@@ -8,7 +10,7 @@ vidom.controller('LoginCtlr', function ($scope, $rootScope, $location, $window, 
     if ($scope.isResetPassword) {
         $scope.validationError = null;
         AuthSvc.validateResetPasswordHash($routeParams.token).then(function (username) {
-            $scope.username = username;
+            $scope.username = username.data;
         }, function (err) {
             $scope.resetPasswordTokenIsValid = false;
             $scope.validationError = err;

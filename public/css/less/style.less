@@ -5,7 +5,7 @@ body {
     font: "Open Sans", sans-serif;
     font-size: 12pt;
     padding-bottom: 70px; 
-    background-color: @light-grey;
+    background-color: @background;
     color:@hex-grey; 
 }
 a, .clickable{ //gjør logo klikkbar//
@@ -17,8 +17,31 @@ a:hover{
 a.red {
     color: @hex-pink;
 }
+.standardknapp{
+          color:white;
+          border-color: @hex-pink;
+          background-color: @hex-pink;
+        
+        &:hover{
+          color: white;
+          border-color: @darkermain;
+          background-color: @darkermain;
+          }
+        &:active{
+          color: white;
+          border-color: @darkermain;
+          background-color: @darkermain;
+          box-shadow: @hex-pink;
+          }
+        &:focus{
+          color: @brand-font-rgba;
+          border-color: @hex-grey;
+          background-color: @hex-grey;
+          box-shadow: @hex-grey;          
+          }
+}
 footer{
-    background-color: @light-grey;
+    background-color: @background;
     border:none;
 }
 .dropdown-menu{//login drop down//
@@ -67,7 +90,7 @@ nav{//top line//
     -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.65);
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.65);
     padding: 10px 20px 10px 20px;
-    margin:10px 0 10px 0;
+    margin:10px 10px 10px 10px;
     background-color:white;
 
     input{
@@ -87,8 +110,7 @@ nav{//top line//
 /*    background-image: url('/images/ppexample.jpg');*///background picture login page//
     background-repeat: no-repeat;
     background-size: contain;
-
-    background-position: 20% 50%;
+    background-position: 20% 50%; 
 }
 
 
@@ -145,16 +167,22 @@ nav{//top line//
         }
     }
 }
-.btn-lg{//Add new house profile knapp//
-          color:white;
-          border-color: @hex-pink;
-          background-color: @hex-pink;
+.btn-lg{//alle large knapper//
+          .standardknapp;
         }
-.btn-lg:hover{
-          color: white;
-          border-color: @darkermain;
-          background-color: @darkermain;
+.btn-md{//alle large knapper//
+          .standardknapp;
+}
+.btn-block{//alle block knapper//
+          .standardknapp;
         }
+.btn-sm{//alle block knapper//
+    .standardknapp;
+    float: right;
+    margin-top: 7px;
+    margin-bottom: 5px;
+    font-size: 14px;
+        }      
 //skjema som popper opp når man trykker "send us your feedback"//
 .modal{
     .modal-header{
@@ -167,18 +195,18 @@ nav{//top line//
     }
 }
 
+/*//2017-04-01 Guri lurer på om det hadde vært bedre å standardisert på btn-lg, btn-sm etc i stede for å spesifisere knapp for knapp.
 .btn-feedback{//"send us your feedback" knapp//
-    background-color: @darkermain;
-    border-color: @darkermain;
     float: right;
     margin-top: 7px;
     margin-bottom: 5px;
-    font-size: 18px;
+    .standardknapp;
+    font-size: 14px;//18px;
 }
 .btn-feedback:hover{//"send us your feedback" knapp//
     background-color: @hex-pink;
     border-color: @hex-pink;
-}
+}*/
 
 #loading-bar .bar {
     position: relative;
@@ -222,19 +250,4 @@ nav{//top line//
     visibility: visible;
     opacity: 1;
 }
-.btn-primary{
-          color:white;
-          border-color: @hex-pink;
-          background-color: @hex-pink;
-        
-        &:hover{
-          color: white;
-          border-color: @darkermain;
-          background-color: @darkermain;
-        }
-        &:active{
-          color: white;
-          border-color: @darkermain;
-          background-color: @darkermain;
-        }
-            }
+

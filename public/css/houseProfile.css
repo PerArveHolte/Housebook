@@ -26,6 +26,9 @@
 .house-profile .house-profile-preferences p {
   color: grey;
 }
+.house-profile .house-profile-preferences a {
+  color: #990099;
+}
 .house-profile .house-profile-preferences .tab-content {
   background-color: white;
   padding: 10px;
